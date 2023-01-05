@@ -8,13 +8,36 @@
 
 	<changeSet id="1" author="Laxman">
 	<createTable tableName="status_group">
-		<column name="status_group_id" type="int">
+		<column name="status_group_id" type="int" autoIncrement="true">
 			<constraints primaryKey="true" />
 		</column>
 		<column name="status_group_name" type="varchar(15)">
 			<constraints nullable="false" />
 		</column>
 		<column name="status_group_description" type="varchar(30)">
+		</column>
+		<column name="created_date" type="datetime">
+		</column>
+		<column name="created_by" type="int">
+		</column>
+		<column name="updated_date" type="datetime">
+		</column>
+		<column name="updated_by" type="int">
+		</column>
+	</createTable>
+	</changeSet>
+	
+		<changeSet id="2" author="Laxman">
+	<createTable tableName="status">
+		<column name="status_id" type="int" autoIncrement="true">
+			<constraints primaryKey="true" />
+		</column>
+		<column name="status_name" type="varchar(15)">
+			<constraints nullable="false" />
+		</column>
+		<column name="status_description" type="varchar(50)">
+		</column>
+		<column name="status_group_id" type="int">
 		</column>
 		<column name="created_date" type="datetime">
 		</column>

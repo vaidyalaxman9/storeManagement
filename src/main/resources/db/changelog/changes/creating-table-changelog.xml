@@ -25,7 +25,7 @@
 			<column name="updated_by" type="int">
 			</column>
 		</createTable>
-		
+
 		<createTable tableName="status">
 			<column name="status_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
@@ -46,15 +46,15 @@
 			<column name="updated_by" type="int">
 			</column>
 		</createTable>
-		
-	 <addForeignKeyConstraint  baseColumnNames="status_group_id"  
-            baseTableName="status"  
-        constraintName="status_group_fk"  
-          referencedColumnNames="status_group_id"  
-            referencedTableName="status_group"  />
-		</changeSet>
-		
-		<changeSet id="2" author="laxman">
+
+		<addForeignKeyConstraint
+			baseColumnNames="status_group_id" baseTableName="status"
+			constraintName="status_group_fk"
+			referencedColumnNames="status_group_id"
+			referencedTableName="status_group" />
+	</changeSet>
+
+	<changeSet id="2" author="laxman">
 		<createTable tableName="brand">
 			<column name="brand_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
@@ -75,14 +75,13 @@
 			<column name="updated_by" type="int">
 			</column>
 		</createTable>
-		
-		 <addForeignKeyConstraint  baseColumnNames="brand_status"  
-            baseTableName="brand"  
-        constraintName="brand_status_fk"  
-          referencedColumnNames="status_id"  
-            referencedTableName="status"  />
-            
-            <createTable tableName="product_category">
+
+		<addForeignKeyConstraint
+			baseColumnNames="brand_status" baseTableName="brand"
+			constraintName="brand_status_fk" referencedColumnNames="status_id"
+			referencedTableName="status" />
+
+		<createTable tableName="product_category">
 			<column name="category_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
 			</column>
@@ -102,15 +101,14 @@
 			<column name="updated_by" type="int">
 			</column>
 		</createTable>
-		
-		 <addForeignKeyConstraint  baseColumnNames="category_status"  
-            baseTableName="product_category"  
-        constraintName="category_status_fk"  
-          referencedColumnNames="status_id"  
-            referencedTableName="status"  />
-            
+
+		<addForeignKeyConstraint
+			baseColumnNames="category_status" baseTableName="product_category"
+			constraintName="category_status_fk" referencedColumnNames="status_id"
+			referencedTableName="status" />
+
 	</changeSet>
-	
+
 	<changeSet id="3" author="laxman">
 		<createTable tableName="customer">
 			<column name="customer_id" type="int" autoIncrement="true">
@@ -119,7 +117,7 @@
 			<column name="first_name" type="varchar(15)">
 				<constraints nullable="false" />
 			</column>
-				<column name="last_name" type="varchar(15)">	
+			<column name="last_name" type="varchar(15)">
 			</column>
 			<column name="contact_number" type="varchar(13)">
 			</column>
@@ -138,25 +136,24 @@
 			<column name="updated_by" type="int">
 			</column>
 		</createTable>
-		
-		 <addForeignKeyConstraint  baseColumnNames="customer_status"  
-            baseTableName="customer"  
-        constraintName="customer_status_fk"  
-          referencedColumnNames="status_id"  
-            referencedTableName="status"  />
-            
-            <createTable tableName="customer_address">
+
+		<addForeignKeyConstraint
+			baseColumnNames="customer_status" baseTableName="customer"
+			constraintName="customer_status_fk" referencedColumnNames="status_id"
+			referencedTableName="status" />
+
+		<createTable tableName="customer_address">
 			<column name="address_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
 			</column>
 			<column name="address_type" type="varchar(15)">
 				<constraints nullable="false" />
 			</column>
-				<column name="line1" type="varchar(20)">	
+			<column name="line1" type="varchar(20)">
 			</column>
-			<column name="line2" type="varchar(20)">	
+			<column name="line2" type="varchar(20)">
 			</column>
-			<column name="line3" type="varchar(20)">	
+			<column name="line3" type="varchar(20)">
 			</column>
 			<column name="pincode" type="int">
 			</column>
@@ -175,11 +172,207 @@
 			<column name="updated_by" type="int">
 			</column>
 		</createTable>
-		
-		 <addForeignKeyConstraint  baseColumnNames="customer_id"  
-            baseTableName="customer_address"  
-        constraintName="customer_fk"  
-          referencedColumnNames="customer_id"  
-            referencedTableName="customer"  />
+
+		<addForeignKeyConstraint
+			baseColumnNames="customer_id" baseTableName="customer_address"
+			constraintName="customer_fk" referencedColumnNames="customer_id"
+			referencedTableName="customer" />
 	</changeSet>
+
+	<changeSet id="4" author="laxman">
+		<createTable tableName="employee_profile">
+			<column name="profile_id" type="int" autoIncrement="true">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="profile_name" type="varchar(15)">
+				<constraints nullable="false" />
+			</column>
+			<column name="profile_description" type="varchar(50)">
+			</column>
+			<column name="profile_status" type="int">
+			</column>
+			<column name="created_date" type="datetime">
+			</column>
+			<column name="created_by" type="int">
+			</column>
+			<column name="updated_date" type="datetime">
+			</column>
+			<column name="updated_by" type="int">
+			</column>
+		</createTable>
+
+		<addForeignKeyConstraint
+			baseColumnNames="profile_status" baseTableName="employee_profile"
+			constraintName="profile_status_fk" referencedColumnNames="status_id"
+			referencedTableName="status" />
+
+		<createTable tableName="employee">
+			<column name="emp_id" type="int" autoIncrement="true">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="first_name" type="varchar(15)">
+				<constraints nullable="false" />
+			</column>
+			<column name="last_name" type="varchar(15)">
+			</column>
+			<column name="contact_number" type="varchar(13)">
+			</column>
+			<column name="residential_address" type="varchar(100)">
+			</column>
+			<column name="communication_address" type="varchar(100)">
+			</column>
+			<column name="employee_profile" type="int">
+			</column>
+			<column name="employee_status" type="int">
+			</column>
+			<column name="created_date" type="datetime">
+			</column>
+			<column name="created_by" type="int">
+			</column>
+			<column name="updated_date" type="datetime">
+			</column>
+			<column name="updated_by" type="int">
+			</column>
+		</createTable>
+
+		<addForeignKeyConstraint
+			baseColumnNames="employee_profile" baseTableName="employee"
+			constraintName="employee_profile_fk"
+			referencedColumnNames="profile_id"
+			referencedTableName="employee_profile" />
+
+		<addForeignKeyConstraint
+			baseColumnNames="employee_status" baseTableName="employee"
+			constraintName="employee_status_fk" referencedColumnNames="status_id"
+			referencedTableName="status" />
+			
+			<createTable tableName="product">
+			<column name="product_id" type="int" autoIncrement="true">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="product_name" type="varchar(15)">
+				<constraints nullable="false" />
+			</column>
+			<column name="product_description" type="varchar(50)">
+			</column>
+			<column name="category_id" type="int">
+			</column>
+			<column name="brand_id" type="int">
+			</column>
+			<column name="product_quantity" type="int">
+				<constraints nullable="false" />
+			</column>
+			<column name="product_price" type="int">
+				<constraints nullable="false" />
+			</column>
+			<column name="catalog_price" type="int">
+				<constraints nullable="false" />
+			</column>
+			<column name="sgst_percentage" type="int">
+			</column>
+				<column name="cgst_percentage" type="int">
+			</column>
+				<column name="product_barcode" type="varchar(100)">
+			</column>
+				<column name="validity" type="varchar(1)">
+			</column>
+				<column name="validity_period" type="int">
+			</column>
+			<column name="product_status" type="int">
+			</column>
+			<column name="created_date" type="datetime">
+			</column>
+			<column name="created_by" type="int">
+			</column>
+			<column name="updated_date" type="datetime">
+			</column>
+			<column name="updated_by" type="int">
+			</column>
+		</createTable>
+
+		<addForeignKeyConstraint
+			baseColumnNames="brand_id" baseTableName="product"
+			constraintName="brand_fk"
+			referencedColumnNames="brand_id"
+			referencedTableName="brand" />
+			
+			<addForeignKeyConstraint
+			baseColumnNames="category_id" baseTableName="product"
+			constraintName="product_category_fk"
+			referencedColumnNames="category_id"
+			referencedTableName="product_category" />
+
+		<addForeignKeyConstraint
+			baseColumnNames="product_status" baseTableName="product"
+			constraintName="product_status_fk" referencedColumnNames="status_id"
+			referencedTableName="status" />
+	</changeSet>
+	
+	<changeSet id="5" author="laxman">
+		<createTable tableName="offer">
+			<column name="offer_id" type="int" autoIncrement="true">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="offer_name" type="varchar(20)">
+				<constraints nullable="false" />
+			</column>
+			<column name="offer_start_date" type="date">
+			</column>
+			<column name="offer_end_date" type="date">
+			</column>
+			<column name="offer_description" type="varchar(50)">
+			</column>
+			<column name="offer_approvedby" type="varchar(20)">
+			</column>
+				<column name="banner_location" type="varchar(50)">
+			</column>
+			<column name="offer_status" type="int">
+			</column>
+			<column name="created_date" type="datetime">
+			</column>
+			<column name="created_by" type="int">
+			</column>
+			<column name="updated_date" type="datetime">
+			</column>
+			<column name="updated_by" type="int">
+			</column>
+		</createTable>
+
+		<addForeignKeyConstraint
+			baseColumnNames="offer_status" baseTableName="offer"
+			constraintName="offer_status_fk" referencedColumnNames="status_id"
+			referencedTableName="status" />
+			</changeSet>
+			
+			<changeSet id="6" author="laxman">
+		<createTable tableName="offer_price_list">
+			<column name="price_list_id" type="int" autoIncrement="true">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="product_id" type="int">
+			</column>
+			<column name="offer_id" type="int">
+			</column>
+			<column name="offer_price" type="int">
+			</column>
+			<column name="created_date" type="datetime">
+			</column>
+			<column name="created_by" type="int">
+			</column>
+			<column name="updated_date" type="datetime">
+			</column>
+			<column name="updated_by" type="int">
+			</column>
+		</createTable>
+
+		<addForeignKeyConstraint
+			baseColumnNames="offer_id" baseTableName="offer_price_list"
+			constraintName="offer_fk" referencedColumnNames="offer_id"
+			referencedTableName="offer" />
+			
+			<addForeignKeyConstraint
+			baseColumnNames="product_id" baseTableName="offer_price_list"
+			constraintName="_product_offer_fk" referencedColumnNames="product_id"
+			referencedTableName="product" />
+			</changeSet>
 </databaseChangeLog>

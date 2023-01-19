@@ -2,42 +2,51 @@ package com.home.practice.entity;
 
 import java.util.Date;
 
-public class StatusGroup {
+public class Brand {
 
-	private Integer statusGroupId;
-	private String statusGroupName;
-	private String statusGroupDescription;
+	private Integer brandId;
+	private String brandName;
+	private String brandDescription;
+	private Integer brandStatus;
 	private Date createdDate;
 	private Integer createdBy;
 	private Date updatedDate;
 	private Integer updatedBy;
 	
-	public StatusGroup() {
+	public Brand () {
 		
 	}
 
-	public Integer getStatusGroupId() {
-		return statusGroupId;
+	public Integer getBrandId() {
+		return brandId;
 	}
 
-	public void setStatusGroupId(Integer statusGroupId) {
-		this.statusGroupId = statusGroupId;
+	public void setBrandId(Integer brandId) {
+		this.brandId = brandId;
 	}
 
-	public String getStatusGroupName() {
-		return statusGroupName;
+	public String getBrandName() {
+		return brandName;
 	}
 
-	public void setStatusGroupName(String statusGroupName) {
-		this.statusGroupName = statusGroupName;
+	public void setBrandName(String brandName) {
+		this.brandName = brandName;
 	}
 
-	public String getStatusGroupDescription() {
-		return statusGroupDescription;
+	public String getBrandDescription() {
+		return brandDescription;
 	}
 
-	public void setStatusGroupDescription(String statusGroupDescription) {
-		this.statusGroupDescription = statusGroupDescription;
+	public void setBrandDescription(String brandDescription) {
+		this.brandDescription = brandDescription;
+	}
+
+	public Integer getBrandStatus() {
+		return brandStatus;
+	}
+
+	public void setBrandStatus(Integer brandStatus) {
+		this.brandStatus = brandStatus;
 	}
 
 	public Date getCreatedDate() {
@@ -72,12 +81,13 @@ public class StatusGroup {
 		this.updatedBy = updatedBy;
 	}
 
-	public StatusGroup(Integer statusGroupId, String statusGroupName, String statusGroupDescription, Date createdDate,
+	public Brand(Integer brandId, String brandName, String brandDescription, Integer brandStatus, Date createdDate,
 			Integer createdBy, Date updatedDate, Integer updatedBy) {
 		super();
-		this.statusGroupId = statusGroupId;
-		this.statusGroupName = statusGroupName;
-		this.statusGroupDescription = statusGroupDescription;
+		this.brandId = brandId;
+		this.brandName = brandName;
+		this.brandDescription = brandDescription;
+		this.brandStatus = brandStatus;
 		this.createdDate = createdDate;
 		this.createdBy = createdBy;
 		this.updatedDate = updatedDate;
@@ -85,7 +95,4 @@ public class StatusGroup {
 	}
 	
 	
-	
-	
 }
-

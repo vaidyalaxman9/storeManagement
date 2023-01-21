@@ -1,9 +1,20 @@
 package com.home.practice.entity;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.Date;
 
-public class Employee {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "employee")
+public class Employee implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private Integer empId;
 	private String firstName;
 	private String lastName;
@@ -16,11 +27,19 @@ public class Employee {
 	private Integer createdBy;
 	private Date updatedDate;
 	private Integer updatedBy;
-	
-	public Employee () {
-		
+
+	public Employee() {
+
 	}
 
+	public Employee(String firstName) {
+		this.firstName = firstName;
+	}
+
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+
+	@Column(name = "emp_id", unique = true, nullable = false)
 	public Integer getEmpId() {
 		return empId;
 	}
@@ -29,6 +48,7 @@ public class Employee {
 		this.empId = empId;
 	}
 
+	@Column(name = "first_name", nullable = false, length = 15)
 	public String getFirstName() {
 		return firstName;
 	}
@@ -37,6 +57,7 @@ public class Employee {
 		this.firstName = firstName;
 	}
 
+	@Column(name = "last_name", length = 15)
 	public String getLastName() {
 		return lastName;
 	}
@@ -45,6 +66,7 @@ public class Employee {
 		this.lastName = lastName;
 	}
 
+	@Column(name = "contact_number", length = 13)
 	public String getContactNumber() {
 		return contactNumber;
 	}
@@ -53,6 +75,7 @@ public class Employee {
 		this.contactNumber = contactNumber;
 	}
 
+	@Column(name = " residential_address", length = 100)
 	public String getResidentialAddress() {
 		return residentialAddress;
 	}
@@ -61,6 +84,7 @@ public class Employee {
 		this.residentialAddress = residentialAddress;
 	}
 
+	@Column(name = " communication_address", length = 100)
 	public String getCommunicationAddress() {
 		return communicationAddress;
 	}
@@ -85,6 +109,7 @@ public class Employee {
 		this.employeeStatus = employeeStatus;
 	}
 
+	@Column(name = "created_date", length = 26)
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -93,6 +118,7 @@ public class Employee {
 		this.createdDate = createdDate;
 	}
 
+	@Column(name = "created_by")
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -101,6 +127,7 @@ public class Employee {
 		this.createdBy = createdBy;
 	}
 
+	@Column(name = "updated_date", length = 26)
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -109,6 +136,7 @@ public class Employee {
 		this.updatedDate = updatedDate;
 	}
 
+	@Column(name = "updated_by")
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}
@@ -134,6 +162,5 @@ public class Employee {
 		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
-	
-	
+
 }

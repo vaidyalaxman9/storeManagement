@@ -1,9 +1,20 @@
 package com.home.practice.entity;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.Date;
 
-public class ProductCategory {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "product_category")
+public class ProductCategory implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private Integer categoryId;
 	private String categoryName;
 	private String categoryDescription;
@@ -12,11 +23,19 @@ public class ProductCategory {
 	private Integer createdBy;
 	private Date updatedDate;
 	private Integer updatedBy;
-	
-	public ProductCategory () {
-		
+
+	public ProductCategory() {
+
 	}
 
+	public ProductCategory(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+
+	@Column(name = "category_id", unique = true, nullable = false)
 	public Integer getCategoryId() {
 		return categoryId;
 	}
@@ -25,6 +44,7 @@ public class ProductCategory {
 		this.categoryId = categoryId;
 	}
 
+	@Column(name = "category_name", nullable = false, length = 15)
 	public String getCategoryName() {
 		return categoryName;
 	}
@@ -33,6 +53,7 @@ public class ProductCategory {
 		this.categoryName = categoryName;
 	}
 
+	@Column(name = "category_description", length = 50)
 	public String getCategoryDescription() {
 		return categoryDescription;
 	}
@@ -49,6 +70,7 @@ public class ProductCategory {
 		this.categoryStatus = categoryStatus;
 	}
 
+	@Column(name = "created_date", length = 26)
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -57,6 +79,7 @@ public class ProductCategory {
 		this.createdDate = createdDate;
 	}
 
+	@Column(name = "created_by")
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -65,6 +88,7 @@ public class ProductCategory {
 		this.createdBy = createdBy;
 	}
 
+	@Column(name = "updated_date", length = 26)
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -73,6 +97,7 @@ public class ProductCategory {
 		this.updatedDate = updatedDate;
 	}
 
+	@Column(name = "updated_by")
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}
@@ -93,6 +118,5 @@ public class ProductCategory {
 		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
-	
-	
+
 }

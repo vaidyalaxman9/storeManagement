@@ -1,9 +1,20 @@
 package com.home.practice.entity;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.Date;
 
-public class Customer {
-	
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "customer")
+public class Customer implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private Integer customerId;
 	private String firstName;
 	private String lastName;
@@ -15,11 +26,19 @@ public class Customer {
 	private Integer createdBy;
 	private Date updatedDate;
 	private Integer updatedBy;
-	
-	public Customer () {
-		
+
+	public Customer() {
+
 	}
 
+	public Customer(String firstName) {
+		this.firstName = firstName;
+	}
+
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+
+	@Column(name = "customer_id", unique = true, nullable = false)
 	public Integer getCustomerId() {
 		return customerId;
 	}
@@ -28,6 +47,7 @@ public class Customer {
 		this.customerId = customerId;
 	}
 
+	@Column(name = "first_name", nullable = false, length = 15)
 	public String getFirstName() {
 		return firstName;
 	}
@@ -36,6 +56,7 @@ public class Customer {
 		this.firstName = firstName;
 	}
 
+	@Column(name = "last_name", length = 15)
 	public String getLastName() {
 		return lastName;
 	}
@@ -44,6 +65,7 @@ public class Customer {
 		this.lastName = lastName;
 	}
 
+	@Column(name = "contact_number", length = 13)
 	public String getContactNumber() {
 		return contactNumber;
 	}
@@ -52,6 +74,7 @@ public class Customer {
 		this.contactNumber = contactNumber;
 	}
 
+	@Column(name = "gender", length = 10)
 	public String getGender() {
 		return gender;
 	}
@@ -60,6 +83,7 @@ public class Customer {
 		this.gender = gender;
 	}
 
+	@Column(name = "birth_date", length = 26)
 	public Date getBirthDate() {
 		return birthDate;
 	}
@@ -76,6 +100,7 @@ public class Customer {
 		this.customerStatus = customerStatus;
 	}
 
+	@Column(name = "created_date", length = 26)
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -84,6 +109,7 @@ public class Customer {
 		this.createdDate = createdDate;
 	}
 
+	@Column(name = "created_by")
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -92,6 +118,7 @@ public class Customer {
 		this.createdBy = createdBy;
 	}
 
+	@Column(name = "updated_date", length = 26)
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -100,6 +127,7 @@ public class Customer {
 		this.updatedDate = updatedDate;
 	}
 
+	@Column(name = "updated_by")
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}
@@ -124,6 +152,5 @@ public class Customer {
 		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
-	
-	
+
 }

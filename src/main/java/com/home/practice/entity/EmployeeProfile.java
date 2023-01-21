@@ -1,9 +1,20 @@
 package com.home.practice.entity;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.Date;
 
-public class EmployeeProfile {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "employee_profile")
+public class EmployeeProfile implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private Integer profileId;
 	private String profileName;
 	private String profileDescription;
@@ -12,11 +23,19 @@ public class EmployeeProfile {
 	private Integer createdBy;
 	private Date updatedDate;
 	private Integer updatedBy;
-	
-	public EmployeeProfile () {
-		
+
+	public EmployeeProfile() {
+
 	}
 
+	public EmployeeProfile(String profileName) {
+		this.profileName = profileName;
+	}
+
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+
+	@Column(name = "profile_id", unique = true, nullable = false)
 	public Integer getProfileId() {
 		return profileId;
 	}
@@ -25,6 +44,7 @@ public class EmployeeProfile {
 		this.profileId = profileId;
 	}
 
+	@Column(name = "profile_name", nullable = false, length = 15)
 	public String getProfileName() {
 		return profileName;
 	}
@@ -33,6 +53,7 @@ public class EmployeeProfile {
 		this.profileName = profileName;
 	}
 
+	@Column(name = "status_group_description", length = 50)
 	public String getProfileDescription() {
 		return profileDescription;
 	}
@@ -49,6 +70,7 @@ public class EmployeeProfile {
 		this.profileStatus = profileStatus;
 	}
 
+	@Column(name = "created_date", length = 26)
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -57,6 +79,7 @@ public class EmployeeProfile {
 		this.createdDate = createdDate;
 	}
 
+	@Column(name = "created_by")
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -65,6 +88,7 @@ public class EmployeeProfile {
 		this.createdBy = createdBy;
 	}
 
+	@Column(name = "updated_date", length = 26)
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -73,6 +97,7 @@ public class EmployeeProfile {
 		this.updatedDate = updatedDate;
 	}
 
+	@Column(name = "updated_by")
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}
@@ -93,6 +118,5 @@ public class EmployeeProfile {
 		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
-	
-	
+
 }

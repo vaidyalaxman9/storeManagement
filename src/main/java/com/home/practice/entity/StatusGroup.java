@@ -28,7 +28,6 @@ public class StatusGroup implements java.io.Serializable {
 	}
 
 	public StatusGroup(String statusGroupName) {
-		super();
 		this.statusGroupName = statusGroupName;
 	}
 

@@ -1,9 +1,20 @@
 package com.home.practice.entity;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.Date;
 
-public class Brand {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "brand")
+public class Brand implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private Integer brandId;
 	private String brandName;
 	private String brandDescription;
@@ -12,11 +23,19 @@ public class Brand {
 	private Integer createdBy;
 	private Date updatedDate;
 	private Integer updatedBy;
-	
-	public Brand () {
-		
+
+	public Brand() {
+
 	}
 
+	public Brand(String brandName) {
+		this.brandName = brandName;
+	}
+
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+
+	@Column(name = "brand_id", unique = true, nullable = false)
 	public Integer getBrandId() {
 		return brandId;
 	}
@@ -25,6 +44,7 @@ public class Brand {
 		this.brandId = brandId;
 	}
 
+	@Column(name = "brand_name", nullable = false, length = 15)
 	public String getBrandName() {
 		return brandName;
 	}
@@ -33,6 +53,7 @@ public class Brand {
 		this.brandName = brandName;
 	}
 
+	@Column(name = "brand_description", length = 50)
 	public String getBrandDescription() {
 		return brandDescription;
 	}
@@ -49,6 +70,7 @@ public class Brand {
 		this.brandStatus = brandStatus;
 	}
 
+	@Column(name = "created_date", length = 26)
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -57,6 +79,7 @@ public class Brand {
 		this.createdDate = createdDate;
 	}
 
+	@Column(name = "created_by")
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -65,6 +88,7 @@ public class Brand {
 		this.createdBy = createdBy;
 	}
 
+	@Column(name = "updated_date", length = 26)
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -73,6 +97,7 @@ public class Brand {
 		this.updatedDate = updatedDate;
 	}
 
+	@Column(name = "updated_by")
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}
@@ -93,6 +118,5 @@ public class Brand {
 		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
-	
-	
+
 }

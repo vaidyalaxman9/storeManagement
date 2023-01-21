@@ -1,9 +1,20 @@
 package com.home.practice.entity;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.Date;
 
-public class CustomerAddress {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "customer_address")
+public class CustomerAddress implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private Integer addressId;
 	private String addressType;
 	private String line1;
@@ -17,11 +28,19 @@ public class CustomerAddress {
 	private Integer createdBy;
 	private Date updatedDate;
 	private Integer updatedBy;
-	
-	public CustomerAddress () {
-		
+
+	public CustomerAddress() {
+
 	}
 
+	public CustomerAddress(String addressType) {
+		this.addressType = addressType;
+	}
+
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+
+	@Column(name = "address_id", unique = true, nullable = false)
 	public Integer getAddressId() {
 		return addressId;
 	}
@@ -30,6 +49,7 @@ public class CustomerAddress {
 		this.addressId = addressId;
 	}
 
+	@Column(name = "address_type", nullable = false, length = 15)
 	public String getAddressType() {
 		return addressType;
 	}
@@ -38,6 +58,7 @@ public class CustomerAddress {
 		this.addressType = addressType;
 	}
 
+	@Column(name = "line1", length = 20)
 	public String getLine1() {
 		return line1;
 	}
@@ -46,6 +67,7 @@ public class CustomerAddress {
 		this.line1 = line1;
 	}
 
+	@Column(name = "line2", length = 20)
 	public String getLine2() {
 		return line2;
 	}
@@ -54,6 +76,7 @@ public class CustomerAddress {
 		this.line2 = line2;
 	}
 
+	@Column(name = "line3", length = 20)
 	public String getLine3() {
 		return line3;
 	}
@@ -62,6 +85,7 @@ public class CustomerAddress {
 		this.line3 = line3;
 	}
 
+	@Column(name = "pincode")
 	public Integer getPincode() {
 		return pincode;
 	}
@@ -70,6 +94,7 @@ public class CustomerAddress {
 		this.pincode = pincode;
 	}
 
+	@Column(name = "state", length = 15)
 	public String getState() {
 		return state;
 	}
@@ -86,6 +111,7 @@ public class CustomerAddress {
 		this.customerId = customerId;
 	}
 
+	@Column(name = "overall_default", length = 10)
 	public String getOverallDefault() {
 		return overallDefault;
 	}
@@ -94,6 +120,7 @@ public class CustomerAddress {
 		this.overallDefault = overallDefault;
 	}
 
+	@Column(name = "created_date", length = 26)
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -102,6 +129,7 @@ public class CustomerAddress {
 		this.createdDate = createdDate;
 	}
 
+	@Column(name = "created_by")
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -110,6 +138,7 @@ public class CustomerAddress {
 		this.createdBy = createdBy;
 	}
 
+	@Column(name = "updated_date", length = 26)
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -118,6 +147,7 @@ public class CustomerAddress {
 		this.updatedDate = updatedDate;
 	}
 
+	@Column(name = "updated_by")
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}
@@ -144,6 +174,5 @@ public class CustomerAddress {
 		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
-	
-	
+
 }

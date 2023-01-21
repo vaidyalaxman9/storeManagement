@@ -1,9 +1,20 @@
 package com.home.practice.entity;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.Date;
 
-public class Status {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "status")
+public class Status implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private Integer statusId;
 	private String statusName;
 	private String statusDescription;
@@ -12,11 +23,20 @@ public class Status {
 	private Integer createdBy;
 	private Date updatedDate;
 	private Integer updatedBy;
-	
-	public Status () {
-		
+
+	public Status() {
+
 	}
 
+	public Status(String statusName) {
+
+		this.statusName = statusName;
+	}
+
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+
+	@Column(name = "status_id", unique = true, nullable = false)
 	public Integer getStatusId() {
 		return statusId;
 	}
@@ -25,6 +45,7 @@ public class Status {
 		this.statusId = statusId;
 	}
 
+	@Column(name = "status_name", nullable = false, length = 15)
 	public String getStatusName() {
 		return statusName;
 	}
@@ -33,6 +54,7 @@ public class Status {
 		this.statusName = statusName;
 	}
 
+	@Column(name = "status_description", length = 50)
 	public String getStatusDescription() {
 		return statusDescription;
 	}
@@ -49,6 +71,7 @@ public class Status {
 		this.statusGroupId = statusGroupId;
 	}
 
+	@Column(name = "created_date", length = 26)
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -57,6 +80,7 @@ public class Status {
 		this.createdDate = createdDate;
 	}
 
+	@Column(name = "created_by")
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -65,6 +89,7 @@ public class Status {
 		this.createdBy = createdBy;
 	}
 
+	@Column(name = "updated_date", length = 26)
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -73,6 +98,7 @@ public class Status {
 		this.updatedDate = updatedDate;
 	}
 
+	@Column(name = "updated_by")
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}
@@ -93,6 +119,5 @@ public class Status {
 		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
-	
-	
+
 }

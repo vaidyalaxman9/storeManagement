@@ -1,9 +1,20 @@
 package com.home.practice.entity;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.Date;
 
-public class StatusGroup {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "status_group")
+public class StatusGroup implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private Integer statusGroupId;
 	private String statusGroupName;
 	private String statusGroupDescription;
@@ -11,11 +22,20 @@ public class StatusGroup {
 	private Integer createdBy;
 	private Date updatedDate;
 	private Integer updatedBy;
-	
+
 	public StatusGroup() {
-		
+
 	}
 
+	public StatusGroup(String statusGroupName) {
+		super();
+		this.statusGroupName = statusGroupName;
+	}
+
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+
+	@Column(name = "status_group_id", unique = true, nullable = false)
 	public Integer getStatusGroupId() {
 		return statusGroupId;
 	}
@@ -24,6 +44,7 @@ public class StatusGroup {
 		this.statusGroupId = statusGroupId;
 	}
 
+	@Column(name = "status_group_name", nullable = false, length = 15)
 	public String getStatusGroupName() {
 		return statusGroupName;
 	}
@@ -32,6 +53,7 @@ public class StatusGroup {
 		this.statusGroupName = statusGroupName;
 	}
 
+	@Column(name = "status_group_description", length = 30)
 	public String getStatusGroupDescription() {
 		return statusGroupDescription;
 	}
@@ -40,6 +62,7 @@ public class StatusGroup {
 		this.statusGroupDescription = statusGroupDescription;
 	}
 
+	@Column(name = "created_date", length = 26)
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -48,6 +71,7 @@ public class StatusGroup {
 		this.createdDate = createdDate;
 	}
 
+	@Column(name = "created_by")
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -56,6 +80,7 @@ public class StatusGroup {
 		this.createdBy = createdBy;
 	}
 
+	@Column(name = "updated_date", length = 26)
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -64,6 +89,7 @@ public class StatusGroup {
 		this.updatedDate = updatedDate;
 	}
 
+	@Column(name = "updated_by")
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}
@@ -83,9 +109,5 @@ public class StatusGroup {
 		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
-	
-	
-	
-	
-}
 
+}

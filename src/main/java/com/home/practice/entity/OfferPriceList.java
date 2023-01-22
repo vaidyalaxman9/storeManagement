@@ -1,7 +1,8 @@
 package com.home.practice.entity;
 
 import java.util.Date;
-
+@Entity
+@Table (name= "offer_price_list")
 public class OfferPriceList {
 
 	private Integer priceListId;
@@ -16,7 +17,9 @@ public class OfferPriceList {
 	public OfferPriceList() {
 		
 	}
-
+        @Id
+	@GeneratedValue(strategy= IDENTITY)
+	@Column
 	public Integer getPriceListId() {
 		return priceListId;
 	}
@@ -24,7 +27,7 @@ public class OfferPriceList {
 	public void setPriceListId(Integer priceListId) {
 		this.priceListId = priceListId;
 	}
-
+         @Column
 	public Integer getOfferId() {
 		return offerId;
 	}
@@ -32,7 +35,7 @@ public class OfferPriceList {
 	public void setOfferId(Integer offerId) {
 		this.offerId = offerId;
 	}
-
+         @Column
 	public Integer getProductId() {
 		return productId;
 	}
@@ -40,7 +43,7 @@ public class OfferPriceList {
 	public void setProductId(Integer productId) {
 		this.productId = productId;
 	}
-
+        @Column
 	public Integer getOfferPrice() {
 		return offerPrice;
 	}
@@ -48,7 +51,7 @@ public class OfferPriceList {
 	public void setOfferPrice(Integer offerPrice) {
 		this.offerPrice = offerPrice;
 	}
-
+         @Column
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -56,7 +59,7 @@ public class OfferPriceList {
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
-
+         @Column
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -64,7 +67,7 @@ public class OfferPriceList {
 	public void setCreatedBy(Integer createdBy) {
 		this.createdBy = createdBy;
 	}
-
+         @Column
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -72,7 +75,7 @@ public class OfferPriceList {
 	public void setUpdatedDate(Date updatedDate) {
 		this.updatedDate = updatedDate;
 	}
-
+         @Column
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}

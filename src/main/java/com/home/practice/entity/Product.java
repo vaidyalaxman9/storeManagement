@@ -1,7 +1,8 @@
 package com.home.practice.entity;
 
 import java.util.Date;
-
+@Entity
+@Table(name = "Product")
 public class Product {
 
 	private Integer productId;
@@ -26,7 +27,10 @@ public class Product {
 	public Product () {
 		
 	}
-
+        @Id
+	@GeneratedValue(strategy = IDENTITY)
+	
+	@Column
 	public Integer getProductId() {
 		return productId;
 	}
@@ -35,6 +39,7 @@ public class Product {
 		this.productId = productId;
 	}
 
+	@Column
 	public String getProductName() {
 		return productName;
 	}
@@ -43,6 +48,7 @@ public class Product {
 		this.productName = productName;
 	}
 
+	@Column
 	public String getProductDescription() {
 		return productDescription;
 	}
@@ -50,7 +56,7 @@ public class Product {
 	public void setProductDescription(String productDescription) {
 		this.productDescription = productDescription;
 	}
-
+        @Column
 	public Integer getCategoryId() {
 		return categoryId;
 	}
@@ -58,7 +64,7 @@ public class Product {
 	public void setCategoryId(Integer categoryId) {
 		this.categoryId = categoryId;
 	}
-
+        @Column
 	public Integer getBrandId() {
 		return brandId;
 	}
@@ -67,6 +73,7 @@ public class Product {
 		this.brandId = brandId;
 	}
 
+	@Column
 	public Integer getProductQuantity() {
 		return productQuantity;
 	}
@@ -74,7 +81,7 @@ public class Product {
 	public void setProductQuantity(Integer productQuantity) {
 		this.productQuantity = productQuantity;
 	}
-
+        @Column
 	public Integer getProductPrice() {
 		return productPrice;
 	}
@@ -82,7 +89,7 @@ public class Product {
 	public void setProductPrice(Integer productPrice) {
 		this.productPrice = productPrice;
 	}
-
+        @Column
 	public Integer getCatalogPrice() {
 		return catalogPrice;
 	}
@@ -91,6 +98,7 @@ public class Product {
 		this.catalogPrice = catalogPrice;
 	}
 
+	@Column
 	public Integer getSgstPercentage() {
 		return sgstPercentage;
 	}
@@ -99,6 +107,7 @@ public class Product {
 		this.sgstPercentage = sgstPercentage;
 	}
 
+	@Column
 	public Integer getCgstPercentage() {
 		return cgstPercentage;
 	}
@@ -106,7 +115,7 @@ public class Product {
 	public void setCgstPercentage(Integer cgstPercentage) {
 		this.cgstPercentage = cgstPercentage;
 	}
-
+        @Column
 	public String getProductBarcode() {
 		return productBarcode;
 	}
@@ -115,6 +124,7 @@ public class Product {
 		this.productBarcode = productBarcode;
 	}
 
+	@Column
 	public String getValidity() {
 		return validity;
 	}
@@ -123,6 +133,7 @@ public class Product {
 		this.validity = validity;
 	}
 
+	@Column
 	public String getValidityPeriod() {
 		return validityPeriod;
 	}
@@ -131,6 +142,7 @@ public class Product {
 		this.validityPeriod = validityPeriod;
 	}
 
+	@Column
 	public Integer getProductStatus() {
 		return productStatus;
 	}
@@ -139,6 +151,7 @@ public class Product {
 		this.productStatus = productStatus;
 	}
 
+	@Column
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -147,6 +160,7 @@ public class Product {
 		this.createdDate = createdDate;
 	}
 
+	@Column
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -155,6 +169,7 @@ public class Product {
 		this.createdBy = createdBy;
 	}
 
+	@Column
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -163,6 +178,7 @@ public class Product {
 		this.updatedDate = updatedDate;
 	}
 
+	@Column
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}

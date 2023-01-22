@@ -1,7 +1,8 @@
 package com.home.practice.entity;
 
 import java.util.Date;
-
+@Entity
+@Table (name ="invoice")
 public class Invoice {
 
 	private Integer invoiceId;
@@ -17,7 +18,9 @@ public class Invoice {
 	public Invoice() {
 
 	}
-
+      @Id
+      @GeneratedValue(strategy= IDENTITY)
+      @Column
 	public Integer getInvoiceId() {
 		return invoiceId;
 	}
@@ -25,7 +28,7 @@ public class Invoice {
 	public void setInvoiceId(Integer invoiceId) {
 		this.invoiceId = invoiceId;
 	}
-
+        @Column
 	public Integer getOrderId() {
 		return orderId;
 	}
@@ -34,6 +37,7 @@ public class Invoice {
 		this.orderId = orderId;
 	}
 
+	 @Column
 	public Integer getEmpId() {
 		return empId;
 	}
@@ -41,7 +45,7 @@ public class Invoice {
 	public void setEmpId(Integer empId) {
 		this.empId = empId;
 	}
-
+         @Column
 	public Date getInvoiceDate() {
 		return invoiceDate;
 	}
@@ -50,6 +54,7 @@ public class Invoice {
 		this.invoiceDate = invoiceDate;
 	}
 
+	 @Column
 	public Integer getInvoiceStatus() {
 		return invoiceStatus;
 	}
@@ -58,6 +63,7 @@ public class Invoice {
 		this.invoiceStatus = invoiceStatus;
 	}
 
+	 @Column
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -66,6 +72,7 @@ public class Invoice {
 		this.createdDate = createdDate;
 	}
 
+	 @Column
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -74,6 +81,7 @@ public class Invoice {
 		this.createdBy = createdBy;
 	}
 
+	 @Column
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -82,6 +90,7 @@ public class Invoice {
 		this.updatedDate = updatedDate;
 	}
 
+	 @Column
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}

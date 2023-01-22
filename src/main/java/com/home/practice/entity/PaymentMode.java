@@ -1,7 +1,8 @@
 package com.home.practice.entity;
 
 import java.util.Date;
-
+@Entity
+@Table(name = "Payment_mode)
 public class PaymentMode {
 
 	private Integer paymentModeId;
@@ -16,7 +17,9 @@ public class PaymentMode {
 	public PaymentMode() {
 
 	}
-
+        @Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column
 	public Integer getPaymentModeId() {
 		return paymentModeId;
 	}
@@ -24,7 +27,7 @@ public class PaymentMode {
 	public void setPaymentModeId(Integer paymentModeId) {
 		this.paymentModeId = paymentModeId;
 	}
-
+        @Column
 	public String getPaymentModeName() {
 		return paymentModeName;
 	}
@@ -33,6 +36,7 @@ public class PaymentMode {
 		this.paymentModeName = paymentModeName;
 	}
 
+	@Column
 	public String getPaymentModeDescription() {
 		return paymentModeDescription;
 	}
@@ -41,6 +45,7 @@ public class PaymentMode {
 		this.paymentModeDescription = paymentModeDescription;
 	}
 
+	@Column
 	public Integer getPaymentModeStatus() {
 		return paymentModeStatus;
 	}
@@ -49,6 +54,7 @@ public class PaymentMode {
 		this.paymentModeStatus = paymentModeStatus;
 	}
 
+	@Column
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -57,6 +63,7 @@ public class PaymentMode {
 		this.createdDate = createdDate;
 	}
 
+	@Column
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -65,6 +72,7 @@ public class PaymentMode {
 		this.createdBy = createdBy;
 	}
 
+	@Column
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -73,6 +81,7 @@ public class PaymentMode {
 		this.updatedDate = updatedDate;
 	}
 
+	@Column
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}

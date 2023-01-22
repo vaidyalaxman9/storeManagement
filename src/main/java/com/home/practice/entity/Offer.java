@@ -1,7 +1,8 @@
 package com.home.practice.entity;
 
 import java.util.Date;
-
+@Entity
+@Table (name="offer")
 public class Offer {
 
 	private Integer offerId;
@@ -20,7 +21,9 @@ public class Offer {
 	public Offer() {
 		
 	}
-
+       @Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column
 	public Integer getOfferId() {
 		return offerId;
 	}
@@ -28,7 +31,7 @@ public class Offer {
 	public void setOfferId(Integer offerId) {
 		this.offerId = offerId;
 	}
-
+	 @Column
 	public String getOfferName() {
 		return offerName;
 	}
@@ -37,6 +40,7 @@ public class Offer {
 		this.offerName = offerName;
 	}
 
+	 @Column
 	public Date getOfferStartDate() {
 		return offerStartDate;
 	}
@@ -44,7 +48,7 @@ public class Offer {
 	public void setOfferStartDate(Date offerStartDate) {
 		this.offerStartDate = offerStartDate;
 	}
-
+        @Column
 	public Date getOfferEndDate() {
 		return offerEndDate;
 	}
@@ -53,6 +57,7 @@ public class Offer {
 		this.offerEndDate = offerEndDate;
 	}
 
+        @Column
 	public String getOfferDescription() {
 		return offerDescription;
 	}
@@ -61,6 +66,7 @@ public class Offer {
 		this.offerDescription = offerDescription;
 	}
 
+	 @Column
 	public String getOfferApprovedBy() {
 		return offerApprovedBy;
 	}
@@ -69,6 +75,7 @@ public class Offer {
 		this.offerApprovedBy = offerApprovedBy;
 	}
 
+	 @Column
 	public String getBannerLocation() {
 		return bannerLocation;
 	}
@@ -77,6 +84,7 @@ public class Offer {
 		this.bannerLocation = bannerLocation;
 	}
 
+	 @Column
 	public Integer getOfferStatus() {
 		return offerStatus;
 	}
@@ -85,6 +93,7 @@ public class Offer {
 		this.offerStatus = offerStatus;
 	}
 
+	 @Column
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -93,6 +102,7 @@ public class Offer {
 		this.createdDate = createdDate;
 	}
 
+	 @Column
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -101,6 +111,7 @@ public class Offer {
 		this.createdBy = createdBy;
 	}
 
+	 @Column
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -109,6 +120,7 @@ public class Offer {
 		this.updatedDate = updatedDate;
 	}
 
+	 @Column
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}

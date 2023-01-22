@@ -1,7 +1,8 @@
 package com.home.practice.entity;
 
 import java.util.Date;
-
+@Entity
+@Table (name= "order_items)
 public class OrderItems {
 
 	private Integer orderItemId;
@@ -26,7 +27,9 @@ public class OrderItems {
 	public OrderItems() {
 
 	}
-
+        @Id
+	@GeneratedValue(strategy= IDENTITY)
+	@Column
 	public Integer getOrderItemId() {
 		return orderItemId;
 	}
@@ -34,7 +37,7 @@ public class OrderItems {
 	public void setOrderItemId(Integer orderItemId) {
 		this.orderItemId = orderItemId;
 	}
-
+        @Column
 	public Integer getOrderId() {
 		return orderId;
 	}
@@ -42,7 +45,7 @@ public class OrderItems {
 	public void setOrderId(Integer orderId) {
 		this.orderId = orderId;
 	}
-
+        @Column
 	public Integer getProductId() {
 		return productId;
 	}
@@ -50,7 +53,7 @@ public class OrderItems {
 	public void setProductId(Integer productId) {
 		this.productId = productId;
 	}
-
+        @Column
 	public Integer getOrderQuantity() {
 		return orderQuantity;
 	}
@@ -58,7 +61,7 @@ public class OrderItems {
 	public void setOrderQuantity(Integer orderQuantity) {
 		this.orderQuantity = orderQuantity;
 	}
-
+        @Column
 	public Integer getUnitPrice() {
 		return unitPrice;
 	}
@@ -66,7 +69,7 @@ public class OrderItems {
 	public void setUnitPrice(Integer unitPrice) {
 		this.unitPrice = unitPrice;
 	}
-
+        @Column
 	public Integer getDiscountAmount() {
 		return discountAmount;
 	}
@@ -74,7 +77,7 @@ public class OrderItems {
 	public void setDiscountAmount(Integer discountAmount) {
 		this.discountAmount = discountAmount;
 	}
-
+        @Column
 	public Integer getDiscountPercentage() {
 		return discountPercentage;
 	}
@@ -82,7 +85,7 @@ public class OrderItems {
 	public void setDiscountPercentage(Integer discountPercentage) {
 		this.discountPercentage = discountPercentage;
 	}
-
+        @Column
 	public String getValidity() {
 		return validity;
 	}
@@ -90,7 +93,7 @@ public class OrderItems {
 	public void setValidity(String validity) {
 		this.validity = validity;
 	}
-
+        @Column
 	public Date getValidityStartDate() {
 		return validityStartDate;
 	}
@@ -99,6 +102,7 @@ public class OrderItems {
 		this.validityStartDate = validityStartDate;
 	}
 
+	@Column
 	public Date getValidityEndDate() {
 		return validityEndDate;
 	}
@@ -106,7 +110,7 @@ public class OrderItems {
 	public void setValidityEndDate(Date validityEndDate) {
 		this.validityEndDate = validityEndDate;
 	}
-
+       @Column
 	public Integer getSgstPercentage() {
 		return sgstPercentage;
 	}
@@ -115,6 +119,7 @@ public class OrderItems {
 		this.sgstPercentage = sgstPercentage;
 	}
 
+	@Column
 	public Integer getSgstPrice() {
 		return sgstPrice;
 	}
@@ -123,6 +128,7 @@ public class OrderItems {
 		this.sgstPrice = sgstPrice;
 	}
 
+	@Column
 	public Integer getCgstPercentage() {
 		return cgstPercentage;
 	}
@@ -130,7 +136,7 @@ public class OrderItems {
 	public void setCgstPercentage(Integer cgstPercentage) {
 		this.cgstPercentage = cgstPercentage;
 	}
-
+       @Column
 	public Integer getCgstPrice() {
 		return cgstPrice;
 	}
@@ -139,6 +145,7 @@ public class OrderItems {
 		this.cgstPrice = cgstPrice;
 	}
 
+	@Column
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -147,6 +154,7 @@ public class OrderItems {
 		this.createdDate = createdDate;
 	}
 
+	@Column
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -155,6 +163,7 @@ public class OrderItems {
 		this.createdBy = createdBy;
 	}
 
+	@Column
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -163,6 +172,7 @@ public class OrderItems {
 		this.updatedDate = updatedDate;
 	}
 
+	@Column
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}

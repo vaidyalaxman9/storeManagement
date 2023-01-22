@@ -1,7 +1,8 @@
 package com.home.practice.entity;
 
 import java.util.Date;
-
+@Entity
+@Table (name = "order_replacement")
 public class OrderReplacement {
 
 	private Integer orderReplacementId;
@@ -17,7 +18,9 @@ public class OrderReplacement {
 	public OrderReplacement() {
 
 	}
-
+       @Id
+       @GeneratedValue(strategy= IDENTITY)
+       @Column
 	public Integer getOrderReplacementId() {
 		return orderReplacementId;
 	}
@@ -26,6 +29,7 @@ public class OrderReplacement {
 		this.orderReplacementId = orderReplacementId;
 	}
 
+	@Column
 	public Integer getOrderId() {
 		return orderId;
 	}
@@ -34,6 +38,7 @@ public class OrderReplacement {
 		this.orderId = orderId;
 	}
 
+	@Column
 	public Integer getEmpId() {
 		return empId;
 	}
@@ -42,6 +47,7 @@ public class OrderReplacement {
 		this.empId = empId;
 	}
 
+	@Column
 	public Date getReplacementDate() {
 		return replacementDate;
 	}
@@ -50,6 +56,7 @@ public class OrderReplacement {
 		this.replacementDate = replacementDate;
 	}
 
+	@Column
 	public Integer getReplacementStatus() {
 		return replacementStatus;
 	}
@@ -58,6 +65,7 @@ public class OrderReplacement {
 		this.replacementStatus = replacementStatus;
 	}
 
+	@Column
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -66,6 +74,7 @@ public class OrderReplacement {
 		this.createdDate = createdDate;
 	}
 
+	@Column
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -74,6 +83,7 @@ public class OrderReplacement {
 		this.createdBy = createdBy;
 	}
 
+	@Column
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -82,6 +92,7 @@ public class OrderReplacement {
 		this.updatedDate = updatedDate;
 	}
 
+	@Column
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}

@@ -1,7 +1,8 @@
 package com.home.practice.entity;
 
 import java.util.Date;
-
+@Entity
+@Table
 public class OrderReplacementItems {
 
 	private Integer orderReplacementItemId;
@@ -25,7 +26,9 @@ public class OrderReplacementItems {
 	public OrderReplacementItems() {
 
 	}
-
+       @Id
+       @GeneratedValue(strategy= IDENTITY)
+       @Column
 	public Integer getOrderReplacementItemId() {
 		return orderReplacementItemId;
 	}
@@ -33,7 +36,7 @@ public class OrderReplacementItems {
 	public void setOrderReplacementItemId(Integer orderReplacementItemId) {
 		this.orderReplacementItemId = orderReplacementItemId;
 	}
-
+        @Column
 	public String getValidity() {
 		return validity;
 	}
@@ -42,6 +45,7 @@ public class OrderReplacementItems {
 		this.validity = validity;
 	}
 
+	@Column
 	public Date getValidityStartDate() {
 		return validityStartDate;
 	}
@@ -50,6 +54,7 @@ public class OrderReplacementItems {
 		this.validityStartDate = validityStartDate;
 	}
 
+	@Column
 	public Date getValidityEndDate() {
 		return validityEndDate;
 	}
@@ -58,6 +63,7 @@ public class OrderReplacementItems {
 		this.validityEndDate = validityEndDate;
 	}
 
+	@Column
 	public Integer getOrderReplacementId() {
 		return orderReplacementId;
 	}
@@ -66,6 +72,7 @@ public class OrderReplacementItems {
 		this.orderReplacementId = orderReplacementId;
 	}
 
+	@Column
 	public Integer getReplacementCharges() {
 		return replacementCharges;
 	}
@@ -74,6 +81,7 @@ public class OrderReplacementItems {
 		this.replacementCharges = replacementCharges;
 	}
 
+	@Column
 	public Integer getQuantity() {
 		return quantity;
 	}
@@ -81,7 +89,7 @@ public class OrderReplacementItems {
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
-
+        @Column
 	public Integer getSgstPercentage() {
 		return sgstPercentage;
 	}
@@ -90,6 +98,7 @@ public class OrderReplacementItems {
 		this.sgstPercentage = sgstPercentage;
 	}
 
+	@Column
 	public Integer getSgstPrice() {
 		return sgstPrice;
 	}
@@ -98,6 +107,7 @@ public class OrderReplacementItems {
 		this.sgstPrice = sgstPrice;
 	}
 
+	@Column
 	public Integer getCgstPercentage() {
 		return cgstPercentage;
 	}
@@ -106,6 +116,7 @@ public class OrderReplacementItems {
 		this.cgstPercentage = cgstPercentage;
 	}
 
+	@Column
 	public Integer getCgstPrice() {
 		return cgstPrice;
 	}
@@ -113,7 +124,7 @@ public class OrderReplacementItems {
 	public void setCgstPrice(Integer cgstPrice) {
 		this.cgstPrice = cgstPrice;
 	}
-
+        @Column
 	public String getRemarks() {
 		return remarks;
 	}
@@ -122,6 +133,7 @@ public class OrderReplacementItems {
 		this.remarks = remarks;
 	}
 
+	@Column
 	public String getNotes() {
 		return notes;
 	}
@@ -130,6 +142,7 @@ public class OrderReplacementItems {
 		this.notes = notes;
 	}
 
+	@Column
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -138,6 +151,7 @@ public class OrderReplacementItems {
 		this.createdDate = createdDate;
 	}
 
+	@Column
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -146,6 +160,7 @@ public class OrderReplacementItems {
 		this.createdBy = createdBy;
 	}
 
+	@Column
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -154,6 +169,7 @@ public class OrderReplacementItems {
 		this.updatedDate = updatedDate;
 	}
 
+	@Column
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}

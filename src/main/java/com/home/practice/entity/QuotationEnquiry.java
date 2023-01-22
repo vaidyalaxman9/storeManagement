@@ -1,7 +1,8 @@
 package com.home.practice.entity;
 
 import java.util.Date;
-
+@Entity 
+@Table(name ="quotation_enquiry)
 public class QuotationEnquiry {
 
 	private Integer quotationId;
@@ -20,7 +21,9 @@ public class QuotationEnquiry {
 	public QuotationEnquiry() {
 
 	}
-
+        @Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column
 	public Integer getQuotationId() {
 		return quotationId;
 	}
@@ -29,6 +32,7 @@ public class QuotationEnquiry {
 		this.quotationId = quotationId;
 	}
 
+	@Column
 	public Date getQuotationDate() {
 		return quotationDate;
 	}
@@ -37,6 +41,7 @@ public class QuotationEnquiry {
 		this.quotationDate = quotationDate;
 	}
 
+	@Column
 	public Integer getEmpId() {
 		return empId;
 	}
@@ -45,6 +50,7 @@ public class QuotationEnquiry {
 		this.empId = empId;
 	}
 
+	@Column
 	public String getCustomerName() {
 		return customerName;
 	}
@@ -53,6 +59,7 @@ public class QuotationEnquiry {
 		this.customerName = customerName;
 	}
 
+	@Column
 	public String getMobileNumber() {
 		return mobileNumber;
 	}
@@ -61,6 +68,7 @@ public class QuotationEnquiry {
 		this.mobileNumber = mobileNumber;
 	}
 
+	@Column
 	public String getAddress() {
 		return address;
 	}
@@ -69,6 +77,7 @@ public class QuotationEnquiry {
 		this.address = address;
 	}
 
+	@Column
 	public String getRemarks() {
 		return remarks;
 	}
@@ -77,6 +86,7 @@ public class QuotationEnquiry {
 		this.remarks = remarks;
 	}
 
+	@Column
 	public Integer getQuotationStatus() {
 		return quotationStatus;
 	}
@@ -85,6 +95,7 @@ public class QuotationEnquiry {
 		this.quotationStatus = quotationStatus;
 	}
 
+	@Column
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -93,6 +104,7 @@ public class QuotationEnquiry {
 		this.createdDate = createdDate;
 	}
 
+	@Column
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -101,6 +113,7 @@ public class QuotationEnquiry {
 		this.createdBy = createdBy;
 	}
 
+	@Column
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -108,7 +121,7 @@ public class QuotationEnquiry {
 	public void setUpdatedDate(Date updatedDate) {
 		this.updatedDate = updatedDate;
 	}
-
+        @Column
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}

@@ -1,7 +1,8 @@
 package com.home.practice.entity;
 
 import java.util.Date;
-
+@Entity
+@Table (name="order_payment")
 public class OrderPayment {
 
 	private Integer paymentId;
@@ -21,14 +22,18 @@ public class OrderPayment {
 
 	}
 
+	@Id
+	@GeneratedValue(strategy= IDENTITY)
+	@Column
 	public Integer getPaymentId() {
 		return paymentId;
 	}
 
+	
 	public void setPaymentId(Integer paymentId) {
 		this.paymentId = paymentId;
 	}
-
+        @Column
 	public Integer getOrderItemId() {
 		return orderItemId;
 	}
@@ -37,6 +42,7 @@ public class OrderPayment {
 		this.orderItemId = orderItemId;
 	}
 
+	@Column
 	public Integer getAmount() {
 		return amount;
 	}
@@ -45,6 +51,7 @@ public class OrderPayment {
 		this.amount = amount;
 	}
 
+	@Column
 	public String getRemarks() {
 		return remarks;
 	}
@@ -53,6 +60,7 @@ public class OrderPayment {
 		this.remarks = remarks;
 	}
 
+	@Column
 	public Date getPaymentDate() {
 		return paymentDate;
 	}
@@ -60,7 +68,7 @@ public class OrderPayment {
 	public void setPaymentDate(Date paymentDate) {
 		this.paymentDate = paymentDate;
 	}
-
+        @Column
 	public Integer getTransactionId() {
 		return transactionId;
 	}
@@ -68,7 +76,7 @@ public class OrderPayment {
 	public void setTransactionId(Integer transactionId) {
 		this.transactionId = transactionId;
 	}
-
+        @Column
 	public Integer getPaymentMode() {
 		return paymentMode;
 	}
@@ -77,6 +85,7 @@ public class OrderPayment {
 		this.paymentMode = paymentMode;
 	}
 
+	@Column
 	public Integer getPaymentStatus() {
 		return paymentStatus;
 	}
@@ -85,6 +94,7 @@ public class OrderPayment {
 		this.paymentStatus = paymentStatus;
 	}
 
+	@Column
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -93,6 +103,7 @@ public class OrderPayment {
 		this.createdDate = createdDate;
 	}
 
+	@Column
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -101,6 +112,7 @@ public class OrderPayment {
 		this.createdBy = createdBy;
 	}
 
+	@Column
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -109,6 +121,7 @@ public class OrderPayment {
 		this.updatedDate = updatedDate;
 	}
 
+	@Column
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}

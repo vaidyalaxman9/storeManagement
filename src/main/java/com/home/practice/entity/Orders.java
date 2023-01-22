@@ -1,7 +1,8 @@
 package com.home.practice.entity;
 
 import java.util.Date;
-
+@Entity
+@Table(name = "orders")
 public class Orders {
 
 	private Integer orderId;
@@ -24,7 +25,9 @@ public class Orders {
 	public Orders() {
 
 	}
-
+        @Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column
 	public Integer getOrderId() {
 		return orderId;
 	}
@@ -32,7 +35,7 @@ public class Orders {
 	public void setOrderId(Integer orderId) {
 		this.orderId = orderId;
 	}
-
+        @Column
 	public Integer getCustomerId() {
 		return customerId;
 	}
@@ -40,7 +43,7 @@ public class Orders {
 	public void setCustomerId(Integer customerId) {
 		this.customerId = customerId;
 	}
-
+        @Column
 	public Integer getEmpId() {
 		return empId;
 	}
@@ -48,7 +51,7 @@ public class Orders {
 	public void setEmpId(Integer empId) {
 		this.empId = empId;
 	}
-
+        @Column
 	public Integer getOfferId() {
 		return offerId;
 	}
@@ -56,7 +59,7 @@ public class Orders {
 	public void setOfferId(Integer offerId) {
 		this.offerId = offerId;
 	}
-
+        @Column
 	public Integer getPaidAmount() {
 		return paidAmount;
 	}
@@ -65,6 +68,7 @@ public class Orders {
 		this.paidAmount = paidAmount;
 	}
 
+	@Column
 	public Integer getRemainingAmount() {
 		return remainingAmount;
 	}
@@ -72,7 +76,7 @@ public class Orders {
 	public void setRemainingAmount(Integer remainingAmount) {
 		this.remainingAmount = remainingAmount;
 	}
-
+        @Column
 	public Integer getTotalAmount() {
 		return totalAmount;
 	}
@@ -80,7 +84,7 @@ public class Orders {
 	public void setTotalAmount(Integer totalAmount) {
 		this.totalAmount = totalAmount;
 	}
-
+        @Column
 	public Date getDate() {
 		return date;
 	}
@@ -88,7 +92,7 @@ public class Orders {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
+        @Column
 	public String getGstinNumber() {
 		return gstinNumber;
 	}
@@ -97,6 +101,7 @@ public class Orders {
 		this.gstinNumber = gstinNumber;
 	}
 
+	@Column
 	public String getPanNumber() {
 		return panNumber;
 	}
@@ -105,6 +110,7 @@ public class Orders {
 		this.panNumber = panNumber;
 	}
 
+	@Column
 	public String getRemarks() {
 		return remarks;
 	}
@@ -113,6 +119,7 @@ public class Orders {
 		this.remarks = remarks;
 	}
 
+	@Column
 	public Integer getOrderStatus() {
 		return orderStatus;
 	}
@@ -121,6 +128,7 @@ public class Orders {
 		this.orderStatus = orderStatus;
 	}
 
+	@Column
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -129,6 +137,7 @@ public class Orders {
 		this.createdDate = createdDate;
 	}
 
+	@Column
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -137,6 +146,7 @@ public class Orders {
 		this.createdBy = createdBy;
 	}
 
+	@Column
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -144,7 +154,7 @@ public class Orders {
 	public void setUpdatedDate(Date updatedDate) {
 		this.updatedDate = updatedDate;
 	}
-
+        @Column
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}

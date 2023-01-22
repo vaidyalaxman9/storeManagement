@@ -1,6 +1,8 @@
 package com.home.practice.entity;
 
 import java.util.Date;
+@Entity
+@Table(name = "quotation_enquiry_items)
 
 public class QuotationEnquiryItems {
 
@@ -18,7 +20,9 @@ public class QuotationEnquiryItems {
 	public QuotationEnquiryItems() {
 
 	}
-
+        @Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column
 	public Integer getQuotationItemId() {
 		return quotationItemId;
 	}
@@ -26,7 +30,7 @@ public class QuotationEnquiryItems {
 	public void setQuotationItemId(Integer quotationItemId) {
 		this.quotationItemId = quotationItemId;
 	}
-
+        @Column
 	public Integer getQuotationId() {
 		return quotationId;
 	}
@@ -35,6 +39,7 @@ public class QuotationEnquiryItems {
 		this.quotationId = quotationId;
 	}
 
+	@Column
 	public Integer getProductId() {
 		return productId;
 	}
@@ -42,7 +47,7 @@ public class QuotationEnquiryItems {
 	public void setProductId(Integer productId) {
 		this.productId = productId;
 	}
-
+        @Column
 	public Integer getOfferId() {
 		return offerId;
 	}
@@ -51,6 +56,7 @@ public class QuotationEnquiryItems {
 		this.offerId = offerId;
 	}
 
+	@Column
 	public Integer getQuantity() {
 		return quantity;
 	}
@@ -59,6 +65,7 @@ public class QuotationEnquiryItems {
 		this.quantity = quantity;
 	}
 
+	@Column
 	public Integer getUnitPrice() {
 		return unitPrice;
 	}
@@ -67,6 +74,7 @@ public class QuotationEnquiryItems {
 		this.unitPrice = unitPrice;
 	}
 
+	@Column
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -75,6 +83,7 @@ public class QuotationEnquiryItems {
 		this.createdDate = createdDate;
 	}
 
+	@Column
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -83,6 +92,7 @@ public class QuotationEnquiryItems {
 		this.createdBy = createdBy;
 	}
 
+	@Column
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -91,6 +101,7 @@ public class QuotationEnquiryItems {
 		this.updatedDate = updatedDate;
 	}
 
+	@Column
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}

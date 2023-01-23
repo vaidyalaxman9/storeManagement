@@ -1,10 +1,20 @@
 package com.home.practice.entity;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 @Entity
 @Table(name = "orders")
-public class Orders {
+public class Orders implements java.io.Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private Integer orderId;
 	private Integer customerId;
 	private Integer empId;
@@ -25,9 +35,11 @@ public class Orders {
 	public Orders() {
 
 	}
-        @Id
+
+	@Id
 	@GeneratedValue(strategy = IDENTITY)
-	@Column
+
+	@Column(name = "order_id", unique = true, nullable = false)
 	public Integer getOrderId() {
 		return orderId;
 	}
@@ -35,7 +47,8 @@ public class Orders {
 	public void setOrderId(Integer orderId) {
 		this.orderId = orderId;
 	}
-        @Column
+
+	@Column(name = "customer_id")
 	public Integer getCustomerId() {
 		return customerId;
 	}
@@ -43,7 +56,8 @@ public class Orders {
 	public void setCustomerId(Integer customerId) {
 		this.customerId = customerId;
 	}
-        @Column
+
+	@Column(name = "emp_id")
 	public Integer getEmpId() {
 		return empId;
 	}
@@ -51,7 +65,8 @@ public class Orders {
 	public void setEmpId(Integer empId) {
 		this.empId = empId;
 	}
-        @Column
+
+	@Column(name = "offer_id")
 	public Integer getOfferId() {
 		return offerId;
 	}
@@ -59,7 +74,8 @@ public class Orders {
 	public void setOfferId(Integer offerId) {
 		this.offerId = offerId;
 	}
-        @Column
+
+	@Column(name = "paid_amount")
 	public Integer getPaidAmount() {
 		return paidAmount;
 	}
@@ -68,7 +84,7 @@ public class Orders {
 		this.paidAmount = paidAmount;
 	}
 
-	@Column
+	@Column(name = "remaining_amount")
 	public Integer getRemainingAmount() {
 		return remainingAmount;
 	}
@@ -76,7 +92,8 @@ public class Orders {
 	public void setRemainingAmount(Integer remainingAmount) {
 		this.remainingAmount = remainingAmount;
 	}
-        @Column
+
+	@Column(name = "total_amount")
 	public Integer getTotalAmount() {
 		return totalAmount;
 	}
@@ -84,7 +101,8 @@ public class Orders {
 	public void setTotalAmount(Integer totalAmount) {
 		this.totalAmount = totalAmount;
 	}
-        @Column
+
+	@Column(name = "date", length = 26)
 	public Date getDate() {
 		return date;
 	}
@@ -92,7 +110,8 @@ public class Orders {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-        @Column
+
+	@Column(name = "gstin_number", length = 15)
 	public String getGstinNumber() {
 		return gstinNumber;
 	}
@@ -101,7 +120,7 @@ public class Orders {
 		this.gstinNumber = gstinNumber;
 	}
 
-	@Column
+	@Column(name = "pan_number", length = 12)
 	public String getPanNumber() {
 		return panNumber;
 	}
@@ -110,7 +129,7 @@ public class Orders {
 		this.panNumber = panNumber;
 	}
 
-	@Column
+	@Column(name = "remarks", length = 50)
 	public String getRemarks() {
 		return remarks;
 	}
@@ -119,7 +138,6 @@ public class Orders {
 		this.remarks = remarks;
 	}
 
-	@Column
 	public Integer getOrderStatus() {
 		return orderStatus;
 	}
@@ -128,7 +146,7 @@ public class Orders {
 		this.orderStatus = orderStatus;
 	}
 
-	@Column
+	@Column(name = "created_date", length = 26)
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -137,7 +155,7 @@ public class Orders {
 		this.createdDate = createdDate;
 	}
 
-	@Column
+	@Column(name = "created_by")
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -146,7 +164,7 @@ public class Orders {
 		this.createdBy = createdBy;
 	}
 
-	@Column
+	@Column(name = "updated_date", length = 26)
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -154,7 +172,8 @@ public class Orders {
 	public void setUpdatedDate(Date updatedDate) {
 		this.updatedDate = updatedDate;
 	}
-        @Column
+
+	@Column(name = "updated_by")
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}

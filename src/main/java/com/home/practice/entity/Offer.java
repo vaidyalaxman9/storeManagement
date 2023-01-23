@@ -1,10 +1,20 @@
 package com.home.practice.entity;
 
-import java.util.Date;
-@Entity
-@Table (name="offer")
-public class Offer {
+import static javax.persistence.GenerationType.IDENTITY;
 
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "offer")
+public class Offer implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private Integer offerId;
 	private String offerName;
 	private Date offerStartDate;
@@ -17,13 +27,19 @@ public class Offer {
 	private Integer createdBy;
 	private Date updatedDate;
 	private Integer updatedBy;
-	
+
 	public Offer() {
-		
+
 	}
-       @Id
+
+	public Offer(String offerName) {
+		this.offerName = offerName;
+	}
+
+	@Id
 	@GeneratedValue(strategy = IDENTITY)
-	@Column
+
+	@Column(name = "offer_id", unique = true, nullable = false)
 	public Integer getOfferId() {
 		return offerId;
 	}
@@ -31,7 +47,8 @@ public class Offer {
 	public void setOfferId(Integer offerId) {
 		this.offerId = offerId;
 	}
-	 @Column
+
+	@Column(name = "offer_name", nullable = false, length = 20)
 	public String getOfferName() {
 		return offerName;
 	}
@@ -40,7 +57,7 @@ public class Offer {
 		this.offerName = offerName;
 	}
 
-	 @Column
+	@Column(name = "offer_start_date", length = 26)
 	public Date getOfferStartDate() {
 		return offerStartDate;
 	}
@@ -48,7 +65,8 @@ public class Offer {
 	public void setOfferStartDate(Date offerStartDate) {
 		this.offerStartDate = offerStartDate;
 	}
-        @Column
+
+	@Column(name = "offer_end_date", length = 26)
 	public Date getOfferEndDate() {
 		return offerEndDate;
 	}
@@ -57,7 +75,7 @@ public class Offer {
 		this.offerEndDate = offerEndDate;
 	}
 
-        @Column
+	@Column(name = "offer_description", length = 50)
 	public String getOfferDescription() {
 		return offerDescription;
 	}
@@ -66,7 +84,7 @@ public class Offer {
 		this.offerDescription = offerDescription;
 	}
 
-	 @Column
+	@Column(name = "offer_aprovedby", length = 20)
 	public String getOfferApprovedBy() {
 		return offerApprovedBy;
 	}
@@ -75,7 +93,7 @@ public class Offer {
 		this.offerApprovedBy = offerApprovedBy;
 	}
 
-	 @Column
+	@Column(name = "banner_location", length = 50)
 	public String getBannerLocation() {
 		return bannerLocation;
 	}
@@ -84,7 +102,6 @@ public class Offer {
 		this.bannerLocation = bannerLocation;
 	}
 
-	 @Column
 	public Integer getOfferStatus() {
 		return offerStatus;
 	}
@@ -93,7 +110,7 @@ public class Offer {
 		this.offerStatus = offerStatus;
 	}
 
-	 @Column
+	@Column(name = "created_date", length = 26)
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -102,7 +119,7 @@ public class Offer {
 		this.createdDate = createdDate;
 	}
 
-	 @Column
+	@Column(name = "created_by")
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -111,7 +128,7 @@ public class Offer {
 		this.createdBy = createdBy;
 	}
 
-	 @Column
+	@Column(name = "updated_date", length = 26)
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -120,7 +137,7 @@ public class Offer {
 		this.updatedDate = updatedDate;
 	}
 
-	 @Column
+	@Column(name = "updated_by")
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}
@@ -146,6 +163,5 @@ public class Offer {
 		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
-	
-	
+
 }

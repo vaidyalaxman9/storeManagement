@@ -1,10 +1,20 @@
 package com.home.practice.entity;
 
-import java.util.Date;
-@Entity
-@Table (name ="invoice")
-public class Invoice {
+import static javax.persistence.GenerationType.IDENTITY;
 
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "invoice")
+public class Invoice implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private Integer invoiceId;
 	private Integer orderId;
 	private Integer empId;
@@ -18,9 +28,11 @@ public class Invoice {
 	public Invoice() {
 
 	}
-      @Id
-      @GeneratedValue(strategy= IDENTITY)
-      @Column
+
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+
+	@Column(name = "invoice_id", unique = true, nullable = false)
 	public Integer getInvoiceId() {
 		return invoiceId;
 	}
@@ -28,7 +40,8 @@ public class Invoice {
 	public void setInvoiceId(Integer invoiceId) {
 		this.invoiceId = invoiceId;
 	}
-        @Column
+
+	@Column(name = "order_id")
 	public Integer getOrderId() {
 		return orderId;
 	}
@@ -37,7 +50,7 @@ public class Invoice {
 		this.orderId = orderId;
 	}
 
-	 @Column
+	@Column(name = "emp_id")
 	public Integer getEmpId() {
 		return empId;
 	}
@@ -45,7 +58,8 @@ public class Invoice {
 	public void setEmpId(Integer empId) {
 		this.empId = empId;
 	}
-         @Column
+
+	@Column(name = "invoice_date", length = 26)
 	public Date getInvoiceDate() {
 		return invoiceDate;
 	}
@@ -54,7 +68,6 @@ public class Invoice {
 		this.invoiceDate = invoiceDate;
 	}
 
-	 @Column
 	public Integer getInvoiceStatus() {
 		return invoiceStatus;
 	}
@@ -63,7 +76,7 @@ public class Invoice {
 		this.invoiceStatus = invoiceStatus;
 	}
 
-	 @Column
+	@Column(name = "created_date", length = 26)
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -72,7 +85,7 @@ public class Invoice {
 		this.createdDate = createdDate;
 	}
 
-	 @Column
+	@Column(name = "created_by")
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -81,7 +94,7 @@ public class Invoice {
 		this.createdBy = createdBy;
 	}
 
-	 @Column
+	@Column(name = "updated_date", length = 26)
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -90,7 +103,7 @@ public class Invoice {
 		this.updatedDate = updatedDate;
 	}
 
-	 @Column
+	@Column(name = "updated_by")
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}
@@ -113,5 +126,4 @@ public class Invoice {
 		this.updatedBy = updatedBy;
 	}
 
-	
 }

@@ -1,10 +1,20 @@
 package com.home.practice.entity;
 
-import java.util.Date;
-@Entity
-@Table(name = "Payment_mode)
-public class PaymentMode {
+import static javax.persistence.GenerationType.IDENTITY;
 
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "payment_mode")
+public class PaymentMode implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private Integer paymentModeId;
 	private String paymentModeName;
 	private String paymentModeDescription;
@@ -17,9 +27,11 @@ public class PaymentMode {
 	public PaymentMode() {
 
 	}
-        @Id
+
+	@Id
 	@GeneratedValue(strategy = IDENTITY)
-	@Column
+
+	@Column(name = "payment_mode_id", unique = true, nullable = false)
 	public Integer getPaymentModeId() {
 		return paymentModeId;
 	}
@@ -27,7 +39,8 @@ public class PaymentMode {
 	public void setPaymentModeId(Integer paymentModeId) {
 		this.paymentModeId = paymentModeId;
 	}
-        @Column
+
+	@Column(name = "payment_mode_name", length = 10)
 	public String getPaymentModeName() {
 		return paymentModeName;
 	}
@@ -36,7 +49,7 @@ public class PaymentMode {
 		this.paymentModeName = paymentModeName;
 	}
 
-	@Column
+	@Column(name = "payment_mode_description", length = 50)
 	public String getPaymentModeDescription() {
 		return paymentModeDescription;
 	}
@@ -45,7 +58,6 @@ public class PaymentMode {
 		this.paymentModeDescription = paymentModeDescription;
 	}
 
-	@Column
 	public Integer getPaymentModeStatus() {
 		return paymentModeStatus;
 	}
@@ -54,7 +66,7 @@ public class PaymentMode {
 		this.paymentModeStatus = paymentModeStatus;
 	}
 
-	@Column
+	@Column(name = "created_date", length = 26)
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -63,7 +75,7 @@ public class PaymentMode {
 		this.createdDate = createdDate;
 	}
 
-	@Column
+	@Column(name = "created_by")
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -72,7 +84,7 @@ public class PaymentMode {
 		this.createdBy = createdBy;
 	}
 
-	@Column
+	@Column(name = "updated_date", length = 26)
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -81,7 +93,7 @@ public class PaymentMode {
 		this.updatedDate = updatedDate;
 	}
 
-	@Column
+	@Column(name = "updated_by")
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}
@@ -103,5 +115,4 @@ public class PaymentMode {
 		this.updatedBy = updatedBy;
 	}
 
-	
 }

@@ -1,10 +1,20 @@
 package com.home.practice.entity;
 
-import java.util.Date;
-@Entity
-@Table
-public class OrderReplacementItems {
+import static javax.persistence.GenerationType.IDENTITY;
 
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "order_replacement_items")
+public class OrderReplacementItems implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private Integer orderReplacementItemId;
 	private String validity;
 	private Date validityStartDate;
@@ -26,9 +36,11 @@ public class OrderReplacementItems {
 	public OrderReplacementItems() {
 
 	}
-       @Id
-       @GeneratedValue(strategy= IDENTITY)
-       @Column
+
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+
+	@Column(name = "order_replacement_item_id", unique = true, nullable = false)
 	public Integer getOrderReplacementItemId() {
 		return orderReplacementItemId;
 	}
@@ -36,7 +48,8 @@ public class OrderReplacementItems {
 	public void setOrderReplacementItemId(Integer orderReplacementItemId) {
 		this.orderReplacementItemId = orderReplacementItemId;
 	}
-        @Column
+
+	@Column(name = "validity", length = 26)
 	public String getValidity() {
 		return validity;
 	}
@@ -45,7 +58,7 @@ public class OrderReplacementItems {
 		this.validity = validity;
 	}
 
-	@Column
+	@Column(name = "validity_start_date", length = 26)
 	public Date getValidityStartDate() {
 		return validityStartDate;
 	}
@@ -54,7 +67,7 @@ public class OrderReplacementItems {
 		this.validityStartDate = validityStartDate;
 	}
 
-	@Column
+	@Column(name = "validity_end_date", length = 26)
 	public Date getValidityEndDate() {
 		return validityEndDate;
 	}
@@ -63,7 +76,7 @@ public class OrderReplacementItems {
 		this.validityEndDate = validityEndDate;
 	}
 
-	@Column
+	@Column(name = "order_replacement_id")
 	public Integer getOrderReplacementId() {
 		return orderReplacementId;
 	}
@@ -72,7 +85,7 @@ public class OrderReplacementItems {
 		this.orderReplacementId = orderReplacementId;
 	}
 
-	@Column
+	@Column(name = "replacement_charges")
 	public Integer getReplacementCharges() {
 		return replacementCharges;
 	}
@@ -81,7 +94,7 @@ public class OrderReplacementItems {
 		this.replacementCharges = replacementCharges;
 	}
 
-	@Column
+	@Column(name = " quantity ")
 	public Integer getQuantity() {
 		return quantity;
 	}
@@ -89,7 +102,8 @@ public class OrderReplacementItems {
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
-        @Column
+
+	@Column(name = "sgst_percentage")
 	public Integer getSgstPercentage() {
 		return sgstPercentage;
 	}
@@ -98,7 +112,7 @@ public class OrderReplacementItems {
 		this.sgstPercentage = sgstPercentage;
 	}
 
-	@Column
+	@Column(name = "sgst_price")
 	public Integer getSgstPrice() {
 		return sgstPrice;
 	}
@@ -107,7 +121,7 @@ public class OrderReplacementItems {
 		this.sgstPrice = sgstPrice;
 	}
 
-	@Column
+	@Column(name = "cgst_percentage")
 	public Integer getCgstPercentage() {
 		return cgstPercentage;
 	}
@@ -116,7 +130,7 @@ public class OrderReplacementItems {
 		this.cgstPercentage = cgstPercentage;
 	}
 
-	@Column
+	@Column(name = "cgst_price")
 	public Integer getCgstPrice() {
 		return cgstPrice;
 	}
@@ -124,7 +138,8 @@ public class OrderReplacementItems {
 	public void setCgstPrice(Integer cgstPrice) {
 		this.cgstPrice = cgstPrice;
 	}
-        @Column
+
+	@Column(name = "remarks", length = 50)
 	public String getRemarks() {
 		return remarks;
 	}
@@ -133,7 +148,7 @@ public class OrderReplacementItems {
 		this.remarks = remarks;
 	}
 
-	@Column
+	@Column(name = "notes", length = 50)
 	public String getNotes() {
 		return notes;
 	}
@@ -142,7 +157,7 @@ public class OrderReplacementItems {
 		this.notes = notes;
 	}
 
-	@Column
+	@Column(name = "created_date", length = 26)
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -151,7 +166,7 @@ public class OrderReplacementItems {
 		this.createdDate = createdDate;
 	}
 
-	@Column
+	@Column(name = "created_by")
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -160,7 +175,7 @@ public class OrderReplacementItems {
 		this.createdBy = createdBy;
 	}
 
-	@Column
+	@Column(name = "updated_date", length = 26)
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -169,7 +184,7 @@ public class OrderReplacementItems {
 		this.updatedDate = updatedDate;
 	}
 
-	@Column
+	@Column(name = "updated_by")
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}

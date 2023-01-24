@@ -1,11 +1,21 @@
 package com.home.practice.entity;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 @Entity
-@Table(name = "quotation_enquiry_items)
+@Table(name = "quotation_enquiry_items")
 
-public class QuotationEnquiryItems {
+public class QuotationEnquiryItems implements java.io.Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private Integer quotationItemId;
 	private Integer quotationId;
 	private Integer productId;
@@ -20,9 +30,11 @@ public class QuotationEnquiryItems {
 	public QuotationEnquiryItems() {
 
 	}
-        @Id
+
+	@Id
 	@GeneratedValue(strategy = IDENTITY)
-	@Column
+
+	@Column(name = "quotation_item_id", unique = true, nullable = false)
 	public Integer getQuotationItemId() {
 		return quotationItemId;
 	}
@@ -30,7 +42,8 @@ public class QuotationEnquiryItems {
 	public void setQuotationItemId(Integer quotationItemId) {
 		this.quotationItemId = quotationItemId;
 	}
-        @Column
+
+	@Column(name = "quotation_id")
 	public Integer getQuotationId() {
 		return quotationId;
 	}
@@ -39,7 +52,7 @@ public class QuotationEnquiryItems {
 		this.quotationId = quotationId;
 	}
 
-	@Column
+	@Column(name = "product_id")
 	public Integer getProductId() {
 		return productId;
 	}
@@ -47,7 +60,8 @@ public class QuotationEnquiryItems {
 	public void setProductId(Integer productId) {
 		this.productId = productId;
 	}
-        @Column
+
+	@Column(name = "offer_id")
 	public Integer getOfferId() {
 		return offerId;
 	}
@@ -56,7 +70,7 @@ public class QuotationEnquiryItems {
 		this.offerId = offerId;
 	}
 
-	@Column
+	@Column(name = "quantity")
 	public Integer getQuantity() {
 		return quantity;
 	}
@@ -65,7 +79,7 @@ public class QuotationEnquiryItems {
 		this.quantity = quantity;
 	}
 
-	@Column
+	@Column(name = "unit_price")
 	public Integer getUnitPrice() {
 		return unitPrice;
 	}
@@ -74,7 +88,7 @@ public class QuotationEnquiryItems {
 		this.unitPrice = unitPrice;
 	}
 
-	@Column
+	@Column(name = "created_date", length = 26)
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -83,7 +97,7 @@ public class QuotationEnquiryItems {
 		this.createdDate = createdDate;
 	}
 
-	@Column
+	@Column(name = "created_by")
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -92,7 +106,7 @@ public class QuotationEnquiryItems {
 		this.createdBy = createdBy;
 	}
 
-	@Column
+	@Column(name = "updated_date", length = 26)
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -101,7 +115,7 @@ public class QuotationEnquiryItems {
 		this.updatedDate = updatedDate;
 	}
 
-	@Column
+	@Column(name = "updated_by")
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}
@@ -126,5 +140,4 @@ public class QuotationEnquiryItems {
 		this.updatedBy = updatedBy;
 	}
 
-	
 }

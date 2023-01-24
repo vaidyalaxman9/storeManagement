@@ -1,10 +1,20 @@
 package com.home.practice.entity;
 
-import java.util.Date;
-@Entity
-@Table(name = "Product")
-public class Product {
+import static javax.persistence.GenerationType.IDENTITY;
 
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "product")
+public class Product implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private Integer productId;
 	private String productName;
 	private String productDescription;
@@ -23,14 +33,19 @@ public class Product {
 	private Integer createdBy;
 	private Date updatedDate;
 	private Integer updatedBy;
-	
-	public Product () {
-		
+
+	public Product() {
+
 	}
-        @Id
+
+	public Product(String productName) {
+		this.productName = productName;
+	}
+
+	@Id
 	@GeneratedValue(strategy = IDENTITY)
-	
-	@Column
+
+	@Column(name = "product_id", unique = true, nullable = false)
 	public Integer getProductId() {
 		return productId;
 	}
@@ -39,7 +54,7 @@ public class Product {
 		this.productId = productId;
 	}
 
-	@Column
+	@Column(name = "product_name", nullable = false, length = 15)
 	public String getProductName() {
 		return productName;
 	}
@@ -48,7 +63,7 @@ public class Product {
 		this.productName = productName;
 	}
 
-	@Column
+	@Column(name = "product_description", length = 50)
 	public String getProductDescription() {
 		return productDescription;
 	}
@@ -56,7 +71,8 @@ public class Product {
 	public void setProductDescription(String productDescription) {
 		this.productDescription = productDescription;
 	}
-        @Column
+
+	@Column(name = "category_id")
 	public Integer getCategoryId() {
 		return categoryId;
 	}
@@ -64,7 +80,8 @@ public class Product {
 	public void setCategoryId(Integer categoryId) {
 		this.categoryId = categoryId;
 	}
-        @Column
+
+	@Column(name = "brand_id")
 	public Integer getBrandId() {
 		return brandId;
 	}
@@ -73,7 +90,7 @@ public class Product {
 		this.brandId = brandId;
 	}
 
-	@Column
+	@Column(name = "product_quantity")
 	public Integer getProductQuantity() {
 		return productQuantity;
 	}
@@ -81,7 +98,8 @@ public class Product {
 	public void setProductQuantity(Integer productQuantity) {
 		this.productQuantity = productQuantity;
 	}
-        @Column
+
+	@Column(name = "product_price")
 	public Integer getProductPrice() {
 		return productPrice;
 	}
@@ -89,7 +107,8 @@ public class Product {
 	public void setProductPrice(Integer productPrice) {
 		this.productPrice = productPrice;
 	}
-        @Column
+
+	@Column(name = "catalog_price")
 	public Integer getCatalogPrice() {
 		return catalogPrice;
 	}
@@ -98,7 +117,7 @@ public class Product {
 		this.catalogPrice = catalogPrice;
 	}
 
-	@Column
+	@Column(name = "sgst_percentage")
 	public Integer getSgstPercentage() {
 		return sgstPercentage;
 	}
@@ -107,7 +126,7 @@ public class Product {
 		this.sgstPercentage = sgstPercentage;
 	}
 
-	@Column
+	@Column(name = "cgst_percentage")
 	public Integer getCgstPercentage() {
 		return cgstPercentage;
 	}
@@ -115,7 +134,8 @@ public class Product {
 	public void setCgstPercentage(Integer cgstPercentage) {
 		this.cgstPercentage = cgstPercentage;
 	}
-        @Column
+
+	@Column(name = "product_barcode", length = 100)
 	public String getProductBarcode() {
 		return productBarcode;
 	}
@@ -124,7 +144,7 @@ public class Product {
 		this.productBarcode = productBarcode;
 	}
 
-	@Column
+	@Column(name = "validity", length = 1)
 	public String getValidity() {
 		return validity;
 	}
@@ -133,7 +153,7 @@ public class Product {
 		this.validity = validity;
 	}
 
-	@Column
+	@Column(name = "validity_period")
 	public String getValidityPeriod() {
 		return validityPeriod;
 	}
@@ -142,7 +162,6 @@ public class Product {
 		this.validityPeriod = validityPeriod;
 	}
 
-	@Column
 	public Integer getProductStatus() {
 		return productStatus;
 	}
@@ -151,7 +170,7 @@ public class Product {
 		this.productStatus = productStatus;
 	}
 
-	@Column
+	@Column(name = "created_date", length = 26)
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -160,7 +179,7 @@ public class Product {
 		this.createdDate = createdDate;
 	}
 
-	@Column
+	@Column(name = "created_by")
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -169,7 +188,7 @@ public class Product {
 		this.createdBy = createdBy;
 	}
 
-	@Column
+	@Column(name = "updated_date", length = 26)
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -178,7 +197,7 @@ public class Product {
 		this.updatedDate = updatedDate;
 	}
 
-	@Column
+	@Column(name = "updated_by")
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}
@@ -212,6 +231,5 @@ public class Product {
 		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
-	
-	
+
 }

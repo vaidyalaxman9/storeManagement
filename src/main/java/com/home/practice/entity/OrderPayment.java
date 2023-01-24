@@ -1,10 +1,20 @@
 package com.home.practice.entity;
 
-import java.util.Date;
-@Entity
-@Table (name="order_payment")
-public class OrderPayment {
+import static javax.persistence.GenerationType.IDENTITY;
 
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "order_payment")
+public class OrderPayment implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private Integer paymentId;
 	private Integer orderItemId;
 	private Integer amount;
@@ -23,17 +33,18 @@ public class OrderPayment {
 	}
 
 	@Id
-	@GeneratedValue(strategy= IDENTITY)
-	@Column
+	@GeneratedValue(strategy = IDENTITY)
+
+	@Column(name = "payment_id", unique = true, nullable = false)
 	public Integer getPaymentId() {
 		return paymentId;
 	}
 
-	
 	public void setPaymentId(Integer paymentId) {
 		this.paymentId = paymentId;
 	}
-        @Column
+
+	@Column(name = "order_item_id")
 	public Integer getOrderItemId() {
 		return orderItemId;
 	}
@@ -42,7 +53,7 @@ public class OrderPayment {
 		this.orderItemId = orderItemId;
 	}
 
-	@Column
+	@Column(name = "amount")
 	public Integer getAmount() {
 		return amount;
 	}
@@ -51,7 +62,7 @@ public class OrderPayment {
 		this.amount = amount;
 	}
 
-	@Column
+	@Column(name = "remarks", length = 50)
 	public String getRemarks() {
 		return remarks;
 	}
@@ -60,7 +71,7 @@ public class OrderPayment {
 		this.remarks = remarks;
 	}
 
-	@Column
+	@Column(name = "payment_date", length = 26)
 	public Date getPaymentDate() {
 		return paymentDate;
 	}
@@ -68,7 +79,8 @@ public class OrderPayment {
 	public void setPaymentDate(Date paymentDate) {
 		this.paymentDate = paymentDate;
 	}
-        @Column
+
+	@Column(name = "transaction_id")
 	public Integer getTransactionId() {
 		return transactionId;
 	}
@@ -76,7 +88,8 @@ public class OrderPayment {
 	public void setTransactionId(Integer transactionId) {
 		this.transactionId = transactionId;
 	}
-        @Column
+
+	@Column(name = "payment_mode")
 	public Integer getPaymentMode() {
 		return paymentMode;
 	}
@@ -85,7 +98,6 @@ public class OrderPayment {
 		this.paymentMode = paymentMode;
 	}
 
-	@Column
 	public Integer getPaymentStatus() {
 		return paymentStatus;
 	}
@@ -94,7 +106,7 @@ public class OrderPayment {
 		this.paymentStatus = paymentStatus;
 	}
 
-	@Column
+	@Column(name = "created_date", length = 26)
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -103,7 +115,7 @@ public class OrderPayment {
 		this.createdDate = createdDate;
 	}
 
-	@Column
+	@Column(name = "created_by")
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -112,7 +124,7 @@ public class OrderPayment {
 		this.createdBy = createdBy;
 	}
 
-	@Column
+	@Column(name = "updated_date", length = 26)
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -121,7 +133,7 @@ public class OrderPayment {
 		this.updatedDate = updatedDate;
 	}
 
-	@Column
+	@Column(name = "updated_by")
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}
@@ -147,6 +159,5 @@ public class OrderPayment {
 		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
-	
-	
+
 }

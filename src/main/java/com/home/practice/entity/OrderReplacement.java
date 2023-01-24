@@ -1,10 +1,20 @@
 package com.home.practice.entity;
 
-import java.util.Date;
-@Entity
-@Table (name = "order_replacement")
-public class OrderReplacement {
+import static javax.persistence.GenerationType.IDENTITY;
 
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "order_replacement")
+public class OrderReplacement implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private Integer orderReplacementId;
 	private Integer orderId;
 	private Integer empId;
@@ -18,9 +28,11 @@ public class OrderReplacement {
 	public OrderReplacement() {
 
 	}
-       @Id
-       @GeneratedValue(strategy= IDENTITY)
-       @Column
+
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+
+	@Column(name = "order_replacement_id", unique = true, nullable = false)
 	public Integer getOrderReplacementId() {
 		return orderReplacementId;
 	}
@@ -29,7 +41,7 @@ public class OrderReplacement {
 		this.orderReplacementId = orderReplacementId;
 	}
 
-	@Column
+	@Column(name = "order_id")
 	public Integer getOrderId() {
 		return orderId;
 	}
@@ -38,7 +50,7 @@ public class OrderReplacement {
 		this.orderId = orderId;
 	}
 
-	@Column
+	@Column(name = "emp_id")
 	public Integer getEmpId() {
 		return empId;
 	}
@@ -47,7 +59,7 @@ public class OrderReplacement {
 		this.empId = empId;
 	}
 
-	@Column
+	@Column(name = "replacement_date", length = 26)
 	public Date getReplacementDate() {
 		return replacementDate;
 	}
@@ -56,7 +68,6 @@ public class OrderReplacement {
 		this.replacementDate = replacementDate;
 	}
 
-	@Column
 	public Integer getReplacementStatus() {
 		return replacementStatus;
 	}
@@ -65,7 +76,7 @@ public class OrderReplacement {
 		this.replacementStatus = replacementStatus;
 	}
 
-	@Column
+	@Column(name = "created_date", length = 26)
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -74,7 +85,7 @@ public class OrderReplacement {
 		this.createdDate = createdDate;
 	}
 
-	@Column
+	@Column(name = "created_by")
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -83,7 +94,7 @@ public class OrderReplacement {
 		this.createdBy = createdBy;
 	}
 
-	@Column
+	@Column(name = "updated_date", length = 26)
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -92,7 +103,7 @@ public class OrderReplacement {
 		this.updatedDate = updatedDate;
 	}
 
-	@Column
+	@Column(name = "updated_by")
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}

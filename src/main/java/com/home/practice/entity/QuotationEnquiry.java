@@ -1,10 +1,20 @@
 package com.home.practice.entity;
 
-import java.util.Date;
-@Entity 
-@Table(name ="quotation_enquiry)
-public class QuotationEnquiry {
+import static javax.persistence.GenerationType.IDENTITY;
 
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "quotation_enquiry")
+public class QuotationEnquiry implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private Integer quotationId;
 	private Date quotationDate;
 	private Integer empId;
@@ -21,9 +31,11 @@ public class QuotationEnquiry {
 	public QuotationEnquiry() {
 
 	}
-        @Id
+
+	@Id
 	@GeneratedValue(strategy = IDENTITY)
-	@Column
+
+	@Column(name = "quotation_id", unique = true, nullable = false)
 	public Integer getQuotationId() {
 		return quotationId;
 	}
@@ -32,7 +44,7 @@ public class QuotationEnquiry {
 		this.quotationId = quotationId;
 	}
 
-	@Column
+	@Column(name = "quotation_date", length = 26)
 	public Date getQuotationDate() {
 		return quotationDate;
 	}
@@ -41,7 +53,7 @@ public class QuotationEnquiry {
 		this.quotationDate = quotationDate;
 	}
 
-	@Column
+	@Column(name = "emp_id")
 	public Integer getEmpId() {
 		return empId;
 	}
@@ -50,7 +62,7 @@ public class QuotationEnquiry {
 		this.empId = empId;
 	}
 
-	@Column
+	@Column(name = "customer_name", length = 15)
 	public String getCustomerName() {
 		return customerName;
 	}
@@ -59,7 +71,7 @@ public class QuotationEnquiry {
 		this.customerName = customerName;
 	}
 
-	@Column
+	@Column(name = "mobile_number", length = 13)
 	public String getMobileNumber() {
 		return mobileNumber;
 	}
@@ -68,7 +80,7 @@ public class QuotationEnquiry {
 		this.mobileNumber = mobileNumber;
 	}
 
-	@Column
+	@Column(name = "address", length = 50)
 	public String getAddress() {
 		return address;
 	}
@@ -77,7 +89,7 @@ public class QuotationEnquiry {
 		this.address = address;
 	}
 
-	@Column
+	@Column(name = "remarks", length = 50)
 	public String getRemarks() {
 		return remarks;
 	}
@@ -86,7 +98,6 @@ public class QuotationEnquiry {
 		this.remarks = remarks;
 	}
 
-	@Column
 	public Integer getQuotationStatus() {
 		return quotationStatus;
 	}
@@ -95,7 +106,7 @@ public class QuotationEnquiry {
 		this.quotationStatus = quotationStatus;
 	}
 
-	@Column
+	@Column(name = "created_date", length = 26)
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -104,7 +115,7 @@ public class QuotationEnquiry {
 		this.createdDate = createdDate;
 	}
 
-	@Column
+	@Column(name = "created_by")
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
@@ -113,7 +124,7 @@ public class QuotationEnquiry {
 		this.createdBy = createdBy;
 	}
 
-	@Column
+	@Column(name = "updated_date", length = 26)
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
@@ -121,7 +132,8 @@ public class QuotationEnquiry {
 	public void setUpdatedDate(Date updatedDate) {
 		this.updatedDate = updatedDate;
 	}
-        @Column
+
+	@Column(name = "updated_by")
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}
@@ -147,6 +159,5 @@ public class QuotationEnquiry {
 		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
-	
-	
+
 }

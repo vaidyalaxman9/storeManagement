@@ -5,4 +5,8 @@
 .project
 .settings
 /bin/
+<<<<<<< HEAD
 /target/
+=======
+/target/
+>>>>>>> 2de2c67072603dbb1e01d9c85e978aea6aaabfc8

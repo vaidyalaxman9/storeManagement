@@ -24,16 +24,28 @@ public class StatusGroup implements java.io.Serializable {
 	private Integer updatedBy;
 
 	public StatusGroup() {
-
+		super();
 	}
 
-	public StatusGroup(String statusGroupName) {
+	public StatusGroup(Integer statusGroupId, String statusGroupName) {
+		this.statusGroupId = statusGroupId;
 		this.statusGroupName = statusGroupName;
+	}
+
+	public StatusGroup(Integer statusGroupId, String statusGroupName, String statusGroupDescription, Date createdDate,
+			Integer createdBy, Date updatedDate, Integer updatedBy) {
+		super();
+		this.statusGroupId = statusGroupId;
+		this.statusGroupName = statusGroupName;
+		this.statusGroupDescription = statusGroupDescription;
+		this.createdDate = createdDate;
+		this.createdBy = createdBy;
+		this.updatedDate = updatedDate;
+		this.updatedBy = updatedBy;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "status_group_id", unique = true, nullable = false)
 	public Integer getStatusGroupId() {
 		return statusGroupId;
@@ -94,18 +106,6 @@ public class StatusGroup implements java.io.Serializable {
 	}
 
 	public void setUpdatedBy(Integer updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public StatusGroup(Integer statusGroupId, String statusGroupName, String statusGroupDescription, Date createdDate,
-			Integer createdBy, Date updatedDate, Integer updatedBy) {
-		super();
-		this.statusGroupId = statusGroupId;
-		this.statusGroupName = statusGroupName;
-		this.statusGroupDescription = statusGroupDescription;
-		this.createdDate = createdDate;
-		this.createdBy = createdBy;
-		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
 

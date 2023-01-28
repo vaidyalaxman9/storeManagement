@@ -26,12 +26,32 @@ public class Invoice implements java.io.Serializable {
 	private Integer updatedBy;
 
 	public Invoice() {
+		super();
+	}
 
+	public Invoice(Integer invoiceId, Integer orderId, Integer empId, Integer invoiceStatus) {
+		this.invoiceId = invoiceId;
+		this.orderId = orderId;
+		this.empId = empId;
+		this.invoiceStatus = invoiceStatus;
+	}
+
+	public Invoice(Integer invoiceId, Integer orderId, Integer empId, Date invoiceDate, Integer invoiceStatus,
+			Date createdDate, Integer createdBy, Date updatedDate, Integer updatedBy) {
+		super();
+		this.invoiceId = invoiceId;
+		this.orderId = orderId;
+		this.empId = empId;
+		this.invoiceDate = invoiceDate;
+		this.invoiceStatus = invoiceStatus;
+		this.createdDate = createdDate;
+		this.createdBy = createdBy;
+		this.updatedDate = updatedDate;
+		this.updatedBy = updatedBy;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "invoice_id", unique = true, nullable = false)
 	public Integer getInvoiceId() {
 		return invoiceId;
@@ -109,20 +129,6 @@ public class Invoice implements java.io.Serializable {
 	}
 
 	public void setUpdatedBy(Integer updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public Invoice(Integer invoiceId, Integer orderId, Integer empId, Date invoiceDate, Integer invoiceStatus,
-			Date createdDate, Integer createdBy, Date updatedDate, Integer updatedBy) {
-		super();
-		this.invoiceId = invoiceId;
-		this.orderId = orderId;
-		this.empId = empId;
-		this.invoiceDate = invoiceDate;
-		this.invoiceStatus = invoiceStatus;
-		this.createdDate = createdDate;
-		this.createdBy = createdBy;
-		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
 

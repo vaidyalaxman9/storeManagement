@@ -30,16 +30,36 @@ public class CustomerAddress implements java.io.Serializable {
 	private Integer updatedBy;
 
 	public CustomerAddress() {
-
+		super();
 	}
 
-	public CustomerAddress(String addressType) {
+	public CustomerAddress(Integer addressId, String addressType, Integer customerId) {
+		this.addressId = addressId;
 		this.addressType = addressType;
+		this.customerId = customerId;
+	}
+
+	public CustomerAddress(Integer addressId, String addressType, String line1, String line2, String line3,
+			Integer pincode, String state, Integer customerId, String overallDefault, Date createdDate,
+			Integer createdBy, Date updatedDate, Integer updatedBy) {
+		super();
+		this.addressId = addressId;
+		this.addressType = addressType;
+		this.line1 = line1;
+		this.line2 = line2;
+		this.line3 = line3;
+		this.pincode = pincode;
+		this.state = state;
+		this.customerId = customerId;
+		this.overallDefault = overallDefault;
+		this.createdDate = createdDate;
+		this.createdBy = createdBy;
+		this.updatedDate = updatedDate;
+		this.updatedBy = updatedBy;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "address_id", unique = true, nullable = false)
 	public Integer getAddressId() {
 		return addressId;
@@ -153,25 +173,6 @@ public class CustomerAddress implements java.io.Serializable {
 	}
 
 	public void setUpdatedBy(Integer updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public CustomerAddress(Integer addressId, String addressType, String line1, String line2, String line3,
-			Integer pincode, String state, Integer customerId, String overallDefault, Date createdDate,
-			Integer createdBy, Date updatedDate, Integer updatedBy) {
-		super();
-		this.addressId = addressId;
-		this.addressType = addressType;
-		this.line1 = line1;
-		this.line2 = line2;
-		this.line3 = line3;
-		this.pincode = pincode;
-		this.state = state;
-		this.customerId = customerId;
-		this.overallDefault = overallDefault;
-		this.createdDate = createdDate;
-		this.createdBy = createdBy;
-		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
 

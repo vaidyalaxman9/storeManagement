@@ -33,12 +33,42 @@ public class Orders implements java.io.Serializable {
 	private Integer updatedBy;
 
 	public Orders() {
+		super();
+	}
 
+	public Orders(Integer orderId, Integer customerId, Integer empId, Integer offerId, Integer orderStatus) {
+		this.orderId = orderId;
+		this.customerId = customerId;
+		this.empId = empId;
+		this.offerId = offerId;
+		this.orderStatus = orderStatus;
+	}
+
+	public Orders(Integer orderId, Integer customerId, Integer empId, Integer offerId, Integer paidAmount,
+			Integer remainingAmount, Integer totalAmount, Date date, String gstinNumber, String panNumber,
+			String remarks, Integer orderStatus, Date createdDate, Integer createdBy, Date updatedDate,
+			Integer updatedBy) {
+		super();
+		this.orderId = orderId;
+		this.customerId = customerId;
+		this.empId = empId;
+		this.offerId = offerId;
+		this.paidAmount = paidAmount;
+		this.remainingAmount = remainingAmount;
+		this.totalAmount = totalAmount;
+		this.date = date;
+		this.gstinNumber = gstinNumber;
+		this.panNumber = panNumber;
+		this.remarks = remarks;
+		this.orderStatus = orderStatus;
+		this.createdDate = createdDate;
+		this.createdBy = createdBy;
+		this.updatedDate = updatedDate;
+		this.updatedBy = updatedBy;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "order_id", unique = true, nullable = false)
 	public Integer getOrderId() {
 		return orderId;
@@ -179,29 +209,6 @@ public class Orders implements java.io.Serializable {
 	}
 
 	public void setUpdatedBy(Integer updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public Orders(Integer orderId, Integer customerId, Integer empId, Integer offerId, Integer paidAmount,
-			Integer remainingAmount, Integer totalAmount, Date date, String gstinNumber, String panNumber,
-			String remarks, Integer orderStatus, Date createdDate, Integer createdBy, Date updatedDate,
-			Integer updatedBy) {
-		super();
-		this.orderId = orderId;
-		this.customerId = customerId;
-		this.empId = empId;
-		this.offerId = offerId;
-		this.paidAmount = paidAmount;
-		this.remainingAmount = remainingAmount;
-		this.totalAmount = totalAmount;
-		this.date = date;
-		this.gstinNumber = gstinNumber;
-		this.panNumber = panNumber;
-		this.remarks = remarks;
-		this.orderStatus = orderStatus;
-		this.createdDate = createdDate;
-		this.createdBy = createdBy;
-		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
 

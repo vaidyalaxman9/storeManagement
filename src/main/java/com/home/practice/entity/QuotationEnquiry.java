@@ -29,12 +29,35 @@ public class QuotationEnquiry implements java.io.Serializable {
 	private Integer updatedBy;
 
 	public QuotationEnquiry() {
+		super();
+	}
 
+	public QuotationEnquiry(Integer quotationId, Integer empId, Integer quotationStatus) {
+		this.quotationId = quotationId;
+		this.empId = empId;
+		this.quotationStatus = quotationStatus;
+	}
+
+	public QuotationEnquiry(Integer quotationId, Date quotationDate, Integer empId, String customerName,
+			String mobileNumber, String address, String remarks, Integer quotationStatus, Date createdDate,
+			Integer createdBy, Date updatedDate, Integer updatedBy) {
+		super();
+		this.quotationId = quotationId;
+		this.quotationDate = quotationDate;
+		this.empId = empId;
+		this.customerName = customerName;
+		this.mobileNumber = mobileNumber;
+		this.address = address;
+		this.remarks = remarks;
+		this.quotationStatus = quotationStatus;
+		this.createdDate = createdDate;
+		this.createdBy = createdBy;
+		this.updatedDate = updatedDate;
+		this.updatedBy = updatedBy;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "quotation_id", unique = true, nullable = false)
 	public Integer getQuotationId() {
 		return quotationId;
@@ -139,24 +162,6 @@ public class QuotationEnquiry implements java.io.Serializable {
 	}
 
 	public void setUpdatedBy(Integer updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public QuotationEnquiry(Integer quotationId, Date quotationDate, Integer empId, String customerName,
-			String mobileNumber, String address, String remarks, Integer quotationStatus, Date createdDate,
-			Integer createdBy, Date updatedDate, Integer updatedBy) {
-		super();
-		this.quotationId = quotationId;
-		this.quotationDate = quotationDate;
-		this.empId = empId;
-		this.customerName = customerName;
-		this.mobileNumber = mobileNumber;
-		this.address = address;
-		this.remarks = remarks;
-		this.quotationStatus = quotationStatus;
-		this.createdDate = createdDate;
-		this.createdBy = createdBy;
-		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
 

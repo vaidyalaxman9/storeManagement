@@ -25,16 +25,30 @@ public class ProductCategory implements java.io.Serializable {
 	private Integer updatedBy;
 
 	public ProductCategory() {
-
+		super();
 	}
 
-	public ProductCategory(String categoryName) {
+	public ProductCategory(Integer categoryId, String categoryName, Integer categoryStatus) {
+		this.categoryId = categoryId;
 		this.categoryName = categoryName;
+		this.categoryStatus = categoryStatus;
+	}
+
+	public ProductCategory(Integer categoryId, String categoryName, String categoryDescription, Integer categoryStatus,
+			Date createdDate, Integer createdBy, Date updatedDate, Integer updatedBy) {
+		super();
+		this.categoryId = categoryId;
+		this.categoryName = categoryName;
+		this.categoryDescription = categoryDescription;
+		this.categoryStatus = categoryStatus;
+		this.createdDate = createdDate;
+		this.createdBy = createdBy;
+		this.updatedDate = updatedDate;
+		this.updatedBy = updatedBy;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "category_id", unique = true, nullable = false)
 	public Integer getCategoryId() {
 		return categoryId;
@@ -103,19 +117,6 @@ public class ProductCategory implements java.io.Serializable {
 	}
 
 	public void setUpdatedBy(Integer updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public ProductCategory(Integer categoryId, String categoryName, String categoryDescription, Integer categoryStatus,
-			Date createdDate, Integer createdBy, Date updatedDate, Integer updatedBy) {
-		super();
-		this.categoryId = categoryId;
-		this.categoryName = categoryName;
-		this.categoryDescription = categoryDescription;
-		this.categoryStatus = categoryStatus;
-		this.createdDate = createdDate;
-		this.createdBy = createdBy;
-		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
 

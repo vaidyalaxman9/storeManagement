@@ -35,12 +35,42 @@ public class OrderItems implements java.io.Serializable {
 	private Integer updatedBy;
 
 	public OrderItems() {
+		super();
+	}
 
+	public OrderItems(Integer orderItemId, Integer orderId, Integer productId) {
+		this.orderItemId = orderItemId;
+		this.orderId = orderId;
+		this.productId = productId;
+	}
+
+	public OrderItems(Integer orderItemId, Integer orderId, Integer productId, Integer orderQuantity, Integer unitPrice,
+			Integer discountAmount, Integer discountPercentage, String validity, Date validityStartDate,
+			Date validityEndDate, Integer sgstPercentage, Integer sgstPrice, Integer cgstPercentage, Integer cgstPrice,
+			Date createdDate, Integer createdBy, Date updatedDate, Integer updatedBy) {
+		super();
+		this.orderItemId = orderItemId;
+		this.orderId = orderId;
+		this.productId = productId;
+		this.orderQuantity = orderQuantity;
+		this.unitPrice = unitPrice;
+		this.discountAmount = discountAmount;
+		this.discountPercentage = discountPercentage;
+		this.validity = validity;
+		this.validityStartDate = validityStartDate;
+		this.validityEndDate = validityEndDate;
+		this.sgstPercentage = sgstPercentage;
+		this.sgstPrice = sgstPrice;
+		this.cgstPercentage = cgstPercentage;
+		this.cgstPrice = cgstPrice;
+		this.createdDate = createdDate;
+		this.createdBy = createdBy;
+		this.updatedDate = updatedDate;
+		this.updatedBy = updatedBy;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "order_item_id", unique = true, nullable = false)
 	public Integer getOrderItemId() {
 		return orderItemId;
@@ -200,31 +230,6 @@ public class OrderItems implements java.io.Serializable {
 	}
 
 	public void setUpdatedBy(Integer updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public OrderItems(Integer orderItemId, Integer orderId, Integer productId, Integer orderQuantity, Integer unitPrice,
-			Integer discountAmount, Integer discountPercentage, String validity, Date validityStartDate,
-			Date validityEndDate, Integer sgstPercentage, Integer sgstPrice, Integer cgstPercentage, Integer cgstPrice,
-			Date createdDate, Integer createdBy, Date updatedDate, Integer updatedBy) {
-		super();
-		this.orderItemId = orderItemId;
-		this.orderId = orderId;
-		this.productId = productId;
-		this.orderQuantity = orderQuantity;
-		this.unitPrice = unitPrice;
-		this.discountAmount = discountAmount;
-		this.discountPercentage = discountPercentage;
-		this.validity = validity;
-		this.validityStartDate = validityStartDate;
-		this.validityEndDate = validityEndDate;
-		this.sgstPercentage = sgstPercentage;
-		this.sgstPrice = sgstPrice;
-		this.cgstPercentage = cgstPercentage;
-		this.cgstPrice = cgstPrice;
-		this.createdDate = createdDate;
-		this.createdBy = createdBy;
-		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
 

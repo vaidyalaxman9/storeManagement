@@ -26,12 +26,32 @@ public class OrderReplacement implements java.io.Serializable {
 	private Integer updatedBy;
 
 	public OrderReplacement() {
+		super();
+	}
 
+	public OrderReplacement(Integer orderReplacementId, Integer orderId, Integer empId, Integer replacementStatus) {
+		this.orderReplacementId = orderReplacementId;
+		this.orderId = orderId;
+		this.empId = empId;
+		this.replacementStatus = replacementStatus;
+	}
+
+	public OrderReplacement(Integer orderReplacementId, Integer orderId, Integer empId, Date replacementDate,
+			Integer replacementStatus, Date createdDate, Integer createdBy, Date updatedDate, Integer updatedBy) {
+		super();
+		this.orderReplacementId = orderReplacementId;
+		this.orderId = orderId;
+		this.empId = empId;
+		this.replacementDate = replacementDate;
+		this.replacementStatus = replacementStatus;
+		this.createdDate = createdDate;
+		this.createdBy = createdBy;
+		this.updatedDate = updatedDate;
+		this.updatedBy = updatedBy;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "order_replacement_id", unique = true, nullable = false)
 	public Integer getOrderReplacementId() {
 		return orderReplacementId;
@@ -109,20 +129,6 @@ public class OrderReplacement implements java.io.Serializable {
 	}
 
 	public void setUpdatedBy(Integer updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public OrderReplacement(Integer orderReplacementId, Integer orderId, Integer empId, Date replacementDate,
-			Integer replacementStatus, Date createdDate, Integer createdBy, Date updatedDate, Integer updatedBy) {
-		super();
-		this.orderReplacementId = orderReplacementId;
-		this.orderId = orderId;
-		this.empId = empId;
-		this.replacementDate = replacementDate;
-		this.replacementStatus = replacementStatus;
-		this.createdDate = createdDate;
-		this.createdBy = createdBy;
-		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
 

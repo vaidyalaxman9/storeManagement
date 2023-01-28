@@ -29,12 +29,36 @@ public class OrderPayment implements java.io.Serializable {
 	private Integer updatedBy;
 
 	public OrderPayment() {
+		super();
+	}
 
+	public OrderPayment(Integer paymentId, Integer orderItemId, Integer paymentMode, Integer paymentStatus) {
+		this.paymentId = paymentId;
+		this.orderItemId = orderItemId;
+		this.paymentMode = paymentMode;
+		this.paymentStatus = paymentStatus;
+	}
+
+	public OrderPayment(Integer paymentId, Integer orderItemId, Integer amount, String remarks, Date paymentDate,
+			Integer transactionId, Integer paymentMode, Integer paymentStatus, Date createdDate, Integer createdBy,
+			Date updatedDate, Integer updatedBy) {
+		super();
+		this.paymentId = paymentId;
+		this.orderItemId = orderItemId;
+		this.amount = amount;
+		this.remarks = remarks;
+		this.paymentDate = paymentDate;
+		this.transactionId = transactionId;
+		this.paymentMode = paymentMode;
+		this.paymentStatus = paymentStatus;
+		this.createdDate = createdDate;
+		this.createdBy = createdBy;
+		this.updatedDate = updatedDate;
+		this.updatedBy = updatedBy;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "payment_id", unique = true, nullable = false)
 	public Integer getPaymentId() {
 		return paymentId;
@@ -139,24 +163,6 @@ public class OrderPayment implements java.io.Serializable {
 	}
 
 	public void setUpdatedBy(Integer updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public OrderPayment(Integer paymentId, Integer orderItemId, Integer amount, String remarks, Date paymentDate,
-			Integer transactionId, Integer paymentMode, Integer paymentStatus, Date createdDate, Integer createdBy,
-			Date updatedDate, Integer updatedBy) {
-		super();
-		this.paymentId = paymentId;
-		this.orderItemId = orderItemId;
-		this.amount = amount;
-		this.remarks = remarks;
-		this.paymentDate = paymentDate;
-		this.transactionId = transactionId;
-		this.paymentMode = paymentMode;
-		this.paymentStatus = paymentStatus;
-		this.createdDate = createdDate;
-		this.createdBy = createdBy;
-		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
 

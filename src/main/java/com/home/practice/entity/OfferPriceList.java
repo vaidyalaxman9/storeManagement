@@ -25,12 +25,30 @@ public class OfferPriceList implements java.io.Serializable {
 	private Integer updatedBy;
 
 	public OfferPriceList() {
+		super();
+	}
 
+	public OfferPriceList(Integer priceListId, Integer offerId, Integer productId) {
+		this.priceListId = priceListId;
+		this.offerId = offerId;
+		this.productId = productId;
+	}
+
+	public OfferPriceList(Integer priceListId, Integer offerId, Integer productId, Integer offerPrice, Date createdDate,
+			Integer createdBy, Date updatedDate, Integer updatedBy) {
+		super();
+		this.priceListId = priceListId;
+		this.offerId = offerId;
+		this.productId = productId;
+		this.offerPrice = offerPrice;
+		this.createdDate = createdDate;
+		this.createdBy = createdBy;
+		this.updatedDate = updatedDate;
+		this.updatedBy = updatedBy;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "offer_price_list_id", unique = true, nullable = false)
 	public Integer getPriceListId() {
 		return priceListId;
@@ -100,19 +118,6 @@ public class OfferPriceList implements java.io.Serializable {
 	}
 
 	public void setUpdatedBy(Integer updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public OfferPriceList(Integer priceListId, Integer offerId, Integer productId, Integer offerPrice, Date createdDate,
-			Integer createdBy, Date updatedDate, Integer updatedBy) {
-		super();
-		this.priceListId = priceListId;
-		this.offerId = offerId;
-		this.productId = productId;
-		this.offerPrice = offerPrice;
-		this.createdDate = createdDate;
-		this.createdBy = createdBy;
-		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
 

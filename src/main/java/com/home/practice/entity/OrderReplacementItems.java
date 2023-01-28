@@ -34,12 +34,40 @@ public class OrderReplacementItems implements java.io.Serializable {
 	private Integer updatedBy;
 
 	public OrderReplacementItems() {
+		super();
+	}
 
+	public OrderReplacementItems(Integer orderReplacementItemId, Integer orderReplacementId) {
+		this.orderReplacementItemId = orderReplacementItemId;
+		this.orderReplacementId = orderReplacementId;
+	}
+
+	public OrderReplacementItems(Integer orderReplacementItemId, String validity, Date validityStartDate,
+			Date validityEndDate, Integer orderReplacementId, Integer replacementCharges, Integer quantity,
+			Integer sgstPercentage, Integer sgstPrice, Integer cgstPercentage, Integer cgstPrice, String remarks,
+			String notes, Date createdDate, Integer createdBy, Date updatedDate, Integer updatedBy) {
+		super();
+		this.orderReplacementItemId = orderReplacementItemId;
+		this.validity = validity;
+		this.validityStartDate = validityStartDate;
+		this.validityEndDate = validityEndDate;
+		this.orderReplacementId = orderReplacementId;
+		this.replacementCharges = replacementCharges;
+		this.quantity = quantity;
+		this.sgstPercentage = sgstPercentage;
+		this.sgstPrice = sgstPrice;
+		this.cgstPercentage = cgstPercentage;
+		this.cgstPrice = cgstPrice;
+		this.remarks = remarks;
+		this.notes = notes;
+		this.createdDate = createdDate;
+		this.createdBy = createdBy;
+		this.updatedDate = updatedDate;
+		this.updatedBy = updatedBy;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "order_replacement_item_id", unique = true, nullable = false)
 	public Integer getOrderReplacementItemId() {
 		return orderReplacementItemId;
@@ -190,30 +218,6 @@ public class OrderReplacementItems implements java.io.Serializable {
 	}
 
 	public void setUpdatedBy(Integer updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public OrderReplacementItems(Integer orderReplacementItemId, String validity, Date validityStartDate,
-			Date validityEndDate, Integer orderReplacementId, Integer replacementCharges, Integer quantity,
-			Integer sgstPercentage, Integer sgstPrice, Integer cgstPercentage, Integer cgstPrice, String remarks,
-			String notes, Date createdDate, Integer createdBy, Date updatedDate, Integer updatedBy) {
-		super();
-		this.orderReplacementItemId = orderReplacementItemId;
-		this.validity = validity;
-		this.validityStartDate = validityStartDate;
-		this.validityEndDate = validityEndDate;
-		this.orderReplacementId = orderReplacementId;
-		this.replacementCharges = replacementCharges;
-		this.quantity = quantity;
-		this.sgstPercentage = sgstPercentage;
-		this.sgstPrice = sgstPrice;
-		this.cgstPercentage = cgstPercentage;
-		this.cgstPrice = cgstPrice;
-		this.remarks = remarks;
-		this.notes = notes;
-		this.createdDate = createdDate;
-		this.createdBy = createdBy;
-		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
 

@@ -25,16 +25,30 @@ public class Brand implements java.io.Serializable {
 	private Integer updatedBy;
 
 	public Brand() {
-
+		super();
 	}
 
-	public Brand(String brandName) {
+	public Brand(Integer brandId, String brandName, Integer brandStatus) {
+		this.brandId = brandId;
 		this.brandName = brandName;
+		this.brandStatus = brandStatus;
+	}
+
+	public Brand(Integer brandId, String brandName, String brandDescription, Integer brandStatus, Date createdDate,
+			Integer createdBy, Date updatedDate, Integer updatedBy) {
+		super();
+		this.brandId = brandId;
+		this.brandName = brandName;
+		this.brandDescription = brandDescription;
+		this.brandStatus = brandStatus;
+		this.createdDate = createdDate;
+		this.createdBy = createdBy;
+		this.updatedDate = updatedDate;
+		this.updatedBy = updatedBy;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "brand_id", unique = true, nullable = false)
 	public Integer getBrandId() {
 		return brandId;
@@ -103,19 +117,6 @@ public class Brand implements java.io.Serializable {
 	}
 
 	public void setUpdatedBy(Integer updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public Brand(Integer brandId, String brandName, String brandDescription, Integer brandStatus, Date createdDate,
-			Integer createdBy, Date updatedDate, Integer updatedBy) {
-		super();
-		this.brandId = brandId;
-		this.brandName = brandName;
-		this.brandDescription = brandDescription;
-		this.brandStatus = brandStatus;
-		this.createdDate = createdDate;
-		this.createdBy = createdBy;
-		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
 

@@ -29,16 +29,36 @@ public class Employee implements java.io.Serializable {
 	private Integer updatedBy;
 
 	public Employee() {
-
+		super();
 	}
 
-	public Employee(String firstName) {
+	public Employee(Integer empId, String firstName, Integer employeeProfile, Integer employeeStatus) {
+		this.empId = empId;
 		this.firstName = firstName;
+		this.employeeProfile = employeeProfile;
+		this.employeeStatus = employeeStatus;
+	}
+
+	public Employee(Integer empId, String firstName, String lastName, String contactNumber, String residentialAddress,
+			String communicationAddress, Integer employeeProfile, Integer employeeStatus, Date createdDate,
+			Integer createdBy, Date updatedDate, Integer updatedBy) {
+		super();
+		this.empId = empId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.contactNumber = contactNumber;
+		this.residentialAddress = residentialAddress;
+		this.communicationAddress = communicationAddress;
+		this.employeeProfile = employeeProfile;
+		this.employeeStatus = employeeStatus;
+		this.createdDate = createdDate;
+		this.createdBy = createdBy;
+		this.updatedDate = updatedDate;
+		this.updatedBy = updatedBy;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "emp_id", unique = true, nullable = false)
 	public Integer getEmpId() {
 		return empId;
@@ -142,24 +162,6 @@ public class Employee implements java.io.Serializable {
 	}
 
 	public void setUpdatedBy(Integer updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public Employee(Integer empId, String firstName, String lastName, String contactNumber, String residentialAddress,
-			String communicationAddress, Integer employeeProfile, Integer employeeStatus, Date createdDate,
-			Integer createdBy, Date updatedDate, Integer updatedBy) {
-		super();
-		this.empId = empId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.contactNumber = contactNumber;
-		this.residentialAddress = residentialAddress;
-		this.communicationAddress = communicationAddress;
-		this.employeeProfile = employeeProfile;
-		this.employeeStatus = employeeStatus;
-		this.createdDate = createdDate;
-		this.createdBy = createdBy;
-		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
 

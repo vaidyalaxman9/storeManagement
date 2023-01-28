@@ -25,17 +25,30 @@ public class Status implements java.io.Serializable {
 	private Integer updatedBy;
 
 	public Status() {
-
+		super();
 	}
 
-	public Status(String statusName) {
-
+	public Status(Integer statusId, String statusName, Integer statusGroupId) {
+		this.statusId = statusId;
 		this.statusName = statusName;
+		this.statusGroupId = statusGroupId;
+	}
+
+	public Status(Integer statusId, String statusName, String statusDescription, Integer statusGroupId,
+			Date createdDate, Integer createdBy, Date updatedDate, Integer updatedBy) {
+		super();
+		this.statusId = statusId;
+		this.statusName = statusName;
+		this.statusDescription = statusDescription;
+		this.statusGroupId = statusGroupId;
+		this.createdDate = createdDate;
+		this.createdBy = createdBy;
+		this.updatedDate = updatedDate;
+		this.updatedBy = updatedBy;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "status_id", unique = true, nullable = false)
 	public Integer getStatusId() {
 		return statusId;
@@ -104,19 +117,6 @@ public class Status implements java.io.Serializable {
 	}
 
 	public void setUpdatedBy(Integer updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public Status(Integer statusId, String statusName, String statusDescription, Integer statusGroupId,
-			Date createdDate, Integer createdBy, Date updatedDate, Integer updatedBy) {
-		super();
-		this.statusId = statusId;
-		this.statusName = statusName;
-		this.statusDescription = statusDescription;
-		this.statusGroupId = statusGroupId;
-		this.createdDate = createdDate;
-		this.createdBy = createdBy;
-		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
 

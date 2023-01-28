@@ -25,12 +25,29 @@ public class PaymentMode implements java.io.Serializable {
 	private Integer updatedBy;
 
 	public PaymentMode() {
+		super();
+	}
 
+	public PaymentMode(Integer paymentModeId, Integer paymentModeStatus) {
+		this.paymentModeId = paymentModeId;
+		this.paymentModeStatus = paymentModeStatus;
+	}
+
+	public PaymentMode(Integer paymentModeId, String paymentModeName, String paymentModeDescription,
+			Integer paymentModeStatus, Date createdDate, Integer createdBy, Date updatedDate, Integer updatedBy) {
+		super();
+		this.paymentModeId = paymentModeId;
+		this.paymentModeName = paymentModeName;
+		this.paymentModeDescription = paymentModeDescription;
+		this.paymentModeStatus = paymentModeStatus;
+		this.createdDate = createdDate;
+		this.createdBy = createdBy;
+		this.updatedDate = updatedDate;
+		this.updatedBy = updatedBy;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "payment_mode_id", unique = true, nullable = false)
 	public Integer getPaymentModeId() {
 		return paymentModeId;
@@ -99,19 +116,6 @@ public class PaymentMode implements java.io.Serializable {
 	}
 
 	public void setUpdatedBy(Integer updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public PaymentMode(Integer paymentModeId, String paymentModeName, String paymentModeDescription,
-			Integer paymentModeStatus, Date createdDate, Integer createdBy, Date updatedDate, Integer updatedBy) {
-		super();
-		this.paymentModeId = paymentModeId;
-		this.paymentModeName = paymentModeName;
-		this.paymentModeDescription = paymentModeDescription;
-		this.paymentModeStatus = paymentModeStatus;
-		this.createdDate = createdDate;
-		this.createdBy = createdBy;
-		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
 

@@ -35,16 +35,49 @@ public class Product implements java.io.Serializable {
 	private Integer updatedBy;
 
 	public Product() {
-
+		super();
 	}
 
-	public Product(String productName) {
+	public Product(Integer productId, String productName, Integer categoryId, Integer brandId, Integer productQuantity,
+			Integer productPrice, Integer catalogPrice, Integer productStatus) {
+		this.productId = productId;
 		this.productName = productName;
+		this.categoryId = categoryId;
+		this.brandId = brandId;
+		this.productQuantity = productQuantity;
+		this.productPrice = productPrice;
+		this.catalogPrice = catalogPrice;
+		this.productStatus = productStatus;
+	}
+
+	public Product(Integer productId, String productName, String productDescription, Integer categoryId,
+			Integer brandId, Integer productQuantity, Integer productPrice, Integer catalogPrice,
+			Integer sgstPercentage, Integer cgstPercentage, String productBarcode, String validity,
+			String validityPeriod, Integer productStatus, Date createdDate, Integer createdBy, Date updatedDate,
+			Integer updatedBy) {
+		super();
+		this.productId = productId;
+		this.productName = productName;
+		this.productDescription = productDescription;
+		this.categoryId = categoryId;
+		this.brandId = brandId;
+		this.productQuantity = productQuantity;
+		this.productPrice = productPrice;
+		this.catalogPrice = catalogPrice;
+		this.sgstPercentage = sgstPercentage;
+		this.cgstPercentage = cgstPercentage;
+		this.productBarcode = productBarcode;
+		this.validity = validity;
+		this.validityPeriod = validityPeriod;
+		this.productStatus = productStatus;
+		this.createdDate = createdDate;
+		this.createdBy = createdBy;
+		this.updatedDate = updatedDate;
+		this.updatedBy = updatedBy;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "product_id", unique = true, nullable = false)
 	public Integer getProductId() {
 		return productId;
@@ -90,7 +123,7 @@ public class Product implements java.io.Serializable {
 		this.brandId = brandId;
 	}
 
-	@Column(name = "product_quantity")
+	@Column(name = "product_quantity", nullable = false)
 	public Integer getProductQuantity() {
 		return productQuantity;
 	}
@@ -99,7 +132,7 @@ public class Product implements java.io.Serializable {
 		this.productQuantity = productQuantity;
 	}
 
-	@Column(name = "product_price")
+	@Column(name = "product_price", nullable = false)
 	public Integer getProductPrice() {
 		return productPrice;
 	}
@@ -108,7 +141,7 @@ public class Product implements java.io.Serializable {
 		this.productPrice = productPrice;
 	}
 
-	@Column(name = "catalog_price")
+	@Column(name = "catalog_price", nullable = false)
 	public Integer getCatalogPrice() {
 		return catalogPrice;
 	}
@@ -203,32 +236,6 @@ public class Product implements java.io.Serializable {
 	}
 
 	public void setUpdatedBy(Integer updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public Product(Integer productId, String productName, String productDescription, Integer categoryId,
-			Integer brandId, Integer productQuantity, Integer productPrice, Integer catalogPrice,
-			Integer sgstPercentage, Integer cgstPercentage, String productBarcode, String validity,
-			String validityPeriod, Integer productStatus, Date createdDate, Integer createdBy, Date updatedDate,
-			Integer updatedBy) {
-		super();
-		this.productId = productId;
-		this.productName = productName;
-		this.productDescription = productDescription;
-		this.categoryId = categoryId;
-		this.brandId = brandId;
-		this.productQuantity = productQuantity;
-		this.productPrice = productPrice;
-		this.catalogPrice = catalogPrice;
-		this.sgstPercentage = sgstPercentage;
-		this.cgstPercentage = cgstPercentage;
-		this.productBarcode = productBarcode;
-		this.validity = validity;
-		this.validityPeriod = validityPeriod;
-		this.productStatus = productStatus;
-		this.createdDate = createdDate;
-		this.createdBy = createdBy;
-		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
 

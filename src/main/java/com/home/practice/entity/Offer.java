@@ -29,16 +29,35 @@ public class Offer implements java.io.Serializable {
 	private Integer updatedBy;
 
 	public Offer() {
-
+		super();
 	}
 
-	public Offer(String offerName) {
+	public Offer(Integer offerId, String offerName, Integer offerStatus) {
+		this.offerId = offerId;
 		this.offerName = offerName;
+		this.offerStatus = offerStatus;
+	}
+
+	public Offer(Integer offerId, String offerName, Date offerStartDate, Date offerEndDate, String offerDescription,
+			String offerApprovedBy, String bannerLocation, Integer offerStatus, Date createdDate, Integer createdBy,
+			Date updatedDate, Integer updatedBy) {
+		super();
+		this.offerId = offerId;
+		this.offerName = offerName;
+		this.offerStartDate = offerStartDate;
+		this.offerEndDate = offerEndDate;
+		this.offerDescription = offerDescription;
+		this.offerApprovedBy = offerApprovedBy;
+		this.bannerLocation = bannerLocation;
+		this.offerStatus = offerStatus;
+		this.createdDate = createdDate;
+		this.createdBy = createdBy;
+		this.updatedDate = updatedDate;
+		this.updatedBy = updatedBy;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "offer_id", unique = true, nullable = false)
 	public Integer getOfferId() {
 		return offerId;
@@ -143,24 +162,6 @@ public class Offer implements java.io.Serializable {
 	}
 
 	public void setUpdatedBy(Integer updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public Offer(Integer offerId, String offerName, Date offerStartDate, Date offerEndDate, String offerDescription,
-			String offerApprovedBy, String bannerLocation, Integer offerStatus, Date createdDate, Integer createdBy,
-			Date updatedDate, Integer updatedBy) {
-		super();
-		this.offerId = offerId;
-		this.offerName = offerName;
-		this.offerStartDate = offerStartDate;
-		this.offerEndDate = offerEndDate;
-		this.offerDescription = offerDescription;
-		this.offerApprovedBy = offerApprovedBy;
-		this.bannerLocation = bannerLocation;
-		this.offerStatus = offerStatus;
-		this.createdDate = createdDate;
-		this.createdBy = createdBy;
-		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
 

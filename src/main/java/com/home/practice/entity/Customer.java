@@ -28,16 +28,34 @@ public class Customer implements java.io.Serializable {
 	private Integer updatedBy;
 
 	public Customer() {
-
+		super();
 	}
 
-	public Customer(String firstName) {
+	public Customer(Integer customerId, String firstName, Integer customerStatus) {
+		this.customerId = customerId;
 		this.firstName = firstName;
+		this.customerStatus = customerStatus;
+	}
+
+	public Customer(Integer customerId, String firstName, String lastName, String contactNumber, String gender,
+			Date birthDate, Integer customerStatus, Date createdDate, Integer createdBy, Date updatedDate,
+			Integer updatedBy) {
+		super();
+		this.customerId = customerId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.contactNumber = contactNumber;
+		this.gender = gender;
+		this.birthDate = birthDate;
+		this.customerStatus = customerStatus;
+		this.createdDate = createdDate;
+		this.createdBy = createdBy;
+		this.updatedDate = updatedDate;
+		this.updatedBy = updatedBy;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "customer_id", unique = true, nullable = false)
 	public Integer getCustomerId() {
 		return customerId;
@@ -133,23 +151,6 @@ public class Customer implements java.io.Serializable {
 	}
 
 	public void setUpdatedBy(Integer updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public Customer(Integer customerId, String firstName, String lastName, String contactNumber, String gender,
-			Date birthDate, Integer customerStatus, Date createdDate, Integer createdBy, Date updatedDate,
-			Integer updatedBy) {
-		super();
-		this.customerId = customerId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.contactNumber = contactNumber;
-		this.gender = gender;
-		this.birthDate = birthDate;
-		this.customerStatus = customerStatus;
-		this.createdDate = createdDate;
-		this.createdBy = createdBy;
-		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
 

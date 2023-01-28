@@ -28,12 +28,34 @@ public class QuotationEnquiryItems implements java.io.Serializable {
 	private Integer updatedBy;
 
 	public QuotationEnquiryItems() {
+		super();
+	}
 
+	public QuotationEnquiryItems(Integer quotationItemId, Integer quotationId, Integer productId, Integer offerId) {
+		this.quotationItemId = quotationItemId;
+		this.quotationId = quotationId;
+		this.productId = productId;
+		this.offerId = offerId;
+	}
+
+	public QuotationEnquiryItems(Integer quotationItemId, Integer quotationId, Integer productId, Integer offerId,
+			Integer quantity, Integer unitPrice, Date createdDate, Integer createdBy, Date updatedDate,
+			Integer updatedBy) {
+		super();
+		this.quotationItemId = quotationItemId;
+		this.quotationId = quotationId;
+		this.productId = productId;
+		this.offerId = offerId;
+		this.quantity = quantity;
+		this.unitPrice = unitPrice;
+		this.createdDate = createdDate;
+		this.createdBy = createdBy;
+		this.updatedDate = updatedDate;
+		this.updatedBy = updatedBy;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "quotation_item_id", unique = true, nullable = false)
 	public Integer getQuotationItemId() {
 		return quotationItemId;
@@ -121,22 +143,6 @@ public class QuotationEnquiryItems implements java.io.Serializable {
 	}
 
 	public void setUpdatedBy(Integer updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public QuotationEnquiryItems(Integer quotationItemId, Integer quotationId, Integer productId, Integer offerId,
-			Integer quantity, Integer unitPrice, Date createdDate, Integer createdBy, Date updatedDate,
-			Integer updatedBy) {
-		super();
-		this.quotationItemId = quotationItemId;
-		this.quotationId = quotationId;
-		this.productId = productId;
-		this.offerId = offerId;
-		this.quantity = quantity;
-		this.unitPrice = unitPrice;
-		this.createdDate = createdDate;
-		this.createdBy = createdBy;
-		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
 

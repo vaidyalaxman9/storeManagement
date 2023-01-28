@@ -25,16 +25,30 @@ public class EmployeeProfile implements java.io.Serializable {
 	private Integer updatedBy;
 
 	public EmployeeProfile() {
-
+		super();
 	}
 
-	public EmployeeProfile(String profileName) {
+	public EmployeeProfile(Integer profileId, String profileName, Integer profileStatus) {
+		this.profileId = profileId;
 		this.profileName = profileName;
+		this.profileStatus = profileStatus;
+	}
+
+	public EmployeeProfile(Integer profileId, String profileName, String profileDescription, Integer profileStatus,
+			Date createdDate, Integer createdBy, Date updatedDate, Integer updatedBy) {
+		super();
+		this.profileId = profileId;
+		this.profileName = profileName;
+		this.profileDescription = profileDescription;
+		this.profileStatus = profileStatus;
+		this.createdDate = createdDate;
+		this.createdBy = createdBy;
+		this.updatedDate = updatedDate;
+		this.updatedBy = updatedBy;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "profile_id", unique = true, nullable = false)
 	public Integer getProfileId() {
 		return profileId;
@@ -103,19 +117,6 @@ public class EmployeeProfile implements java.io.Serializable {
 	}
 
 	public void setUpdatedBy(Integer updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public EmployeeProfile(Integer profileId, String profileName, String profileDescription, Integer profileStatus,
-			Date createdDate, Integer createdBy, Date updatedDate, Integer updatedBy) {
-		super();
-		this.profileId = profileId;
-		this.profileName = profileName;
-		this.profileDescription = profileDescription;
-		this.profileStatus = profileStatus;
-		this.createdDate = createdDate;
-		this.createdBy = createdBy;
-		this.updatedDate = updatedDate;
 		this.updatedBy = updatedBy;
 	}
 

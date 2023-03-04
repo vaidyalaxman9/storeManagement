@@ -1,4 +1,4 @@
-package com.home.practice.entity;
+package com.home.practice.entity123;
 
 import static javax.persistence.GenerationType.IDENTITY;
 

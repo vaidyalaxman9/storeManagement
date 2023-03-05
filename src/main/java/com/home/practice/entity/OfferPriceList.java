@@ -4,50 +4,43 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
 
-
-/**
- * The persistent class for the offer_price_list database table.
- * 
- */
 @Entity
-@Table(name="offer_price_list")
-@NamedQuery(name="OfferPriceList.findAll", query="SELECT o FROM OfferPriceList o")
+@Table(name = "offer_price_list")
 public class OfferPriceList implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="price_list_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "price_list_id", unique = true, nullable = false)
 	private int priceListId;
 
-	@Column(name="created_by")
+	@Column(name = "created_by")
 	private int createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_date")
+	@Column(name = "created_date", length = 26)
 	private Date createdDate;
 
-	@Column(name="offer_price")
+	@Column(name = "offer_price")
 	private int offerPrice;
 
-	@Column(name="updated_by")
+	@Column(name = "updated_by")
 	private int updatedBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="updated_date")
+	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
 
-	//bi-directional many-to-one association to Offer
 	@ManyToOne
-	@JoinColumn(name="offer_id")
+	@JoinColumn(name = "offer_id")
 	private Offer offer;
 
-	//bi-directional many-to-one association to Product
 	@ManyToOne
-	@JoinColumn(name="product_id")
+	@JoinColumn(name = "product_id")
 	private Product product;
 
 	public OfferPriceList() {
+		super();
 	}
 
 	public int getPriceListId() {

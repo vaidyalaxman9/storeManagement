@@ -5,52 +5,45 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
-/**
- * The persistent class for the employee_profile database table.
- * 
- */
 @Entity
-@Table(name="employee_profile")
-@NamedQuery(name="EmployeeProfile.findAll", query="SELECT e FROM EmployeeProfile e")
+@Table(name = "employee_profile")
 public class EmployeeProfile implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="profile_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "profile_id", unique = true, nullable = false)
 	private int profileId;
 
-	@Column(name="created_by")
+	@Column(name = "created_by")
 	private int createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_date")
+	@Column(name = "created_date", length = 26)
 	private Date createdDate;
 
-	@Column(name="profile_description")
+	@Column(name = "profile_description", length = 50)
 	private String profileDescription;
 
-	@Column(name="profile_name")
+	@Column(name = "profile_name", nullable = false, length = 15)
 	private String profileName;
 
-	@Column(name="updated_by")
+	@Column(name = "updated_by")
 	private int updatedBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="updated_date")
+	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
 
-	//bi-directional many-to-one association to Employee
-	@OneToMany(mappedBy="employeeProfileBean")
+	@OneToMany(mappedBy = "employeeProfileBean")
 	private List<Employee> employees;
 
-	//bi-directional many-to-one association to Status
 	@ManyToOne
-	@JoinColumn(name="profile_status")
+	@JoinColumn(name = "profile_status")
 	private Status status;
 
 	public EmployeeProfile() {
+		super();
 	}
 
 	public int getProfileId() {

@@ -5,99 +5,81 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
-/**
- * The persistent class for the status database table.
- * 
- */
 @Entity
-@NamedQuery(name="Status.findAll", query="SELECT s FROM Status s")
+@Table(name = "status")
 public class Status implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="status_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "status_id", unique = true, nullable = false)
 	private int statusId;
 
-	@Column(name="created_by")
+	@Column(name = "created_by")
 	private int createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_date")
+	@Column(name = "created_date", length = 26)
 	private Date createdDate;
 
-	@Column(name="status_description")
+	@Column(name = "status_description", length = 50)
 	private String statusDescription;
 
-	@Column(name="status_name")
+	@Column(name = "status_name", nullable = false, length = 15)
 	private String statusName;
 
-	@Column(name="updated_by")
+	@Column(name = "updated_by")
 	private int updatedBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="updated_date")
+	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
 
-	//bi-directional many-to-one association to Brand
-	@OneToMany(mappedBy="status")
+	@OneToMany(mappedBy = "status")
 	private List<Brand> brands;
 
-	//bi-directional many-to-one association to Customer
-	@OneToMany(mappedBy="status")
+	@OneToMany(mappedBy = "status")
 	private List<Customer> customers;
 
-	//bi-directional many-to-one association to Employee
-	@OneToMany(mappedBy="status")
+	@OneToMany(mappedBy = "status")
 	private List<Employee> employees;
 
-	//bi-directional many-to-one association to EmployeeProfile
-	@OneToMany(mappedBy="status")
+	@OneToMany(mappedBy = "status")
 	private List<EmployeeProfile> employeeProfiles;
 
-	//bi-directional many-to-one association to Invoice
-	@OneToMany(mappedBy="status")
+	@OneToMany(mappedBy = "status")
 	private List<Invoice> invoices;
 
-	//bi-directional many-to-one association to Offer
-	@OneToMany(mappedBy="status")
+	@OneToMany(mappedBy = "status")
 	private List<Offer> offers;
 
-	//bi-directional many-to-one association to OrderPayment
-	@OneToMany(mappedBy="status")
+	@OneToMany(mappedBy = "status")
 	private List<OrderPayment> orderPayments;
 
-	//bi-directional many-to-one association to OrderReplacement
-	@OneToMany(mappedBy="status")
+	@OneToMany(mappedBy = "status")
 	private List<OrderReplacement> orderReplacements;
 
-	//bi-directional many-to-one association to Order
-	@OneToMany(mappedBy="status")
+	@OneToMany(mappedBy = "status")
 	private List<Order> orders;
 
-	//bi-directional many-to-one association to PaymentMode
-	@OneToMany(mappedBy="status")
+	@OneToMany(mappedBy = "status")
 	private List<PaymentMode> paymentModes;
 
-	//bi-directional many-to-one association to Product
-	@OneToMany(mappedBy="status")
+	@OneToMany(mappedBy = "status")
 	private List<Product> products;
 
-	//bi-directional many-to-one association to ProductCategory
-	@OneToMany(mappedBy="status")
+	@OneToMany(mappedBy = "status")
 	private List<ProductCategory> productCategories;
 
-	//bi-directional many-to-one association to QuotationEnquiry
-	@OneToMany(mappedBy="status")
+	@OneToMany(mappedBy = "status")
 	private List<QuotationEnquiry> quotationEnquiries;
 
-	//bi-directional many-to-one association to StatusGroup
 	@ManyToOne
-	@JoinColumn(name="status_group_id")
+	@JoinColumn(name = "status_group_id")
 	private StatusGroup statusGroup;
 
 	public Status() {
+		super();
 	}
 
 	public int getStatusId() {

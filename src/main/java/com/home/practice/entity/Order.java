@@ -5,89 +5,79 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
-/**
- * The persistent class for the orders database table.
- * 
- */
 @Entity
-@Table(name="orders")
-@NamedQuery(name="Order.findAll", query="SELECT o FROM Order o")
+@Table(name = "orders")
 public class Order implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="order_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "order_id", unique = true, nullable = false)
 	private int orderId;
 
-	@Column(name="created_by")
+	@Column(name = "created_by")
 	private int createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_date")
+	@Column(name = "created_date", length = 26)
 	private Date createdDate;
 
 	@Temporal(TemporalType.DATE)
+	@Column(name = "date", length = 26)
 	private Date date;
 
-	@Column(name="gstin_number")
+	@Column(name = "gstin_number", length = 15)
 	private String gstinNumber;
 
-	@Column(name="paid_amount")
+	@Column(name = "paid_amount")
 	private int paidAmount;
 
-	@Column(name="pan_number")
+	@Column(name = "pan_number", length = 12)
 	private String panNumber;
 
-	@Column(name="remaining_amount")
+	@Column(name = "remaining_amount")
 	private int remainingAmount;
 
+	@Column(name = "remarks", length = 50)
 	private String remarks;
 
-	@Column(name="total_amount")
+	@Column(name = "total_amount")
 	private int totalAmount;
 
-	@Column(name="updated_by")
+	@Column(name = "updated_by")
 	private int updatedBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="updated_date")
+	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
 
-	//bi-directional many-to-one association to Invoice
-	@OneToMany(mappedBy="order")
+	@OneToMany(mappedBy = "order")
 	private List<Invoice> invoices;
 
-	//bi-directional many-to-one association to OrderItem
-	@OneToMany(mappedBy="order")
+	@OneToMany(mappedBy = "order")
 	private List<OrderItem> orderItems;
 
-	//bi-directional many-to-one association to OrderReplacement
-	@OneToMany(mappedBy="order")
+	@OneToMany(mappedBy = "order")
 	private List<OrderReplacement> orderReplacements;
 
-	//bi-directional many-to-one association to Customer
 	@ManyToOne
-	@JoinColumn(name="customer_id")
+	@JoinColumn(name = "customer_id")
 	private Customer customer;
 
-	//bi-directional many-to-one association to Employee
 	@ManyToOne
-	@JoinColumn(name="emp_id")
+	@JoinColumn(name = "emp_id")
 	private Employee employee;
 
-	//bi-directional many-to-one association to Offer
 	@ManyToOne
-	@JoinColumn(name="offer_id")
+	@JoinColumn(name = "offer_id")
 	private Offer offer;
 
-	//bi-directional many-to-one association to Status
 	@ManyToOne
-	@JoinColumn(name="order_status")
+	@JoinColumn(name = "order_status")
 	private Status status;
 
 	public Order() {
+		super();
 	}
 
 	public int getOrderId() {

@@ -5,64 +5,58 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
-/**
- * The persistent class for the customer database table.
- * 
- */
 @Entity
-@NamedQuery(name="Customer.findAll", query="SELECT c FROM Customer c")
+@Table(name = "customer")
 public class Customer implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="customer_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "customer_id", unique = true, nullable = false)
 	private int customerId;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="birth_date")
+	@Column(name = "birth_date", length = 26)
 	private Date birthDate;
 
-	@Column(name="contact_number")
+	@Column(name = "contact_number", length = 13)
 	private String contactNumber;
 
-	@Column(name="created_by")
+	@Column(name = "created_by")
 	private int createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_date")
+	@Column(name = "created_date", length = 26)
 	private Date createdDate;
 
-	@Column(name="first_name")
+	@Column(name = "first_name", nullable = false, length = 15)
 	private String firstName;
 
+	@Column(name = "gender", length = 10)
 	private String gender;
 
-	@Column(name="last_name")
+	@Column(name = "last_name", length = 15)
 	private String lastName;
 
-	@Column(name="updated_by")
+	@Column(name = "updated_by")
 	private int updatedBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="updated_date")
+	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
 
-	//bi-directional many-to-one association to Status
 	@ManyToOne
-	@JoinColumn(name="customer_status")
+	@JoinColumn(name = "customer_status")
 	private Status status;
 
-	//bi-directional many-to-one association to CustomerAddress
-	@OneToMany(mappedBy="customer")
+	@OneToMany(mappedBy = "customer")
 	private List<CustomerAddress> customerAddresses;
 
-	//bi-directional many-to-one association to Order
-	@OneToMany(mappedBy="customer")
+	@OneToMany(mappedBy = "customer")
 	private List<Order> orders;
 
 	public Customer() {
+		super();
 	}
 
 	public int getCustomerId() {

@@ -5,77 +5,67 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
-/**
- * The persistent class for the employee database table.
- * 
- */
 @Entity
-@NamedQuery(name="Employee.findAll", query="SELECT e FROM Employee e")
+@Table(name = "employee")
 public class Employee implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="emp_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "emp_id", unique = true, nullable = false)
 	private int empId;
 
-	@Column(name="communication_address")
+	@Column(name = "communication_address", length = 100)
 	private String communicationAddress;
 
-	@Column(name="contact_number")
+	@Column(name = "contact_number", length = 13)
 	private String contactNumber;
 
-	@Column(name="created_by")
+	@Column(name = "created_by")
 	private int createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_date")
+	@Column(name = "created_date", length = 26)
 	private Date createdDate;
 
-	@Column(name="first_name")
+	@Column(name = "first_name", nullable = false, length = 15)
 	private String firstName;
 
-	@Column(name="last_name")
+	@Column(name = "last_name", length = 15)
 	private String lastName;
 
-	@Column(name="residential_address")
+	@Column(name = "residential_address", length = 100)
 	private String residentialAddress;
 
-	@Column(name="updated_by")
+	@Column(name = "updated_by")
 	private int updatedBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="updated_date")
+	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
 
-	//bi-directional many-to-one association to EmployeeProfile
 	@ManyToOne
-	@JoinColumn(name="employee_profile")
+	@JoinColumn(name = "employee_profile")
 	private EmployeeProfile employeeProfileBean;
 
-	//bi-directional many-to-one association to Status
 	@ManyToOne
-	@JoinColumn(name="employee_status")
+	@JoinColumn(name = "employee_status")
 	private Status status;
 
-	//bi-directional many-to-one association to Invoice
-	@OneToMany(mappedBy="employee")
+	@OneToMany(mappedBy = "employee")
 	private List<Invoice> invoices;
 
-	//bi-directional many-to-one association to OrderReplacement
-	@OneToMany(mappedBy="employee")
+	@OneToMany(mappedBy = "employee")
 	private List<OrderReplacement> orderReplacements;
 
-	//bi-directional many-to-one association to Order
-	@OneToMany(mappedBy="employee")
+	@OneToMany(mappedBy = "employee")
 	private List<Order> orders;
 
-	//bi-directional many-to-one association to QuotationEnquiry
-	@OneToMany(mappedBy="employee")
+	@OneToMany(mappedBy = "employee")
 	private List<QuotationEnquiry> quotationEnquiries;
 
 	public Employee() {
+		super();
 	}
 
 	public int getEmpId() {

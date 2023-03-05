@@ -5,92 +5,83 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
-/**
- * The persistent class for the product database table.
- * 
- */
 @Entity
-@NamedQuery(name="Product.findAll", query="SELECT p FROM Product p")
+@Table(name = "product")
 public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="product_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "product_id", unique = true, nullable = false)
 	private int productId;
 
-	@Column(name="catalog_price")
+	@Column(name = "catalog_price", nullable = false)
 	private int catalogPrice;
 
-	@Column(name="cgst_percentage")
+	@Column(name = "cgst_percentage")
 	private int cgstPercentage;
 
-	@Column(name="created_by")
+	@Column(name = "created_by")
 	private int createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_date")
+	@Column(name = "created_date", length = 26)
 	private Date createdDate;
 
-	@Column(name="product_barcode")
+	@Column(name = "product_barcode", length = 100)
 	private String productBarcode;
 
-	@Column(name="product_description")
+	@Column(name = "product_description", length = 50)
 	private String productDescription;
 
-	@Column(name="product_name")
+	@Column(name = "product_name", nullable = false, length = 15)
 	private String productName;
 
-	@Column(name="product_price")
+	@Column(name = "product_price", nullable = false)
 	private int productPrice;
 
-	@Column(name="product_quantity")
+	@Column(name = "product_quantity", nullable = false)
 	private int productQuantity;
 
-	@Column(name="sgst_percentage")
+	@Column(name = "sgst_percentage")
 	private int sgstPercentage;
 
-	@Column(name="updated_by")
+	@Column(name = "updated_by")
 	private int updatedBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="updated_date")
+	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
 
+	@Column(name = "validity", length = 1)
 	private String validity;
 
-	@Column(name="validity_period")
+	@Column(name = "validity_period")
 	private int validityPeriod;
 
-	//bi-directional many-to-one association to OfferPriceList
-	@OneToMany(mappedBy="product")
+	@OneToMany(mappedBy = "product")
 	private List<OfferPriceList> offerPriceLists;
 
-	//bi-directional many-to-one association to OrderItem
-	@OneToMany(mappedBy="product")
+	@OneToMany(mappedBy = "product")
 	private List<OrderItem> orderItems;
 
-	//bi-directional many-to-one association to Brand
 	@ManyToOne
-	@JoinColumn(name="brand_id")
+	@JoinColumn(name = "brand_id")
 	private Brand brand;
 
-	//bi-directional many-to-one association to ProductCategory
 	@ManyToOne
-	@JoinColumn(name="category_id")
+	@JoinColumn(name = "category_id")
 	private ProductCategory productCategory;
 
-	//bi-directional many-to-one association to Status
 	@ManyToOne
-	@JoinColumn(name="product_status")
+	@JoinColumn(name = "product_status")
 	private Status status;
 
-	//bi-directional many-to-one association to QuotationEnquiryItem
-	@OneToMany(mappedBy="product")
+	@OneToMany(mappedBy = "product")
 	private List<QuotationEnquiryItem> quotationEnquiryItems;
 
 	public Product() {
+		super();
 	}
 
 	public int getProductId() {

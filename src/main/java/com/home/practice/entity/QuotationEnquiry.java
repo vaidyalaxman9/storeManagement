@@ -5,65 +5,59 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
-/**
- * The persistent class for the quotation_enquiry database table.
- * 
- */
 @Entity
-@Table(name="quotation_enquiry")
-@NamedQuery(name="QuotationEnquiry.findAll", query="SELECT q FROM QuotationEnquiry q")
+@Table(name = "quotation_enquiry")
 public class QuotationEnquiry implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="quotation_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "quotation_id", unique = true, nullable = false)
 	private int quotationId;
 
+	@Column(name = "address", length = 50)
 	private String address;
 
-	@Column(name="created_by")
+	@Column(name = "created_by")
 	private int createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_date")
+	@Column(name = "created_date", length = 26)
 	private Date createdDate;
 
-	@Column(name="customer_name")
+	@Column(name = "customer_name", length = 15)
 	private String customerName;
 
-	@Column(name="mobile_number")
+	@Column(name = "mobile_number", length = 13)
 	private String mobileNumber;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="quotation_date")
+	@Column(name = "quotation_date", length = 26)
 	private Date quotationDate;
 
+	@Column(name = "remarks", length = 50)
 	private String remarks;
 
-	@Column(name="updated_by")
+	@Column(name = "updated_by")
 	private int updatedBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="updated_date")
+	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
 
-	//bi-directional many-to-one association to Employee
 	@ManyToOne
-	@JoinColumn(name="emp_id")
+	@JoinColumn(name = "emp_id")
 	private Employee employee;
 
-	//bi-directional many-to-one association to Status
 	@ManyToOne
-	@JoinColumn(name="quotation_status")
+	@JoinColumn(name = "quotation_status")
 	private Status status;
 
-	//bi-directional many-to-one association to QuotationEnquiryItem
-	@OneToMany(mappedBy="quotationEnquiry")
+	@OneToMany(mappedBy = "quotationEnquiry")
 	private List<QuotationEnquiryItem> quotationEnquiryItems;
 
 	public QuotationEnquiry() {
+		super();
 	}
 
 	public int getQuotationId() {

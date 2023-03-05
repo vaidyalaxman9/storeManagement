@@ -5,73 +5,65 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
-/**
- * The persistent class for the offer database table.
- * 
- */
 @Entity
-@NamedQuery(name="Offer.findAll", query="SELECT o FROM Offer o")
+@Table(name = "offer")
 public class Offer implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="offer_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "offer_id", unique = true, nullable = false)
 	private int offerId;
 
-	@Column(name="banner_location")
+	@Column(name = "banner_location", length = 50)
 	private String bannerLocation;
 
-	@Column(name="created_by")
+	@Column(name = "created_by")
 	private int createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_date")
+	@Column(name = "created_date", length = 26)
 	private Date createdDate;
 
-	@Column(name="offer_approvedby")
+	@Column(name = "offer_approvedby", length = 20)
 	private String offerApprovedby;
 
-	@Column(name="offer_description")
+	@Column(name = "offer_description", length = 50)
 	private String offerDescription;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="offer_end_date")
+	@Column(name = "offer_end_date", length = 26)
 	private Date offerEndDate;
 
-	@Column(name="offer_name")
+	@Column(name = "offer_name", nullable = false, length = 20)
 	private String offerName;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="offer_start_date")
+	@Column(name = "offer_start_date", length = 26)
 	private Date offerStartDate;
 
-	@Column(name="updated_by")
+	@Column(name = "updated_by")
 	private int updatedBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="updated_date")
+	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
 
-	//bi-directional many-to-one association to Status
 	@ManyToOne
-	@JoinColumn(name="offer_status")
+	@JoinColumn(name = "offer_status")
 	private Status status;
 
-	//bi-directional many-to-one association to OfferPriceList
-	@OneToMany(mappedBy="offer")
+	@OneToMany(mappedBy = "offer")
 	private List<OfferPriceList> offerPriceLists;
 
-	//bi-directional many-to-one association to Order
-	@OneToMany(mappedBy="offer")
+	@OneToMany(mappedBy = "offer")
 	private List<Order> orders;
 
-	//bi-directional many-to-one association to QuotationEnquiryItem
-	@OneToMany(mappedBy="offer")
+	@OneToMany(mappedBy = "offer")
 	private List<QuotationEnquiryItem> quotationEnquiryItems;
 
 	public Offer() {
+		super();
 	}
 
 	public int getOfferId() {

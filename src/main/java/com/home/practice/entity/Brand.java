@@ -5,51 +5,45 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
-/**
- * The persistent class for the brand database table.
- * 
- */
 @Entity
-@NamedQuery(name="Brand.findAll", query="SELECT b FROM Brand b")
+@Table(name = "brand")
 public class Brand implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="brand_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "brand_id", unique = true, nullable = false)
 	private int brandId;
 
-	@Column(name="brand_description")
+	@Column(name = "brand_description", length = 50)
 	private String brandDescription;
 
-	@Column(name="brand_name")
+	@Column(name = "brand_name", nullable = false, length = 15)
 	private String brandName;
 
-	@Column(name="created_by")
+	@Column(name = "created_by")
 	private int createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_date")
+	@Column(name = "created_date", length = 26)
 	private Date createdDate;
 
-	@Column(name="updated_by")
+	@Column(name = "updated_by")
 	private int updatedBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="updated_date")
+	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
 
-	//bi-directional many-to-one association to Status
 	@ManyToOne
-	@JoinColumn(name="brand_status")
+	@JoinColumn(name = "brand_status")
 	private Status status;
 
-	//bi-directional many-to-one association to Product
-	@OneToMany(mappedBy="brand")
+	@OneToMany(mappedBy = "brand")
 	private List<Product> products;
 
 	public Brand() {
+		super();
 	}
 
 	public int getBrandId() {

@@ -4,57 +4,50 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
 
-
-/**
- * The persistent class for the quotation_enquiry_items database table.
- * 
- */
 @Entity
-@Table(name="quotation_enquiry_items")
-@NamedQuery(name="QuotationEnquiryItem.findAll", query="SELECT q FROM QuotationEnquiryItem q")
+@Table(name = "quotation_enquiry_items")
 public class QuotationEnquiryItem implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="quotation_item_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "quotation_item_id", unique = true, nullable = false)
 	private int quotationItemId;
 
-	@Column(name="created_by")
+	@Column(name = "created_by")
 	private int createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_date")
+	@Column(name = "created_date", length = 26)
 	private Date createdDate;
 
+	@Column(name = "quantity")
 	private int quantity;
 
-	@Column(name="unit_price")
+	@Column(name = "unit_price")
 	private int unitPrice;
 
-	@Column(name="updated_by")
+	@Column(name = "updated_by")
 	private int updatedBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="updated_date")
+	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
 
-	//bi-directional many-to-one association to Offer
 	@ManyToOne
-	@JoinColumn(name="offer_id")
+	@JoinColumn(name = "offer_id")
 	private Offer offer;
 
-	//bi-directional many-to-one association to Product
 	@ManyToOne
-	@JoinColumn(name="product_id")
+	@JoinColumn(name = "product_id")
 	private Product product;
 
-	//bi-directional many-to-one association to QuotationEnquiry
 	@ManyToOne
-	@JoinColumn(name="quotation_id")
+	@JoinColumn(name = "quotation_id")
 	private QuotationEnquiry quotationEnquiry;
 
 	public QuotationEnquiryItem() {
+		super();
 	}
 
 	public int getQuotationItemId() {

@@ -4,58 +4,57 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
 
-
-/**
- * The persistent class for the customer_address database table.
- * 
- */
 @Entity
-@Table(name="customer_address")
-@NamedQuery(name="CustomerAddress.findAll", query="SELECT c FROM CustomerAddress c")
+@Table(name = "customer_address")
 public class CustomerAddress implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="address_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "address_id", unique = true, nullable = false)
 	private int addressId;
 
-	@Column(name="address_type")
+	@Column(name = "address_type", nullable = false, length = 15)
 	private String addressType;
 
-	@Column(name="created_by")
+	@Column(name = "created_by")
 	private int createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_date")
+	@Column(name = "created_date", length = 26)
 	private Date createdDate;
 
+	@Column(name = "line1", length = 20)
 	private String line1;
 
+	@Column(name = "line2", length = 20)
 	private String line2;
 
+	@Column(name = "line3", length = 20)
 	private String line3;
 
-	@Column(name="overall_default")
+	@Column(name = "overall_default", length = 10)
 	private String overallDefault;
 
+	@Column(name = "pincode")
 	private int pincode;
 
+	@Column(name = "state", length = 15)
 	private String state;
 
-	@Column(name="updated_by")
+	@Column(name = "updated_by")
 	private int updatedBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="updated_date")
+	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
 
-	//bi-directional many-to-one association to Customer
 	@ManyToOne
-	@JoinColumn(name="customer_id")
+	@JoinColumn(name = "customer_id")
 	private Customer customer;
 
 	public CustomerAddress() {
+		super();
 	}
 
 	public int getAddressId() {

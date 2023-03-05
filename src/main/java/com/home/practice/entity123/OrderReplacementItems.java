@@ -77,7 +77,7 @@ public class OrderReplacementItems implements java.io.Serializable {
 		this.orderReplacementItemId = orderReplacementItemId;
 	}
 
-	@Column(name = "validity", length = 26)
+	@Column(name = "validity", length = 1)
 	public String getValidity() {
 		return validity;
 	}

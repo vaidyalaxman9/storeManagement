@@ -5,52 +5,45 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
-/**
- * The persistent class for the payment_mode database table.
- * 
- */
 @Entity
-@Table(name="payment_mode")
-@NamedQuery(name="PaymentMode.findAll", query="SELECT p FROM PaymentMode p")
+@Table(name = "payment_mode")
 public class PaymentMode implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="payment_mode_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "payment_mode_id", unique = true, nullable = false)
 	private int paymentModeId;
 
-	@Column(name="created_by")
+	@Column(name = "created_by")
 	private int createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_date")
+	@Column(name = "created_date", length = 26)
 	private Date createdDate;
 
-	@Column(name="payment_mode_description")
+	@Column(name = "payment_mode_description", length = 50)
 	private String paymentModeDescription;
 
-	@Column(name="payment_mode_name")
+	@Column(name = "payment_mode_name", length = 10)
 	private String paymentModeName;
 
-	@Column(name="updated_by")
+	@Column(name = "updated_by")
 	private int updatedBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="updated_date")
+	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
 
-	//bi-directional many-to-one association to OrderPayment
-	@OneToMany(mappedBy="paymentModeBean")
+	@OneToMany(mappedBy = "paymentModeBean")
 	private List<OrderPayment> orderPayments;
 
-	//bi-directional many-to-one association to Status
 	@ManyToOne
-	@JoinColumn(name="payment_mode_status")
+	@JoinColumn(name = "payment_mode_status")
 	private Status status;
 
 	public PaymentMode() {
+		super();
 	}
 
 	public int getPaymentModeId() {

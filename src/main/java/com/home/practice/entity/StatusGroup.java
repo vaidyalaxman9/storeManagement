@@ -5,47 +5,41 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
-/**
- * The persistent class for the status_group database table.
- * 
- */
 @Entity
-@Table(name="status_group")
-@NamedQuery(name="StatusGroup.findAll", query="SELECT s FROM StatusGroup s")
+@Table(name = "status_group")
 public class StatusGroup implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="status_group_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "status_group_id", unique = true, nullable = false)
 	private int statusGroupId;
 
-	@Column(name="created_by")
+	@Column(name = "created_by")
 	private int createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_date")
+	@Column(name = "created_date", length = 26)
 	private Date createdDate;
 
-	@Column(name="status_group_description")
+	@Column(name = "status_group_description", length = 30)
 	private String statusGroupDescription;
 
-	@Column(name="status_group_name")
+	@Column(name = "status_group_name", nullable = false, length = 15)
 	private String statusGroupName;
 
-	@Column(name="updated_by")
+	@Column(name = "updated_by")
 	private int updatedBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="updated_date")
+	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
 
-	//bi-directional many-to-one association to Status
-	@OneToMany(mappedBy="statusGroup")
+	@OneToMany(mappedBy = "statusGroup")
 	private List<Status> statuses;
 
 	public StatusGroup() {
+		super();
 	}
 
 	public int getStatusGroupId() {

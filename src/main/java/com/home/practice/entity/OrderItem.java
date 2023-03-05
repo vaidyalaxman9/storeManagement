@@ -5,85 +5,78 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
-/**
- * The persistent class for the order_items database table.
- * 
- */
 @Entity
-@Table(name="order_items")
-@NamedQuery(name="OrderItem.findAll", query="SELECT o FROM OrderItem o")
+@Table(name = "order_items")
 public class OrderItem implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="order_item_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "order_item_id", unique = true, nullable = false)
 	private int orderItemId;
 
-	@Column(name="cgst_percentage")
+	@Column(name = "cgst_percentage")
 	private int cgstPercentage;
 
-	@Column(name="cgst_price")
+	@Column(name = "cgst_price")
 	private int cgstPrice;
 
-	@Column(name="created_by")
+	@Column(name = "created_by")
 	private int createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_date")
+	@Column(name = "created_date", length = 26)
 	private Date createdDate;
 
-	@Column(name="discount_amount")
+	@Column(name = "discount_amount")
 	private int discountAmount;
 
-	@Column(name="discount_percentage")
+	@Column(name = "discount_percentage")
 	private int discountPercentage;
 
-	@Column(name="order_quantity")
+	@Column(name = "order_quantity")
 	private int orderQuantity;
 
-	@Column(name="sgst_percentage")
+	@Column(name = "sgst_percentage")
 	private int sgstPercentage;
 
-	@Column(name="sgst_price")
+	@Column(name = "sgst_price")
 	private int sgstPrice;
 
-	@Column(name="unit_price")
+	@Column(name = "unit_price")
 	private int unitPrice;
 
-	@Column(name="updated_by")
+	@Column(name = "updated_by")
 	private int updatedBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="updated_date")
+	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
 
+	@Column(name = "validity", length = 1)
 	private String validity;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="validity_end_date")
+	@Column(name = "validity_end_date", length = 26)
 	private Date validityEndDate;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="validity_start_date")
+	@Column(name = "validity_start_date", length = 26)
 	private Date validityStartDate;
 
-	//bi-directional many-to-one association to Order
 	@ManyToOne
-	@JoinColumn(name="order_id")
+	@JoinColumn(name = "order_id")
 	private Order order;
 
-	//bi-directional many-to-one association to Product
 	@ManyToOne
-	@JoinColumn(name="product_id")
+	@JoinColumn(name = "product_id")
 	private Product product;
 
-	//bi-directional many-to-one association to OrderPayment
-	@OneToMany(mappedBy="orderItem")
+	@OneToMany(mappedBy = "orderItem")
 	private List<OrderPayment> orderPayments;
 
 	public OrderItem() {
+		super();
 	}
 
 	public int getOrderItemId() {

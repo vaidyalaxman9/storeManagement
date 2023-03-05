@@ -4,63 +4,57 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
 
-
-/**
- * The persistent class for the order_payment database table.
- * 
- */
 @Entity
-@Table(name="order_payment")
-@NamedQuery(name="OrderPayment.findAll", query="SELECT o FROM OrderPayment o")
+@Table(name = "order_payment")
 public class OrderPayment implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="payment_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "payment_id", unique = true, nullable = false)
 	private int paymentId;
 
+	@Column(name = "amount")
 	private int amount;
 
-	@Column(name="created_by")
+	@Column(name = "created_by")
 	private int createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_date")
+	@Column(name = "created_date", length = 26)
 	private Date createdDate;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="payment_date")
+	@Column(name = "payment_date", length = 26)
 	private Date paymentDate;
 
+	@Column(name = "remarks", length = 50)
 	private String remarks;
 
-	@Column(name="transaction_id")
+	@Column(name = "transaction_id")
 	private int transactionId;
 
-	@Column(name="updated_by")
+	@Column(name = "updated_by")
 	private int updatedBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="updated_date")
+	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
 
-	//bi-directional many-to-one association to OrderItem
 	@ManyToOne
-	@JoinColumn(name="order_item_id")
+	@JoinColumn(name = "order_item_id")
 	private OrderItem orderItem;
 
-	//bi-directional many-to-one association to PaymentMode
 	@ManyToOne
-	@JoinColumn(name="payment_mode")
+	@JoinColumn(name = "payment_mode")
 	private PaymentMode paymentModeBean;
 
-	//bi-directional many-to-one association to Status
 	@ManyToOne
-	@JoinColumn(name="payment_status")
+	@JoinColumn(name = "payment_status")
 	private Status status;
 
 	public OrderPayment() {
+		super();
 	}
 
 	public int getPaymentId() {

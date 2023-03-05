@@ -4,55 +4,48 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
 
-
-/**
- * The persistent class for the invoice database table.
- * 
- */
 @Entity
-@NamedQuery(name="Invoice.findAll", query="SELECT i FROM Invoice i")
+@Table(name = "invoice")
 public class Invoice implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="invoice_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "invoice_id", unique = true, nullable = false)
 	private int invoiceId;
 
-	@Column(name="created_by")
+	@Column(name = "created_by")
 	private int createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_date")
+	@Column(name = "created_date", length = 26)
 	private Date createdDate;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="invoice_date")
+	@Column(name = "invoice_date", length = 26)
 	private Date invoiceDate;
 
-	@Column(name="updated_by")
+	@Column(name = "updated_by")
 	private int updatedBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="updated_date")
+	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
 
-	//bi-directional many-to-one association to Employee
 	@ManyToOne
-	@JoinColumn(name="emp_id")
+	@JoinColumn(name = "emp_id")
 	private Employee employee;
 
-	//bi-directional many-to-one association to Order
 	@ManyToOne
-	@JoinColumn(name="order_id")
+	@JoinColumn(name = "order_id")
 	private Order order;
 
-	//bi-directional many-to-one association to Status
 	@ManyToOne
-	@JoinColumn(name="invoice_status")
+	@JoinColumn(name = "invoice_status")
 	private Status status;
 
 	public Invoice() {
+		super();
 	}
 
 	public int getInvoiceId() {

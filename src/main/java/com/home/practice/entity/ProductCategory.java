@@ -5,52 +5,45 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
-/**
- * The persistent class for the product_category database table.
- * 
- */
 @Entity
-@Table(name="product_category")
-@NamedQuery(name="ProductCategory.findAll", query="SELECT p FROM ProductCategory p")
+@Table(name = "product_category")
 public class ProductCategory implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="category_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "category_id", unique = true, nullable = false)
 	private int categoryId;
 
-	@Column(name="category_description")
+	@Column(name = "category_description", length = 50)
 	private String categoryDescription;
 
-	@Column(name="category_name")
+	@Column(name = "category_name", nullable = false, length = 15)
 	private String categoryName;
 
-	@Column(name="created_by")
+	@Column(name = "created_by")
 	private int createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_date")
+	@Column(name = "created_date", length = 26)
 	private Date createdDate;
 
-	@Column(name="updated_by")
+	@Column(name = "updated_by")
 	private int updatedBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="updated_date")
+	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
 
-	//bi-directional many-to-one association to Product
-	@OneToMany(mappedBy="productCategory")
+	@OneToMany(mappedBy = "productCategory")
 	private List<Product> products;
 
-	//bi-directional many-to-one association to Status
 	@ManyToOne
-	@JoinColumn(name="category_status")
+	@JoinColumn(name = "category_status")
 	private Status status;
 
 	public ProductCategory() {
+		super();
 	}
 
 	public int getCategoryId() {

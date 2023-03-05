@@ -5,60 +5,51 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
-/**
- * The persistent class for the order_replacement database table.
- * 
- */
 @Entity
-@Table(name="order_replacement")
-@NamedQuery(name="OrderReplacement.findAll", query="SELECT o FROM OrderReplacement o")
+@Table(name = "order_replacement")
 public class OrderReplacement implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="order_replacement_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "order_replacement_id", unique = true, nullable = false)
 	private int orderReplacementId;
 
-	@Column(name="created_by")
+	@Column(name = "created_by")
 	private int createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_date")
+	@Column(name = "created_date", length = 26)
 	private Date createdDate;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="replacement_date")
+	@Column(name = "replacement_date", length = 26)
 	private Date replacementDate;
 
-	@Column(name="updated_by")
+	@Column(name = "updated_by")
 	private int updatedBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="updated_date")
+	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
 
-	//bi-directional many-to-one association to Employee
 	@ManyToOne
-	@JoinColumn(name="emp_id")
+	@JoinColumn(name = "emp_id")
 	private Employee employee;
 
-	//bi-directional many-to-one association to Order
 	@ManyToOne
-	@JoinColumn(name="order_id")
+	@JoinColumn(name = "order_id")
 	private Order order;
 
-	//bi-directional many-to-one association to Status
 	@ManyToOne
-	@JoinColumn(name="replacement_status")
+	@JoinColumn(name = "replacement_status")
 	private Status status;
 
-	//bi-directional many-to-one association to OrderReplacementItem
-	@OneToMany(mappedBy="orderReplacement")
+	@OneToMany(mappedBy = "orderReplacement")
 	private List<OrderReplacementItem> orderReplacementItems;
 
 	public OrderReplacement() {
+		super();
 	}
 
 	public int getOrderReplacementId() {

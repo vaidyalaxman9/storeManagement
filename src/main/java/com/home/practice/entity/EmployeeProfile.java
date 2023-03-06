@@ -2,7 +2,6 @@ package com.home.practice.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,7 +10,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -45,9 +43,6 @@ public class EmployeeProfile implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
-
-	@OneToMany(mappedBy = "employeeProfileBean")
-	private List<Employee> employees;
 
 	@ManyToOne
 	@JoinColumn(name = "profile_status")
@@ -111,28 +106,6 @@ public class EmployeeProfile implements Serializable {
 
 	public void setUpdatedDate(Date updatedDate) {
 		this.updatedDate = updatedDate;
-	}
-
-	public List<Employee> getEmployees() {
-		return this.employees;
-	}
-
-	public void setEmployees(List<Employee> employees) {
-		this.employees = employees;
-	}
-
-	public Employee addEmployee(Employee employee) {
-		getEmployees().add(employee);
-		employee.setEmployeeProfileBean(this);
-
-		return employee;
-	}
-
-	public Employee removeEmployee(Employee employee) {
-		getEmployees().remove(employee);
-		employee.setEmployeeProfileBean(null);
-
-		return employee;
 	}
 
 	public Status getStatus() {

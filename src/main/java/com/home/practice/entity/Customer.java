@@ -6,6 +6,7 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -60,11 +61,8 @@ public class Customer implements Serializable {
 	@JoinColumn(name = "customer_status")
 	private Status status;
 
-	@OneToMany(mappedBy = "customer")
+	@OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
 	private List<CustomerAddress> customerAddresses;
-
-	@OneToMany(mappedBy = "customer")
-	private List<Order> orders;
 
 	public Customer() {
 		super();
@@ -179,27 +177,4 @@ public class Customer implements Serializable {
 
 		return customerAddress;
 	}
-
-	public List<Order> getOrders() {
-		return this.orders;
-	}
-
-	public void setOrders(List<Order> orders) {
-		this.orders = orders;
-	}
-
-	public Order addOrder(Order order) {
-		getOrders().add(order);
-		order.setCustomer(this);
-
-		return order;
-	}
-
-	public Order removeOrder(Order order) {
-		getOrders().remove(order);
-		order.setCustomer(null);
-
-		return order;
-	}
-
 }

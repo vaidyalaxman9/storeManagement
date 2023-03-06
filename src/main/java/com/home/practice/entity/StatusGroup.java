@@ -6,6 +6,7 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -44,7 +45,7 @@ public class StatusGroup implements Serializable {
 	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
 
-	@OneToMany(mappedBy = "statusGroup")
+	@OneToMany(mappedBy = "statusGroup", fetch = FetchType.LAZY)
 	private List<Status> statuses;
 
 	public StatusGroup() {

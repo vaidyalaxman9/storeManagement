@@ -6,6 +6,7 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -62,14 +63,11 @@ public class Order implements Serializable {
 	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
 
-	@OneToMany(mappedBy = "order")
+	@OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
 	private List<Invoice> invoices;
 
-	@OneToMany(mappedBy = "order")
+	@OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
 	private List<OrderItem> orderItems;
-
-	@OneToMany(mappedBy = "order")
-	private List<OrderReplacement> orderReplacements;
 
 	@ManyToOne
 	@JoinColumn(name = "customer_id")
@@ -229,28 +227,6 @@ public class Order implements Serializable {
 		orderItem.setOrder(null);
 
 		return orderItem;
-	}
-
-	public List<OrderReplacement> getOrderReplacements() {
-		return this.orderReplacements;
-	}
-
-	public void setOrderReplacements(List<OrderReplacement> orderReplacements) {
-		this.orderReplacements = orderReplacements;
-	}
-
-	public OrderReplacement addOrderReplacement(OrderReplacement orderReplacement) {
-		getOrderReplacements().add(orderReplacement);
-		orderReplacement.setOrder(this);
-
-		return orderReplacement;
-	}
-
-	public OrderReplacement removeOrderReplacement(OrderReplacement orderReplacement) {
-		getOrderReplacements().remove(orderReplacement);
-		orderReplacement.setOrder(null);
-
-		return orderReplacement;
 	}
 
 	public Customer getCustomer() {

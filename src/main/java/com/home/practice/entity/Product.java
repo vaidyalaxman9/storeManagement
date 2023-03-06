@@ -2,7 +2,6 @@ package com.home.practice.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,7 +10,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -70,12 +68,6 @@ public class Product implements Serializable {
 	@Column(name = "validity_period")
 	private int validityPeriod;
 
-	@OneToMany(mappedBy = "product")
-	private List<OfferPriceList> offerPriceLists;
-
-	@OneToMany(mappedBy = "product")
-	private List<OrderItem> orderItems;
-
 	@ManyToOne
 	@JoinColumn(name = "brand_id")
 	private Brand brand;
@@ -87,9 +79,6 @@ public class Product implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "product_status")
 	private Status status;
-
-	@OneToMany(mappedBy = "product")
-	private List<QuotationEnquiryItem> quotationEnquiryItems;
 
 	public Product() {
 		super();
@@ -215,50 +204,6 @@ public class Product implements Serializable {
 		this.validityPeriod = validityPeriod;
 	}
 
-	public List<OfferPriceList> getOfferPriceLists() {
-		return this.offerPriceLists;
-	}
-
-	public void setOfferPriceLists(List<OfferPriceList> offerPriceLists) {
-		this.offerPriceLists = offerPriceLists;
-	}
-
-	public OfferPriceList addOfferPriceList(OfferPriceList offerPriceList) {
-		getOfferPriceLists().add(offerPriceList);
-		offerPriceList.setProduct(this);
-
-		return offerPriceList;
-	}
-
-	public OfferPriceList removeOfferPriceList(OfferPriceList offerPriceList) {
-		getOfferPriceLists().remove(offerPriceList);
-		offerPriceList.setProduct(null);
-
-		return offerPriceList;
-	}
-
-	public List<OrderItem> getOrderItems() {
-		return this.orderItems;
-	}
-
-	public void setOrderItems(List<OrderItem> orderItems) {
-		this.orderItems = orderItems;
-	}
-
-	public OrderItem addOrderItem(OrderItem orderItem) {
-		getOrderItems().add(orderItem);
-		orderItem.setProduct(this);
-
-		return orderItem;
-	}
-
-	public OrderItem removeOrderItem(OrderItem orderItem) {
-		getOrderItems().remove(orderItem);
-		orderItem.setProduct(null);
-
-		return orderItem;
-	}
-
 	public Brand getBrand() {
 		return this.brand;
 	}
@@ -281,28 +226,6 @@ public class Product implements Serializable {
 
 	public void setStatus(Status status) {
 		this.status = status;
-	}
-
-	public List<QuotationEnquiryItem> getQuotationEnquiryItems() {
-		return this.quotationEnquiryItems;
-	}
-
-	public void setQuotationEnquiryItems(List<QuotationEnquiryItem> quotationEnquiryItems) {
-		this.quotationEnquiryItems = quotationEnquiryItems;
-	}
-
-	public QuotationEnquiryItem addQuotationEnquiryItem(QuotationEnquiryItem quotationEnquiryItem) {
-		getQuotationEnquiryItems().add(quotationEnquiryItem);
-		quotationEnquiryItem.setProduct(this);
-
-		return quotationEnquiryItem;
-	}
-
-	public QuotationEnquiryItem removeQuotationEnquiryItem(QuotationEnquiryItem quotationEnquiryItem) {
-		getQuotationEnquiryItems().remove(quotationEnquiryItem);
-		quotationEnquiryItem.setProduct(null);
-
-		return quotationEnquiryItem;
 	}
 
 }

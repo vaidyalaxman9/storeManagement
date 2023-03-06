@@ -2,7 +2,6 @@ package com.home.practice.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,7 +10,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -62,18 +60,6 @@ public class Employee implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "employee_status")
 	private Status status;
-
-	@OneToMany(mappedBy = "employee")
-	private List<Invoice> invoices;
-
-	@OneToMany(mappedBy = "employee")
-	private List<OrderReplacement> orderReplacements;
-
-	@OneToMany(mappedBy = "employee")
-	private List<Order> orders;
-
-	@OneToMany(mappedBy = "employee")
-	private List<QuotationEnquiry> quotationEnquiries;
 
 	public Employee() {
 		super();
@@ -173,94 +159,6 @@ public class Employee implements Serializable {
 
 	public void setStatus(Status status) {
 		this.status = status;
-	}
-
-	public List<Invoice> getInvoices() {
-		return this.invoices;
-	}
-
-	public void setInvoices(List<Invoice> invoices) {
-		this.invoices = invoices;
-	}
-
-	public Invoice addInvoice(Invoice invoice) {
-		getInvoices().add(invoice);
-		invoice.setEmployee(this);
-
-		return invoice;
-	}
-
-	public Invoice removeInvoice(Invoice invoice) {
-		getInvoices().remove(invoice);
-		invoice.setEmployee(null);
-
-		return invoice;
-	}
-
-	public List<OrderReplacement> getOrderReplacements() {
-		return this.orderReplacements;
-	}
-
-	public void setOrderReplacements(List<OrderReplacement> orderReplacements) {
-		this.orderReplacements = orderReplacements;
-	}
-
-	public OrderReplacement addOrderReplacement(OrderReplacement orderReplacement) {
-		getOrderReplacements().add(orderReplacement);
-		orderReplacement.setEmployee(this);
-
-		return orderReplacement;
-	}
-
-	public OrderReplacement removeOrderReplacement(OrderReplacement orderReplacement) {
-		getOrderReplacements().remove(orderReplacement);
-		orderReplacement.setEmployee(null);
-
-		return orderReplacement;
-	}
-
-	public List<Order> getOrders() {
-		return this.orders;
-	}
-
-	public void setOrders(List<Order> orders) {
-		this.orders = orders;
-	}
-
-	public Order addOrder(Order order) {
-		getOrders().add(order);
-		order.setEmployee(this);
-
-		return order;
-	}
-
-	public Order removeOrder(Order order) {
-		getOrders().remove(order);
-		order.setEmployee(null);
-
-		return order;
-	}
-
-	public List<QuotationEnquiry> getQuotationEnquiries() {
-		return this.quotationEnquiries;
-	}
-
-	public void setQuotationEnquiries(List<QuotationEnquiry> quotationEnquiries) {
-		this.quotationEnquiries = quotationEnquiries;
-	}
-
-	public QuotationEnquiry addQuotationEnquiry(QuotationEnquiry quotationEnquiry) {
-		getQuotationEnquiries().add(quotationEnquiry);
-		quotationEnquiry.setEmployee(this);
-
-		return quotationEnquiry;
-	}
-
-	public QuotationEnquiry removeQuotationEnquiry(QuotationEnquiry quotationEnquiry) {
-		getQuotationEnquiries().remove(quotationEnquiry);
-		quotationEnquiry.setEmployee(null);
-
-		return quotationEnquiry;
 	}
 
 }

@@ -6,6 +6,7 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -64,7 +65,7 @@ public class QuotationEnquiry implements Serializable {
 	@JoinColumn(name = "quotation_status")
 	private Status status;
 
-	@OneToMany(mappedBy = "quotationEnquiry")
+	@OneToMany(mappedBy = "quotationEnquiry", fetch = FetchType.LAZY)
 	private List<QuotationEnquiryItem> quotationEnquiryItems;
 
 	public QuotationEnquiry() {

@@ -6,6 +6,7 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -64,14 +65,8 @@ public class Offer implements Serializable {
 	@JoinColumn(name = "offer_status")
 	private Status status;
 
-	@OneToMany(mappedBy = "offer")
+	@OneToMany(mappedBy = "offer", fetch = FetchType.LAZY)
 	private List<OfferPriceList> offerPriceLists;
-
-	@OneToMany(mappedBy = "offer")
-	private List<Order> orders;
-
-	@OneToMany(mappedBy = "offer")
-	private List<QuotationEnquiryItem> quotationEnquiryItems;
 
 	public Offer() {
 		super();
@@ -193,50 +188,6 @@ public class Offer implements Serializable {
 		offerPriceList.setOffer(null);
 
 		return offerPriceList;
-	}
-
-	public List<Order> getOrders() {
-		return this.orders;
-	}
-
-	public void setOrders(List<Order> orders) {
-		this.orders = orders;
-	}
-
-	public Order addOrder(Order order) {
-		getOrders().add(order);
-		order.setOffer(this);
-
-		return order;
-	}
-
-	public Order removeOrder(Order order) {
-		getOrders().remove(order);
-		order.setOffer(null);
-
-		return order;
-	}
-
-	public List<QuotationEnquiryItem> getQuotationEnquiryItems() {
-		return this.quotationEnquiryItems;
-	}
-
-	public void setQuotationEnquiryItems(List<QuotationEnquiryItem> quotationEnquiryItems) {
-		this.quotationEnquiryItems = quotationEnquiryItems;
-	}
-
-	public QuotationEnquiryItem addQuotationEnquiryItem(QuotationEnquiryItem quotationEnquiryItem) {
-		getQuotationEnquiryItems().add(quotationEnquiryItem);
-		quotationEnquiryItem.setOffer(this);
-
-		return quotationEnquiryItem;
-	}
-
-	public QuotationEnquiryItem removeQuotationEnquiryItem(QuotationEnquiryItem quotationEnquiryItem) {
-		getQuotationEnquiryItems().remove(quotationEnquiryItem);
-		quotationEnquiryItem.setOffer(null);
-
-		return quotationEnquiryItem;
 	}
 
 }

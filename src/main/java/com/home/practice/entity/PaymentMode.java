@@ -2,7 +2,6 @@ package com.home.practice.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,7 +10,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -45,9 +43,6 @@ public class PaymentMode implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
-
-	@OneToMany(mappedBy = "paymentModeBean")
-	private List<OrderPayment> orderPayments;
 
 	@ManyToOne
 	@JoinColumn(name = "payment_mode_status")
@@ -111,28 +106,6 @@ public class PaymentMode implements Serializable {
 
 	public void setUpdatedDate(Date updatedDate) {
 		this.updatedDate = updatedDate;
-	}
-
-	public List<OrderPayment> getOrderPayments() {
-		return this.orderPayments;
-	}
-
-	public void setOrderPayments(List<OrderPayment> orderPayments) {
-		this.orderPayments = orderPayments;
-	}
-
-	public OrderPayment addOrderPayment(OrderPayment orderPayment) {
-		getOrderPayments().add(orderPayment);
-		orderPayment.setPaymentModeBean(this);
-
-		return orderPayment;
-	}
-
-	public OrderPayment removeOrderPayment(OrderPayment orderPayment) {
-		getOrderPayments().remove(orderPayment);
-		orderPayment.setPaymentModeBean(null);
-
-		return orderPayment;
 	}
 
 	public Status getStatus() {

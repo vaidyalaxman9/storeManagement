@@ -1,4 +1,4 @@
-package com.home.practice.storeManagement;
+package com.home.practice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

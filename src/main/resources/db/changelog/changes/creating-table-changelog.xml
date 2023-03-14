@@ -6,21 +6,23 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-	<changeSet id="1" author="Laxman">
+	<changeSet id="20230313" author="Laxman">
 		<createTable tableName="status_group">
 			<column name="status_group_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
 			</column>
-			<column name="status_group_name" type="varchar(15)">
+			<column name="status_group_name" type="varchar(25)">
 				<constraints nullable="false" />
 			</column>
-			<column name="status_group_description" type="varchar(30)">
-			</column>
-			<column name="created_date" type="datetime">
+			<column name="status_group_description" type="varchar(100)">
+		</column>
+			<column name="created_date" type="timestamp"
+				defaultValueComputed="current_timestamp">
 			</column>
 			<column name="created_by" type="int">
 			</column>
-			<column name="updated_date" type="datetime">
+			<column name="updated_date" type="timestamp"
+				defaultValueComputed="current_timestamp">
 			</column>
 			<column name="updated_by" type="int">
 			</column>
@@ -52,9 +54,8 @@
 			constraintName="status_group_fk"
 			referencedColumnNames="status_group_id"
 			referencedTableName="status_group" />
-	</changeSet>
 
-	<changeSet id="2" author="laxman">
+
 		<createTable tableName="brand">
 			<column name="brand_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
@@ -107,9 +108,6 @@
 			constraintName="category_status_fk" referencedColumnNames="status_id"
 			referencedTableName="status" />
 
-	</changeSet>
-
-	<changeSet id="3" author="laxman">
 		<createTable tableName="customer">
 			<column name="customer_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
@@ -125,8 +123,6 @@
 			</column>
 			<column name="birth_date" type="date">
 			</column>
-			<column name="customer_status" type="int">
-			</column>
 			<column name="created_date" type="datetime">
 			</column>
 			<column name="created_by" type="int">
@@ -136,12 +132,6 @@
 			<column name="updated_by" type="int">
 			</column>
 		</createTable>
-
-		<addForeignKeyConstraint
-			baseColumnNames="customer_status" baseTableName="customer"
-			constraintName="customer_status_fk" referencedColumnNames="status_id"
-			referencedTableName="status" />
-
 		<createTable tableName="customer_address">
 			<column name="address_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
@@ -177,9 +167,7 @@
 			baseColumnNames="customer_id" baseTableName="customer_address"
 			constraintName="customer_fk" referencedColumnNames="customer_id"
 			referencedTableName="customer" />
-	</changeSet>
-
-	<changeSet id="4" author="laxman">
+	
 		<createTable tableName="employee_profile">
 			<column name="profile_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
@@ -305,9 +293,7 @@
 			baseColumnNames="product_status" baseTableName="product"
 			constraintName="product_status_fk" referencedColumnNames="status_id"
 			referencedTableName="status" />
-	</changeSet>
 
-	<changeSet id="5" author="laxman">
 		<createTable tableName="offer">
 			<column name="offer_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
@@ -341,9 +327,7 @@
 			baseColumnNames="offer_status" baseTableName="offer"
 			constraintName="offer_status_fk" referencedColumnNames="status_id"
 			referencedTableName="status" />
-	</changeSet>
 
-	<changeSet id="6" author="laxman">
 		<createTable tableName="offer_price_list">
 			<column name="price_list_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
@@ -373,9 +357,7 @@
 			baseColumnNames="product_id" baseTableName="offer_price_list"
 			constraintName="_product_offer_fk" referencedColumnNames="product_id"
 			referencedTableName="product" />
-	</changeSet>
-
-	<changeSet id="7" author="laxman">
+	
 		<createTable tableName="orders">
 			<column name="order_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
@@ -482,9 +464,6 @@
 			constraintName="product_fk" referencedColumnNames="product_id"
 			referencedTableName="product" />
 
-	</changeSet>
-
-	<changeSet id="8" author="laxman">
 		<createTable tableName="quotation_enquiry">
 			<column name="quotation_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
@@ -633,10 +612,8 @@
 			constraintName="payment_mode_fk"
 			referencedColumnNames="payment_mode_id"
 			referencedTableName="payment_mode" />
-	</changeSet>
 	
-		<changeSet id="9" author="laxman">
-	<createTable tableName="invoice">
+		<createTable tableName="invoice">
 			<column name="invoice_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
 			</column>
@@ -660,26 +637,22 @@
 
 		<addForeignKeyConstraint
 			baseColumnNames="emp_id" baseTableName="invoice"
-			constraintName="emp_invoice_fk"
-			referencedColumnNames="emp_id"
+			constraintName="emp_invoice_fk" referencedColumnNames="emp_id"
 			referencedTableName="employee" />
 
 		<addForeignKeyConstraint
 			baseColumnNames="order_id" baseTableName="invoice"
-			constraintName="orders_fk"
-			referencedColumnNames="order_id"
+			constraintName="orders_fk" referencedColumnNames="order_id"
 			referencedTableName="orders" />
-			
+
 		<addForeignKeyConstraint
 			baseColumnNames="invoice_status" baseTableName="invoice"
-			constraintName="invoice_status_fk"
-			referencedColumnNames="status_id" referencedTableName="status" />
+			constraintName="invoice_status_fk" referencedColumnNames="status_id"
+			referencedTableName="status" />
 
-	</changeSet>
-	
-		<changeSet id="10" author="laxman">
-	<createTable tableName="order_replacement">
-			<column name="order_replacement_id" type="int" autoIncrement="true">
+		<createTable tableName="order_replacement">
+			<column name="order_replacement_id" type="int"
+				autoIncrement="true">
 				<constraints primaryKey="true" />
 			</column>
 			<column name="order_id" type="int">
@@ -709,14 +682,16 @@
 			baseColumnNames="order_id" baseTableName="order_replacement"
 			constraintName="order_fk" referencedColumnNames="order_id"
 			referencedTableName="orders" />
-			
-				<addForeignKeyConstraint
-			baseColumnNames="replacement_status" baseTableName="order_replacement"
+
+		<addForeignKeyConstraint
+			baseColumnNames="replacement_status"
+			baseTableName="order_replacement"
 			constraintName="order_replacement_status_fk"
 			referencedColumnNames="status_id" referencedTableName="status" />
-			
-			<createTable tableName="order_replacement_items">
-			<column name="order_replacement_item_id" type="int" autoIncrement="true">
+
+		<createTable tableName="order_replacement_items">
+			<column name="order_replacement_item_id" type="int"
+				autoIncrement="true">
 				<constraints primaryKey="true" />
 			</column>
 			<column name="validity" type="varchar(1)">
@@ -739,9 +714,9 @@
 			</column>
 			<column name="cgst_price" type="int">
 			</column>
-				<column name="remarks" type="varchar(50)">
+			<column name="remarks" type="varchar(50)">
 			</column>
-				<column name="notes" type="varchar(50)">
+			<column name="notes" type="varchar(50)">
 			</column>
 			<column name="created_date" type="datetime">
 			</column>
@@ -754,9 +729,11 @@
 		</createTable>
 
 		<addForeignKeyConstraint
-			baseColumnNames="order_replacement_id" baseTableName="order_replacement_items"
-			constraintName="order_replacement_fk1" referencedColumnNames="order_replacement_id"
+			baseColumnNames="order_replacement_id"
+			baseTableName="order_replacement_items"
+			constraintName="order_replacement_fk1"
+			referencedColumnNames="order_replacement_id"
 			referencedTableName="order_replacement" />
 
-			</changeSet>
+	</changeSet>
 </databaseChangeLog>

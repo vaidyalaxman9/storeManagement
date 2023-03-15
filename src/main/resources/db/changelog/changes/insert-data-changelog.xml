@@ -61,6 +61,284 @@
 			<column name="created_by" value="1" />
 			<column name="updated_by" value="1" />
 		</insert>
+		
+		<insert tableName="status">
+			<column name="status_name" value="Active" />
+			<column name="status_description" value="This is active status of product category" />
+			<column name="status_group_id" value="1" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+			<insert tableName="status">
+			<column name="status_name" value="Inactive" />
+			<column name="status_description" value="This is  inactive status of product category" />
+			<column name="status_group_id" value="1" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+			<insert tableName="status">
+			<column name="status_name" value="Active" />
+			<column name="status_description" value="This is available status of brand" />
+			<column name="status_group_id" value="2" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+			<insert tableName="status">
+			<column name="status_name" value="Inactive" />
+			<column name="status_description" value="This is not available status of brand" />
+			<column name="status_group_id" value="2" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status">
+			<column name="status_name" value="Active" />
+			<column name="status_description" value="This is available status of product" />
+			<column name="status_group_id" value="3" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status">
+			<column name="status_name" value="Inactive" />
+			<column name="status_description" value="This is not available status of product" />
+			<column name="status_group_id" value="3" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status">
+			<column name="status_name" value="Active" />
+			<column name="status_description" value="This is active status of employee" />
+			<column name="status_group_id" value="4" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status">
+			<column name="status_name" value="Inactive" />
+			<column name="status_description" value="This is inactive status of employee" />
+			<column name="status_group_id" value="4" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status">
+			<column name="status_name" value="Disabled" />
+			<column name="status_description" value="This is disabled status of employee" />
+			<column name="status_group_id" value="4" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status">
+			<column name="status_name" value="Pending" />
+			<column name="status_description" value="This is pending status of order" />
+			<column name="status_group_id" value="5" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status">
+			<column name="status_name" value="Completed" />
+			<column name="status_description" value="This is completed status of order" />
+			<column name="status_group_id" value="5" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status">
+			<column name="status_name" value="Partially Completed" />
+			<column name="status_description" value="This is partially completed status of order" />
+			<column name="status_group_id" value="5" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status">
+			<column name="status_name" value="Cancelled" />
+			<column name="status_description" value="This is cancelled status of order" />
+			<column name="status_group_id" value="5" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status">
+			<column name="status_name" value="Open" />
+			<column name="status_description" value="This is open status of quotation enquiry" />
+			<column name="status_group_id" value="6" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status">
+			<column name="status_name" value="Closed" />
+			<column name="status_description" value="This is closed status of quotation enquiry" />
+			<column name="status_group_id" value="6" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status">
+			<column name="status_name" value="Active" />
+			<column name="status_description" value="This is active status of offer" />
+			<column name="status_group_id" value="7" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status">
+			<column name="status_name" value="Inactive" />
+			<column name="status_description" value="This is inactive status of offer" />
+			<column name="status_group_id" value="7" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status">
+			<column name="status_name" value="Pending" />
+			<column name="status_description" value="This is pending status of order replacement" />
+			<column name="status_group_id" value="8" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status">
+			<column name="status_name" value="Partially Completed" />
+			<column name="status_description" value="This is partially completed status of order replacement" />
+			<column name="status_group_id" value="8" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status">
+			<column name="status_name" value="Completed" />
+			<column name="status_description" value="This is completed status of order replacement" />
+			<column name="status_group_id" value="8" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status">
+			<column name="status_name" value="Cancelled " />
+			<column name="status_description" value="This is cancelled status of order replacement" />
+			<column name="status_group_id" value="8" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status">
+			<column name="status_name" value="Declined " />
+			<column name="status_description" value="This is declined status of order replacement" />
+			<column name="status_group_id" value="8" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status">
+			<column name="status_name" value="Pending " />
+			<column name="status_description" value="This is pending status of payment" />
+			<column name="status_group_id" value="9" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status">
+			<column name="status_name" value="Partially Completed " />
+			<column name="status_description" value="This is partially completed status of payment" />
+			<column name="status_group_id" value="9" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status">
+			<column name="status_name" value="Completed " />
+			<column name="status_description" value="This is completed status of payment" />
+			<column name="status_group_id" value="9" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		
+		<insert tableName="brand">
+			<column name="brand_name" value="Samsung " />
+			<column name="brand_description" value="It is a multinational company" />
+			<column name="brand_status" value="3" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="brand">
+			<column name="brand_name" value="LG " />
+			<column name="brand_description" value="It is very famous company" />
+			<column name="brand_status" value="3" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="brand">
+			<column name="brand_name" value="Haier" />
+			<column name="brand_description" value="It is china based company" />
+			<column name="brand_status" value="3" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="brand">
+			<column name="brand_name" value="Bajaj" />
+			<column name="brand_description" value="It is an india based company" />
+			<column name="brand_status" value="3" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		
+		<insert tableName="product_category">
+			<column name="category_name" value=" Home Appliances " />
+			<column name="category_description" value="This contains all types of home appliances product" />
+			<column name="category_status" value="1" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="product_category">
+			<column name="category_name" value="Mobiles" />
+			<column name="category_description" value="This contains all types of mobiles" />
+			<column name="category_status" value="1" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="product_category">
+			<column name="category_name" value="Gadgets" />
+			<column name="category_description" value="This contains all types of gadgets" />
+			<column name="category_status" value="1" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		
+		<insert tableName="employee_profile">
+			<column name="profile_name" value="SalesExecutive " />
+			<column name="profile_description" value="This maintains all information of sales executive" />
+			<column name="profile_status" value="7" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="employee_profile">
+			<column name="profile_name" value="Team Leader" />
+			<column name="profile_description" value="This maintains all information of team leader" />
+			<column name="profile_status" value="7" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="employee_profile">
+			<column name="profile_name" value=" Sales Manager " />
+			<column name="profile_description" value="This maintains all information of sales manager" />
+			<column name="profile_status" value="7" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="employee_profile">
+			<column name="profile_name" value="Accountant" />
+			<column name="profile_description" value="This maintains all information of accountant" />
+			<column name="profile_status" value="7" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		
+		<insert tableName="payment_mode">
+			<column name="payment_mode_name" value="Online " />
+			<column name="payment_mode_description" value="This maintains all online payment transactions mode i.e. RTGS, NEFT,UPI" />
+			<column name="payment_mode_status" value="25" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="payment_mode">
+			<column name="payment_mode_name" value="Cash  " />
+			<column name="payment_mode_description" value="This contains only cash transactions" />
+			<column name="payment_mode_status" value="24" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="payment_mode">
+			<column name="payment_mode_name" value="Cheque  " />
+			<column name="payment_mode_description" value="This contains cheque payments transactions" />
+			<column name="payment_mode_status" value="23" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
 		</changeSet>
 		
     </databaseChangeLog>

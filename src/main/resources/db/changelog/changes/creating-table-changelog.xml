@@ -27,10 +27,10 @@
 			<column name="status_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
 			</column>
-			<column name="status_name" type="varchar(15)">
+			<column name="status_name" type="varchar(25)">
 				<constraints nullable="false" />
 			</column>
-			<column name="status_description" type="varchar(50)" />
+			<column name="status_description" type="varchar(100)" />
 			<column name="status_group_id" type="int" />
 			<column name="created_date" type="timestamp"
 				defaultValueComputed="current_timestamp" />
@@ -72,10 +72,10 @@
 			<column name="category_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
 			</column>
-			<column name="category_name" type="varchar(15)">
+			<column name="category_name" type="varchar(25)">
 				<constraints nullable="false" />
 			</column>
-			<column name="category_description" type="varchar(50)" />
+			<column name="category_description" type="varchar(100)" />
 			<column name="category_status" type="int" />
 			<column name="created_date" type="timestamp"
 			defaultValueComputed="current_timestamp" />
@@ -140,10 +140,10 @@
 			<column name="profile_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
 			</column>
-			<column name="profile_name" type="varchar(15)">
+			<column name="profile_name" type="varchar(20)">
 				<constraints nullable="false" />
 			</column>
-			<column name="profile_description" type="varchar(50)" />
+			<column name="profile_description" type="varchar(100)" />
 			<column name="profile_status" type="int" />
 			<column name="created_date" type="timestamp"
 			defaultValueComputed="current_timestamp" />
@@ -436,7 +436,7 @@
 				<constraints primaryKey="true" />
 			</column>
 			<column name="payment_mode_name" type="varchar(10)" />
-			<column name="payment_mode_description" type="varchar(50)" />
+			<column name="payment_mode_description" type="varchar(100)" />
 			<column name="payment_mode_status" type="int" />
 			<column name="created_date" type="timestamp"
 			defaultValueComputed="current_timestamp" />

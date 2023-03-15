@@ -14,18 +14,13 @@
 			<column name="status_group_name" type="varchar(25)">
 				<constraints nullable="false" />
 			</column>
-			<column name="status_group_description" type="varchar(100)">
-		</column>
+			<column name="status_group_description" type="varchar(100)" />
 			<column name="created_date" type="timestamp"
-				defaultValueComputed="current_timestamp">
-			</column>
-			<column name="created_by" type="int">
-			</column>
+				defaultValueComputed="current_timestamp" />
+			<column name="created_by" type="int" />
 			<column name="updated_date" type="timestamp"
-				defaultValueComputed="current_timestamp">
-			</column>
-			<column name="updated_by" type="int">
-			</column>
+				defaultValueComputed="current_timestamp" />
+			<column name="updated_by" type="int" />
 		</createTable>
 
 		<createTable tableName="status">
@@ -35,18 +30,14 @@
 			<column name="status_name" type="varchar(15)">
 				<constraints nullable="false" />
 			</column>
-			<column name="status_description" type="varchar(50)">
-			</column>
-			<column name="status_group_id" type="int">
-			</column>
-			<column name="created_date" type="datetime">
-			</column>
-			<column name="created_by" type="int">
-			</column>
-			<column name="updated_date" type="datetime">
-			</column>
-			<column name="updated_by" type="int">
-			</column>
+			<column name="status_description" type="varchar(50)" />
+			<column name="status_group_id" type="int" />
+			<column name="created_date" type="timestamp"
+				defaultValueComputed="current_timestamp" />
+			<column name="created_by" type="int" />
+			<column name="updated_date" type="timestamp"
+				defaultValueComputed="current_timestamp" />
+			<column name="updated_by" type="int" />
 		</createTable>
 
 		<addForeignKeyConstraint
@@ -55,7 +46,6 @@
 			referencedColumnNames="status_group_id"
 			referencedTableName="status_group" />
 
-
 		<createTable tableName="brand">
 			<column name="brand_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
@@ -63,18 +53,14 @@
 			<column name="brand_name" type="varchar(15)">
 				<constraints nullable="false" />
 			</column>
-			<column name="brand_description" type="varchar(50)">
-			</column>
-			<column name="brand_status" type="int">
-			</column>
-			<column name="created_date" type="datetime">
-			</column>
-			<column name="created_by" type="int">
-			</column>
-			<column name="updated_date" type="datetime">
-			</column>
-			<column name="updated_by" type="int">
-			</column>
+			<column name="brand_description" type="varchar(50)" />
+			<column name="brand_status" type="int" />
+			<column name="created_date" type="timestamp"
+			defaultValueComputed="current_timestamp" />
+			<column name="created_by" type="int" />
+			<column name="updated_date" type="timestamp"
+				defaultValueComputed="current_timestamp" />
+			<column name="updated_by" type="int" />
 		</createTable>
 
 		<addForeignKeyConstraint
@@ -89,18 +75,14 @@
 			<column name="category_name" type="varchar(15)">
 				<constraints nullable="false" />
 			</column>
-			<column name="category_description" type="varchar(50)">
-			</column>
-			<column name="category_status" type="int">
-			</column>
-			<column name="created_date" type="datetime">
-			</column>
-			<column name="created_by" type="int">
-			</column>
-			<column name="updated_date" type="datetime">
-			</column>
-			<column name="updated_by" type="int">
-			</column>
+			<column name="category_description" type="varchar(50)" />
+			<column name="category_status" type="int" />
+			<column name="created_date" type="timestamp"
+			defaultValueComputed="current_timestamp" />
+			<column name="created_by" type="int" />
+			<column name="updated_date" type="timestamp"
+				defaultValueComputed="current_timestamp" />
+			<column name="updated_by" type="int" />
 		</createTable>
 
 		<addForeignKeyConstraint
@@ -115,23 +97,18 @@
 			<column name="first_name" type="varchar(15)">
 				<constraints nullable="false" />
 			</column>
-			<column name="last_name" type="varchar(15)">
-			</column>
-			<column name="contact_number" type="varchar(13)">
-			</column>
-			<column name="gender" type="varchar(10)">
-			</column>
-			<column name="birth_date" type="date">
-			</column>
-			<column name="created_date" type="datetime">
-			</column>
-			<column name="created_by" type="int">
-			</column>
-			<column name="updated_date" type="datetime">
-			</column>
-			<column name="updated_by" type="int">
-			</column>
+			<column name="last_name" type="varchar(15)" />
+			<column name="contact_number" type="varchar(13)" />
+			<column name="gender" type="varchar(10)" />
+			<column name="birth_date" type="date" />
+		<column name="created_date" type="timestamp"
+			defaultValueComputed="current_timestamp" />	
+			<column name="created_by" type="int" />
+			<column name="updated_date" type="timestamp"
+				defaultValueComputed="current_timestamp" />
+			<column name="updated_by" type="int" />
 		</createTable>
+		
 		<createTable tableName="customer_address">
 			<column name="address_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
@@ -139,28 +116,19 @@
 			<column name="address_type" type="varchar(15)">
 				<constraints nullable="false" />
 			</column>
-			<column name="line1" type="varchar(20)">
-			</column>
-			<column name="line2" type="varchar(20)">
-			</column>
-			<column name="line3" type="varchar(20)">
-			</column>
-			<column name="pincode" type="int">
-			</column>
-			<column name="state" type="varchar(15)">
-			</column>
-			<column name="customer_id" type="int">
-			</column>
-			<column name="overall_default" type="varchar(10)">
-			</column>
-			<column name="created_date" type="datetime">
-			</column>
-			<column name="created_by" type="int">
-			</column>
-			<column name="updated_date" type="datetime">
-			</column>
-			<column name="updated_by" type="int">
-			</column>
+			<column name="line1" type="varchar(20)" />
+			<column name="line2" type="varchar(20)" />
+			<column name="line3" type="varchar(20)" />
+			<column name="pincode" type="int" />
+			<column name="state" type="varchar(15)" />
+			<column name="customer_id" type="int" />
+			<column name="overall_default" type="varchar(10)" />
+			<column name="created_date" type="timestamp"
+			defaultValueComputed="current_timestamp" />
+			<column name="created_by" type="int" />
+			<column name="updated_date" type="timestamp"
+				defaultValueComputed="current_timestamp" />
+			<column name="updated_by" type="int" />
 		</createTable>
 
 		<addForeignKeyConstraint
@@ -175,18 +143,14 @@
 			<column name="profile_name" type="varchar(15)">
 				<constraints nullable="false" />
 			</column>
-			<column name="profile_description" type="varchar(50)">
-			</column>
-			<column name="profile_status" type="int">
-			</column>
-			<column name="created_date" type="datetime">
-			</column>
-			<column name="created_by" type="int">
-			</column>
-			<column name="updated_date" type="datetime">
-			</column>
-			<column name="updated_by" type="int">
-			</column>
+			<column name="profile_description" type="varchar(50)" />
+			<column name="profile_status" type="int" />
+			<column name="created_date" type="timestamp"
+			defaultValueComputed="current_timestamp" />
+			<column name="created_by" type="int" />
+			<column name="updated_date" type="timestamp"
+				defaultValueComputed="current_timestamp" />
+			<column name="updated_by" type="int" />
 		</createTable>
 
 		<addForeignKeyConstraint
@@ -201,26 +165,18 @@
 			<column name="first_name" type="varchar(15)">
 				<constraints nullable="false" />
 			</column>
-			<column name="last_name" type="varchar(15)">
-			</column>
-			<column name="contact_number" type="varchar(13)">
-			</column>
-			<column name="residential_address" type="varchar(100)">
-			</column>
-			<column name="communication_address" type="varchar(100)">
-			</column>
-			<column name="employee_profile" type="int">
-			</column>
-			<column name="employee_status" type="int">
-			</column>
-			<column name="created_date" type="datetime">
-			</column>
-			<column name="created_by" type="int">
-			</column>
-			<column name="updated_date" type="datetime">
-			</column>
-			<column name="updated_by" type="int">
-			</column>
+			<column name="last_name" type="varchar(15)" />
+			<column name="contact_number" type="varchar(13)" />
+			<column name="residential_address" type="varchar(100)" />
+			<column name="communication_address" type="varchar(100)" />
+			<column name="employee_profile" type="int" />
+			<column name="employee_status" type="int" />
+			<column name="created_date" type="timestamp"
+			defaultValueComputed="current_timestamp" />
+			<column name="created_by" type="int" />
+			<column name="updated_date" type="timestamp"
+				defaultValueComputed="current_timestamp" />
+			<column name="updated_by" type="int" />
 		</createTable>
 
 		<addForeignKeyConstraint
@@ -241,13 +197,10 @@
 			<column name="product_name" type="varchar(15)">
 				<constraints nullable="false" />
 			</column>
-			<column name="product_description" type="varchar(50)">
-			</column>
-			<column name="category_id" type="int">
-			</column>
-			<column name="brand_id" type="int">
-			</column>
-			<column name="product_quantity" type="int">
+			<column name="product_description" type="varchar(50)" />
+			<column name="category_id" type="int" />
+			<column name="brand_id" type="int" />
+			<column name="product_quantity" type="int" >
 				<constraints nullable="false" />
 			</column>
 			<column name="product_price" type="int">
@@ -256,26 +209,18 @@
 			<column name="catalog_price" type="int">
 				<constraints nullable="false" />
 			</column>
-			<column name="sgst_percentage" type="int">
-			</column>
-			<column name="cgst_percentage" type="int">
-			</column>
-			<column name="product_barcode" type="varchar(100)">
-			</column>
-			<column name="validity" type="varchar(1)">
-			</column>
-			<column name="validity_period" type="int">
-			</column>
-			<column name="product_status" type="int">
-			</column>
-			<column name="created_date" type="datetime">
-			</column>
-			<column name="created_by" type="int">
-			</column>
-			<column name="updated_date" type="datetime">
-			</column>
-			<column name="updated_by" type="int">
-			</column>
+			<column name="sgst_percentage" type="int" />
+			<column name="cgst_percentage" type="int" />
+			<column name="product_barcode" type="varchar(100)" />
+			<column name="validity" type="varchar(1)" />
+			<column name="validity_period" type="int" />
+			<column name="product_status" type="int" />
+			<column name="created_date" type="timestamp"
+			defaultValueComputed="current_timestamp" />
+			<column name="created_by" type="int" />
+			<column name="updated_date" type="timestamp"
+				defaultValueComputed="current_timestamp" />
+			<column name="updated_by" type="int" />
 		</createTable>
 
 		<addForeignKeyConstraint
@@ -301,26 +246,18 @@
 			<column name="offer_name" type="varchar(20)">
 				<constraints nullable="false" />
 			</column>
-			<column name="offer_start_date" type="date">
-			</column>
-			<column name="offer_end_date" type="date">
-			</column>
-			<column name="offer_description" type="varchar(50)">
-			</column>
-			<column name="offer_approvedby" type="varchar(20)">
-			</column>
-			<column name="banner_location" type="varchar(50)">
-			</column>
-			<column name="offer_status" type="int">
-			</column>
-			<column name="created_date" type="datetime">
-			</column>
-			<column name="created_by" type="int">
-			</column>
-			<column name="updated_date" type="datetime">
-			</column>
-			<column name="updated_by" type="int">
-			</column>
+			<column name="offer_start_date" type="date" />
+			<column name="offer_end_date" type="date" />
+			<column name="offer_description" type="varchar(50)" />
+			<column name="offer_approvedby" type="varchar(20)" />
+			<column name="banner_location" type="varchar(50)" />
+			<column name="offer_status" type="int" />
+		<column name="created_date" type="timestamp"
+			defaultValueComputed="current_timestamp" />
+			<column name="created_by" type="int" />
+			<column name="updated_date" type="timestamp"
+				defaultValueComputed="current_timestamp" />
+			<column name="updated_by" type="int" />
 		</createTable>
 
 		<addForeignKeyConstraint
@@ -332,20 +269,15 @@
 			<column name="price_list_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
 			</column>
-			<column name="product_id" type="int">
-			</column>
-			<column name="offer_id" type="int">
-			</column>
-			<column name="offer_price" type="int">
-			</column>
-			<column name="created_date" type="datetime">
-			</column>
-			<column name="created_by" type="int">
-			</column>
-			<column name="updated_date" type="datetime">
-			</column>
-			<column name="updated_by" type="int">
-			</column>
+			<column name="product_id" type="int" />
+			<column name="offer_id" type="int" />
+			<column name="offer_price" type="int" />
+			<column name="created_date" type="timestamp"
+			defaultValueComputed="current_timestamp" />
+			<column name="created_by" type="int" />
+			<column name="updated_date" type="timestamp"
+				defaultValueComputed="current_timestamp" />
+			<column name="updated_by" type="int" />
 		</createTable>
 
 		<addForeignKeyConstraint
@@ -362,36 +294,23 @@
 			<column name="order_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
 			</column>
-			<column name="customer_id" type="int">
-			</column>
-			<column name="emp_id" type="int">
-			</column>
-			<column name="offer_id" type="int">
-			</column>
-			<column name="paid_amount" type="int">
-			</column>
-			<column name="remaining_amount" type="int">
-			</column>
-			<column name="total_amount" type="int">
-			</column>
-			<column name="date" type="date">
-			</column>
-			<column name="gstin_number" type="varchar(15)">
-			</column>
-			<column name="pan_number" type="varchar(12)">
-			</column>
-			<column name="remarks" type="varchar(50)">
-			</column>
-			<column name="order_status" type="int">
-			</column>
-			<column name="created_date" type="datetime">
-			</column>
-			<column name="created_by" type="int">
-			</column>
-			<column name="updated_date" type="datetime">
-			</column>
-			<column name="updated_by" type="int">
-			</column>
+			<column name="customer_id" type="int" />
+			<column name="emp_id" type="int" />
+			<column name="offer_id" type="int" />
+			<column name="paid_amount" type="int" />
+			<column name="remaining_amount" type="int" />
+			<column name="total_amount" type="int" />
+			<column name="date" type="date" />
+			<column name="gstin_number" type="varchar(15)" />
+			<column name="pan_number" type="varchar(12)" />
+			<column name="remarks" type="varchar(50)" />
+			<column name="order_status" type="int" />
+			<column name="created_date" type="timestamp"
+			defaultValueComputed="current_timestamp" />
+			<column name="created_by" type="int" />
+			<column name="updated_date" type="timestamp"
+				defaultValueComputed="current_timestamp" />
+			<column name="updated_by" type="int" />
 		</createTable>
 
 		<addForeignKeyConstraint
@@ -418,40 +337,25 @@
 			<column name="order_item_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
 			</column>
-			<column name="order_id" type="int">
-			</column>
-			<column name="product_id" type="int">
-			</column>
-			<column name="order_quantity" type="int">
-			</column>
-			<column name="unit_price" type="int">
-			</column>
-			<column name="discount_amount" type="int">
-			</column>
-			<column name="discount_percentage" type="int">
-			</column>
-			<column name="validity" type="varchar(1)">
-			</column>
-			<column name="validity_start_date" type="date">
-			</column>
-			<column name="validity_end_date" type="date">
-			</column>
-			<column name="sgst_percentage" type="int">
-			</column>
-			<column name="sgst_price" type="int">
-			</column>
-			<column name="cgst_percentage" type="int">
-			</column>
-			<column name="cgst_price" type="int">
-			</column>
-			<column name="created_date" type="datetime">
-			</column>
-			<column name="created_by" type="int">
-			</column>
-			<column name="updated_date" type="datetime">
-			</column>
-			<column name="updated_by" type="int">
-			</column>
+			<column name="order_id" type="int" />
+			<column name="product_id" type="int" />
+			<column name="order_quantity" type="int" />
+			<column name="unit_price" type="int" />
+			<column name="discount_amount" type="int" />
+			<column name="discount_percentage" type="int" />
+			<column name="validity" type="varchar(1)" />
+			<column name="validity_start_date" type="date" />
+			<column name="validity_end_date" type="date" />
+			<column name="sgst_percentage" type="int" />
+			<column name="sgst_price" type="int" />
+			<column name="cgst_percentage" type="int" />
+			<column name="cgst_price" type="int" />
+			<column name="created_date" type="timestamp"
+			defaultValueComputed="current_timestamp" />
+			<column name="created_by" type="int" />
+			<column name="updated_date" type="timestamp"
+				defaultValueComputed="current_timestamp" />
+			<column name="updated_by" type="int" />
 		</createTable>
 
 		<addForeignKeyConstraint
@@ -468,28 +372,19 @@
 			<column name="quotation_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
 			</column>
-			<column name="quotation_date" type="date">
-			</column>
-			<column name="emp_id" type="int">
-			</column>
-			<column name="customer_name" type="varchar(15)">
-			</column>
-			<column name="mobile_number" type="varchar(13)">
-			</column>
-			<column name="address" type="varchar(50)">
-			</column>
-			<column name="remarks" type="varchar(50)">
-			</column>
-			<column name="quotation_status" type="int">
-			</column>
-			<column name="created_date" type="datetime">
-			</column>
-			<column name="created_by" type="int">
-			</column>
-			<column name="updated_date" type="datetime">
-			</column>
-			<column name="updated_by" type="int">
-			</column>
+			<column name="quotation_date" type="date" />
+			<column name="emp_id" type="int" />
+			<column name="customer_name" type="varchar(15)" />
+			<column name="mobile_number" type="varchar(13)" />
+			<column name="address" type="varchar(50)" />
+			<column name="remarks" type="varchar(50)" />
+			<column name="quotation_status" type="int" />
+			<column name="created_date" type="timestamp"
+			defaultValueComputed="current_timestamp" />
+			<column name="created_by" type="int" />
+		<column name="updated_date" type="timestamp"
+				defaultValueComputed="current_timestamp" />
+			<column name="updated_by" type="int" />
 		</createTable>
 
 		<addForeignKeyConstraint
@@ -507,24 +402,17 @@
 				autoIncrement="true">
 				<constraints primaryKey="true" />
 			</column>
-			<column name="quotation_id" type="int">
-			</column>
-			<column name="product_id" type="int">
-			</column>
-			<column name="offer_id" type="int">
-			</column>
-			<column name="quantity" type="int">
-			</column>
-			<column name="unit_price" type="int">
-			</column>
-			<column name="created_date" type="datetime">
-			</column>
-			<column name="created_by" type="int">
-			</column>
-			<column name="updated_date" type="datetime">
-			</column>
-			<column name="updated_by" type="int">
-			</column>
+			<column name="quotation_id" type="int" />
+			<column name="product_id" type="int" />
+			<column name="offer_id" type="int" />
+			<column name="quantity" type="int" />
+			<column name="unit_price" type="int" />
+			<column name="created_date" type="timestamp"
+			defaultValueComputed="current_timestamp" />
+			<column name="created_by" type="int" />
+			<column name="updated_date" type="timestamp"
+				defaultValueComputed="current_timestamp" />
+			<column name="updated_by" type="int" />
 		</createTable>
 
 		<addForeignKeyConstraint
@@ -547,20 +435,15 @@
 			<column name="payment_mode_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
 			</column>
-			<column name="payment_mode_name" type="varchar(10)">
-			</column>
-			<column name="payment_mode_description" type="varchar(50)">
-			</column>
-			<column name="payment_mode_status" type="int">
-			</column>
-			<column name="created_date" type="datetime">
-			</column>
-			<column name="created_by" type="int">
-			</column>
-			<column name="updated_date" type="datetime">
-			</column>
-			<column name="updated_by" type="int">
-			</column>
+			<column name="payment_mode_name" type="varchar(10)" />
+			<column name="payment_mode_description" type="varchar(50)" />
+			<column name="payment_mode_status" type="int" />
+			<column name="created_date" type="timestamp"
+			defaultValueComputed="current_timestamp" />
+			<column name="created_by" type="int" />
+		<column name="updated_date" type="timestamp"
+				defaultValueComputed="current_timestamp" />
+			<column name="updated_by" type="int" />
 		</createTable>
 
 		<addForeignKeyConstraint
@@ -572,28 +455,19 @@
 			<column name="payment_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
 			</column>
-			<column name="order_item_id" type="int">
-			</column>
-			<column name="amount" type="int">
-			</column>
-			<column name="remarks" type="varchar(50)">
-			</column>
-			<column name="payment_date" type="date">
-			</column>
-			<column name="transaction_id" type="int">
-			</column>
-			<column name="payment_mode" type="int">
-			</column>
-			<column name="payment_status" type="int">
-			</column>
-			<column name="created_date" type="datetime">
-			</column>
-			<column name="created_by" type="int">
-			</column>
-			<column name="updated_date" type="datetime">
-			</column>
-			<column name="updated_by" type="int">
-			</column>
+			<column name="order_item_id" type="int" />
+			<column name="amount" type="int" />
+			<column name="remarks" type="varchar(50)" />
+			<column name="payment_date" type="date" />
+			<column name="transaction_id" type="int" />
+			<column name="payment_mode" type="int" />
+			<column name="payment_status" type="int" />
+			<column name="created_date" type="timestamp"
+			defaultValueComputed="current_timestamp" />
+			<column name="created_by" type="int" />
+			<column name="updated_date" type="timestamp"
+				defaultValueComputed="current_timestamp" />
+			<column name="updated_by" type="int" />
 		</createTable>
 
 		<addForeignKeyConstraint
@@ -617,22 +491,16 @@
 			<column name="invoice_id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" />
 			</column>
-			<column name="order_id" type="int">
-			</column>
-			<column name="emp_id" type="int">
-			</column>
-			<column name="invoice_date" type="date">
-			</column>
-			<column name="invoice_status" type="int">
-			</column>
-			<column name="created_date" type="datetime">
-			</column>
-			<column name="created_by" type="int">
-			</column>
-			<column name="updated_date" type="datetime">
-			</column>
-			<column name="updated_by" type="int">
-			</column>
+			<column name="order_id" type="int" />
+			<column name="emp_id" type="int" />
+			<column name="invoice_date" type="date" />
+			<column name="invoice_status" type="int" />
+			<column name="created_date" type="timestamp"
+			defaultValueComputed="current_timestamp" />
+			<column name="created_by" type="int" />
+		<column name="updated_date" type="timestamp"
+				defaultValueComputed="current_timestamp" />
+			<column name="updated_by" type="int" />
 		</createTable>
 
 		<addForeignKeyConstraint
@@ -655,22 +523,16 @@
 				autoIncrement="true">
 				<constraints primaryKey="true" />
 			</column>
-			<column name="order_id" type="int">
-			</column>
-			<column name="emp_id" type="int">
-			</column>
-			<column name="replacement_date" type="date">
-			</column>
-			<column name="replacement_status" type="int">
-			</column>
-			<column name="created_date" type="datetime">
-			</column>
-			<column name="created_by" type="int">
-			</column>
-			<column name="updated_date" type="datetime">
-			</column>
-			<column name="updated_by" type="int">
-			</column>
+			<column name="order_id" type="int" />
+			<column name="emp_id" type="int" />
+			<column name="replacement_date" type="date" />
+			<column name="replacement_status" type="int" />
+			<column name="created_date" type="timestamp"
+			defaultValueComputed="current_timestamp" />
+			<column name="created_by" type="int" />
+			<column name="updated_date" type="timestamp"
+				defaultValueComputed="current_timestamp" />
+			<column name="updated_by" type="int" />
 		</createTable>
 
 		<addForeignKeyConstraint
@@ -694,38 +556,24 @@
 				autoIncrement="true">
 				<constraints primaryKey="true" />
 			</column>
-			<column name="validity" type="varchar(1)">
-			</column>
-			<column name="validity_start_date" type="date">
-			</column>
-			<column name="validity_end_date" type="date">
-			</column>
-			<column name="order_replacement_id" type="int">
-			</column>
-			<column name="replacement_charges" type="int">
-			</column>
-			<column name="quantity" type="int">
-			</column>
-			<column name="sgst_percentage" type="int">
-			</column>
-			<column name="sgst_price" type="int">
-			</column>
-			<column name="cgst_percentage" type="int">
-			</column>
-			<column name="cgst_price" type="int">
-			</column>
-			<column name="remarks" type="varchar(50)">
-			</column>
-			<column name="notes" type="varchar(50)">
-			</column>
-			<column name="created_date" type="datetime">
-			</column>
-			<column name="created_by" type="int">
-			</column>
-			<column name="updated_date" type="datetime">
-			</column>
-			<column name="updated_by" type="int">
-			</column>
+			<column name="validity" type="varchar(1)" />
+			<column name="validity_start_date" type="date" />
+			<column name="validity_end_date" type="date" />
+			<column name="order_replacement_id" type="int" />
+			<column name="replacement_charges" type="int" />
+			<column name="quantity" type="int" />
+			<column name="sgst_percentage" type="int" />
+			<column name="sgst_price" type="int" />
+			<column name="cgst_percentage" type="int" />
+			<column name="cgst_price" type="int" />
+			<column name="remarks" type="varchar(50)" />
+			<column name="notes" type="varchar(50)" />
+			<column name="created_date" type="timestamp"
+			defaultValueComputed="current_timestamp" />
+			<column name="created_by" type="int" />
+		<column name="updated_date" type="timestamp"
+				defaultValueComputed="current_timestamp" />
+			<column name="updated_by" type="int" />
 		</createTable>
 
 		<addForeignKeyConstraint

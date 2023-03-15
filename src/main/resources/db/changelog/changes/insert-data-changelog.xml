@@ -8,10 +8,58 @@
 
     <changeSet id="20230314" author="laxman">
 		<insert tableName="status_group">
-			<column name="status_group_name" value="Product Category"></column>
-			<column name="status_group_description" value="The product category will help to segregate products"></column>
-			<column name="created_by" value="1"></column>
-			<column name="updated_by" value="1"></column>
+			<column name="status_group_name" value="Product Category" />
+			<column name="status_group_description" value="The product category will help to segregate products" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status_group">
+			<column name="status_group_name" value="Brand" />
+			<column name="status_group_description" value="This group will contain product brand statuses" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+			<insert tableName="status_group">
+			<column name="status_group_name" value="Product" />
+			<column name="status_group_description" value="This group contains multiple products in store" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+			<insert tableName="status_group">
+			<column name="status_group_name" value="Employee" />
+			<column name="status_group_description" value="This group contains all employee status" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status_group">
+			<column name="status_group_name" value="Order" />
+			<column name="status_group_description" value="This group contains order status" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status_group">
+			<column name="status_group_name" value="Quotation Enquiry" />
+			<column name="status_group_description" value="This group contains quotation enquiry" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status_group">
+			<column name="status_group_name" value="Offer" />
+			<column name="status_group_description" value="This is group contains offer status" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status_group">
+			<column name="status_group_name" value="Order Replacement" />
+			<column name="status_group_description" value="This group contains order replacement status" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
+		</insert>
+		<insert tableName="status_group">
+			<column name="status_group_name" value="Payment" />
+			<column name="status_group_description" value="This group contains payment status" />
+			<column name="created_by" value="1" />
+			<column name="updated_by" value="1" />
 		</insert>
 		</changeSet>
 		

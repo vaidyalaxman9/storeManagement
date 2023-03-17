@@ -22,4 +22,14 @@ public class StatusBo {
 	public List<Status> getAllStatus() {
 		return statusRepository.findAll();
 	}
+
+	public Status updateStatus(Status status) {
+		statusRepository.save(status);
+		return status;
+	}
+
+	public String deleteStatus(Integer id) {
+		statusRepository.deleteById(id);
+		return "{\"status\": true, message: \"status record deleted successfully\"}";
+	}
 }

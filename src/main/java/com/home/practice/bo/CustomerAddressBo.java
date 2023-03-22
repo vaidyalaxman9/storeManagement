@@ -22,4 +22,9 @@ public class CustomerAddressBo {
 	public List<CustomerAddress> getAllCustomerAddress() {
 		return customerAddressRepository.findAll();
 	}
+
+	public CustomerAddress updateCustomerAddress(CustomerAddress customerAddress) {
+		customerAddressRepository.save(customerAddress);
+		return customerAddress;
+	}
 }

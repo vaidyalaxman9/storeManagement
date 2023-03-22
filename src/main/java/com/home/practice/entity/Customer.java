@@ -10,8 +10,6 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
@@ -56,10 +54,6 @@ public class Customer implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "updated_date", length = 26)
 	private Date updatedDate;
-
-	@ManyToOne
-	@JoinColumn(name = "customer_status")
-	private Status status;
 
 	@OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
 	private List<CustomerAddress> customerAddresses;
@@ -146,14 +140,6 @@ public class Customer implements Serializable {
 
 	public void setUpdatedDate(Date updatedDate) {
 		this.updatedDate = updatedDate;
-	}
-
-	public Status getStatus() {
-		return this.status;
-	}
-
-	public void setStatus(Status status) {
-		this.status = status;
 	}
 
 	public List<CustomerAddress> getCustomerAddresses() {

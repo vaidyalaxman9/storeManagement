@@ -32,4 +32,5 @@ public class CustomerAddressBo {
 		customerAddressRepository.deleteById(id);
 		return "{\"status\": true, message: \"CustomerAddress record deleted successfully\"}";
 	}
+
 }

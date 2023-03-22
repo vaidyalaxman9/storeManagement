@@ -22,4 +22,14 @@ public class CustomerBo {
 	public List<Customer> getAllCustomer() {
 		return customerRepository.findAll();
 	}
+
+	public Customer updateCustomer(Customer customer) {
+		customerRepository.save(customer);
+		return customer;
+	}
+
+	public String deleteCustomer(Integer id) {
+		customerRepository.deleteById(id);
+		return "{\"status\": true, message: \"Customer record deleted successfully\"}";
+	}
 }

@@ -27,4 +27,9 @@ public class CustomerAddressBo {
 		customerAddressRepository.save(customerAddress);
 		return customerAddress;
 	}
+
+	public String deleteCustomerAddress(Integer id) {
+		customerAddressRepository.deleteById(id);
+		return "{\"status\": true, message: \"CustomerAddress record deleted successfully\"}";
+	}
 }

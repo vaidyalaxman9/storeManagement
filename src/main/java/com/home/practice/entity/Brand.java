@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -51,6 +53,7 @@ public class Brand implements Serializable {
 	@JoinColumn(name = "brand_status")
 	private Status status;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "brand", fetch = FetchType.LAZY)
 	private List<Product> products;
 

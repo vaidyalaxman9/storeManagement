@@ -22,4 +22,14 @@ public class OrderBo {
 	public List<Order> getAllOrder() {
 		return orderRepository.findAll();
 	}
+
+	public Order updateOrder(Order order) {
+		orderRepository.save(order);
+		return order;
+	}
+
+	public String deleteOrder(Integer id) {
+		orderRepository.deleteById(id);
+		return "{\"status\": true, message: \"Order record deleted successfully\"}";
+	}
 }

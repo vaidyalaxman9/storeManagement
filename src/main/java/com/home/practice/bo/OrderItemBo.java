@@ -1,5 +1,7 @@
 package com.home.practice.bo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,4 +18,19 @@ public class OrderItemBo {
 		orderItemRepository.save(orderItem);
 		return orderItem;
 	}
+
+	public List<OrderItem> getAllOrderItem() {
+		return orderItemRepository.findAll();
+	}
+
+	public OrderItem updateOrderItem(OrderItem orderItem) {
+		orderItemRepository.save(orderItem);
+		return orderItem;
+	}
+
+	public String deleteOrderItem(Integer id) {
+		orderItemRepository.deleteById(id);
+		return "{\"status\": true, message: \"OrderItem record deleted successfully\"}";
+	}
+
 }
